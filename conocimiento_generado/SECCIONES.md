@@ -51,7 +51,7 @@ Qué hay en cada página, dónde vive su texto, y qué se puede cambiar sin romp
 
 ## Página de inicio (`src/datos/inicio.json`)
 
-Ocho secciones, en este orden.
+Nueve secciones, en este orden.
 
 ### 1. Portada
 - **Cómo la llama el cliente:** "la portada", "lo primero que se ve"
@@ -80,8 +80,11 @@ Ocho secciones, en este orden.
 ### 4. Servicios por pestañas
 - **Dónde:** bloque `servicios` con `tabs`. Cada pestaña: `id`, `nombre` y `items`.
 - **Qué es:** pestañas de los 6 sectores; cada una lista los servicios de ese sector.
+- **Cada tarjeta de servicio** tiene `titulo`, `icono` **y `texto`** (una línea que explica el
+  servicio). Si `texto` se deja vacío, la tarjeta no muestra esa línea.
 - **Íconos:** ver la nota de `icono` en `STACK.md` y `LIMITES.md` (los íconos son de Lucide).
 - **Cuántos servicios por pestaña:** 3 a 8 se ven bien. Evitar superar 8 (se llena la grilla).
+  Hoy retail 9, constructor 8, productor 9, empresarial 8, BTL 6 y estatal 8.
 
 ### 5. Cifras
 - **Cómo la llama el cliente:** "los números grandes"
@@ -90,11 +93,16 @@ Ocho secciones, en este orden.
 - **Cuidado:** los números se animan contando desde cero. Deben ser enteros (`490000`, no
   `490.000`). El sufijo (`+`) va aparte.
 
-### 6. Diferenciadores
+### 6. Cómo trabajamos
+- **Cómo la llama el cliente:** "los 4 pasos", "cómo trabajamos"
+- **Dónde:** bloque `proceso` con `pasos`. Cada paso: `titulo`, `texto`, `icono`.
+- **Cuántos pasos caben bien:** exactamente 4.
+
+### 7. Diferenciadores
 - **Dónde:** bloque `diferentes` con `items` — 6 tarjetas (rápido y oportuno, experiencia,
   personal calificado, garantía, respaldo, confianza).
 
-### 7. CTA final
+### 8. CTA final
 - **Dónde:** bloque `cta`. Es el cierre de la página. Se puede cambiar texto y botones.
 
 ---
@@ -108,8 +116,10 @@ sector, nunca en el componente.**
 - **Para cambiar algo que afecte a los seis **a la vez**:** hay que tocar
   `SectorPagina.astro` — y eso los cambia todos. Avisar antes de hacerlo.
 - Cada JSON tiene: `meta` (título/descripción para Google), `encabezado` (con
-  `imagenFondo`), `servicios` (lista con `titulo`, `texto`, `icono`), `pilares` (4, fijos:
-  Puntualidad, Servicio oportuno, Garantía, Equipo humano) y `cta`.
+  `imagenFondo` y textos), `servicios` (lista con `titulo`, `texto`, `icono`, y ahora más
+  servicios por sector: retail 10, constructor 10, empresarial 8, productor 9, BTL 6 y
+  estatal 8), `pilares` (4, fijos: Puntualidad, Servicio oportuno, Garantía, Equipo humano)
+  y `cta`.
 - **El encabezado** tiene la imagen de fondo oscura con texto blanco encima: debe ser una
   foto oscura o se pierde el título.
 - **Pilares:** exactamente 4. Iguales en los 6 sectores; si cambia uno, actualizar los seis
@@ -120,9 +130,11 @@ sector, nunca en el componente.**
 ## Nosotros (`src/datos/nosotros.json`)
 
 - `encabezado` → título e imagen de fondo de la primera pantalla
-- `presentacion` → el bloque "Nuestros valores son la clave…" con la foto del equipo
+- `presentacion` → el bloque "Nuestros valores son la clave…" con la foto del equipo.
+  El texto está en `parrafos` (lista de párrafos; agregar o quitar párrafos es seguro).
 - `valores` → 4 tarjetas (Oportunidad, Personal humano, Calidad, Respaldo)
-- `legado` → 3 hitos (2 países, 7 ciudades, 490.000+ servicios). Datos por confirmar.
+- `legado` → 3 hitos (2 países, 7 ciudades —Bogotá, Medellín, Cali, Cartagena,
+  Barranquilla, Pereira y Lima—, 490.000+ servicios). Datos por confirmar.
 - `clientes` → misma cinta de logos que el inicio
 - `cta` → cierre
 

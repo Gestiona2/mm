@@ -4,6 +4,7 @@
  * Recibe los datos por prop. Todo el texto sale del JSON.
  */
 import Layout from "../layouts/Layout.astro";
+import { ruta } from "../lib/ruta";
 
 interface Props {
   datos: Record<string, any>;
@@ -15,12 +16,12 @@ const { meta, encabezado, secciones } = datos;
 <Layout titulo={meta.titulo} descripcion={meta.descripcion}>
   <header class="encabezado">
     <div class="encabezado-fondo">
-      <img src={encabezado.imagenFondo} alt="" loading="eager" />
+      <img src={ruta(encabezado.imagenFondo)} alt="" loading="eager" />
     </div>
     <div class="encabezado-velo"></div>
     <div class="container">
       <nav class="miga reveal">
-        <a href="/">Inicio</a>
+        <a href={ruta("/")}>Inicio</a>
         <span>/</span>
         <span>{encabezado.etiqueta}</span>
       </nav>

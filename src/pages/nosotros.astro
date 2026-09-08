@@ -5,6 +5,7 @@
  */
 import Layout from "../layouts/Layout.astro";
 import datos from "../datos/nosotros.json";
+import { ruta } from "../lib/ruta";
 
 const { meta, encabezado, presentacion, valores, legado, clientes, cta } = datos;
 ---
@@ -13,12 +14,12 @@ const { meta, encabezado, presentacion, valores, legado, clientes, cta } = datos
   {/* ==================== ENCABEZADO ==================== */}
   <header class="encabezado">
     <div class="encabezado-fondo">
-      <img src={encabezado.imagenFondo} alt="" loading="eager" />
+      <img src={ruta(encabezado.imagenFondo)} alt="" loading="eager" />
     </div>
     <div class="encabezado-velo"></div>
     <div class="container">
       <nav class="miga reveal">
-        <a href="/">Inicio</a>
+        <a href={ruta("/")}>Inicio</a>
         <span>/</span>
         <span>{encabezado.etiqueta}</span>
       </nav>
@@ -34,8 +35,9 @@ const { meta, encabezado, presentacion, valores, legado, clientes, cta } = datos
         <span class="eyebrow"><span class="dot"></span> {presentacion.encabezado}</span>
         <h2 class="section-title">{presentacion.titulo}</h2>
         <p class="lead">{presentacion.texto}</p>
+        {presentacion.parrafos?.map((p) => <p class="lead" style="font-weight:400;margin-top:14px">{p}</p>)}
       </div>
-      <img class="foto-redonda reveal-right" src={presentacion.imagen} alt={presentacion.imagenAlt} loading="lazy" />
+      <img class="foto-redonda reveal-right" src={ruta(presentacion.imagen)} alt={presentacion.imagenAlt} loading="lazy" />
     </div>
   </section>
 
@@ -89,7 +91,7 @@ const { meta, encabezado, presentacion, valores, legado, clientes, cta } = datos
     <div class="cinta reveal">
       <div class="cinta-pista">
         {[...clientes.logos, ...clientes.logos].map((l, i) => (
-          <img key={i} src={l.archivo} alt={l.nombre} loading="lazy" />
+          <img key={i} src={ruta(l.archivo)} alt={l.nombre} loading="lazy" />
         ))}
       </div>
     </div>
@@ -104,7 +106,7 @@ const { meta, encabezado, presentacion, valores, legado, clientes, cta } = datos
         <p>{cta.texto}</p>
         <div class="acciones">
           {cta.botones.map((b) => (
-            <a href={b.href} class={`btn ${b.estilo}`}>{b.texto}</a>
+            <a href={ruta(b.href)} class={`btn ${b.estilo}`}>{b.texto}</a>
           ))}
         </div>
       </div>

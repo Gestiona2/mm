@@ -59,21 +59,23 @@ Los íconos se escriben con su nombre en el JSON (ej. `"icono": "shield-check"`)
 renderiza `public/vendor/lucide/lucide.min.js`. **Solo funcionan los que están incluidos
 en ese archivo.** Si pones uno que no está, no sale nada (la grilla se ve con un hueco).
 
-Para agregar un ícono nuevo: editar `public/vendor/lucide/lucide.min.js` — es un archivo
-generado por el proveedor; hacerlo requiere cuidado. Si se necesita, avisar al proveedor
-(ver `LIMITES.md`).
+El archivo es un bundle **recortado a los 46 íconos que usa el sitio**, generado desde el
+paquete `lucide` (devDependency) con `herramientas/build-lucide.mjs`. Para agregar un
+ícono nuevo: añadir el import y la entrada PascalCase en ese script y regenerar con
+`npx esbuild herramientas/build-lucide.mjs --bundle --format=iife --minify
+--charset=utf8 --outfile=public/vendor/lucide/lucide.min.js`. Ver `public/vendor/lucide/LEEME.txt`.
 
-Íconos usados hoy: `store`, `building-2`, `briefcase`, `factory`, `sparkles`, `landmark`,
-`arrow-right`, `timer`, `award`, `graduation-cap`, `shield-check`, `file-check`, `users`,
-`check-circle`, `map-pin`, `globe`, `layout-grid`, `flame`, `wind`, `monitor`, `package`,
-`blinds`, `truck`, `camera`, `layers`, `party-popper`, `zap`, `shower-head`, `droplets`,
-`bed-double`, `utensils`, `hammer`, `door-open`, `shirt`, `lightbulb`, `panels-top-left`,
-`paint-roller`, `wrench`, `cloud-rain`, `spray-can`, `message-circle`, `arrow-up`,
-`facebook`, `moon`, `sun`, `map`, `badge-check`.
+Íconos usados hoy (46): `arrow-right`, `arrow-up`, `award`, `badge-check`, `bed-double`,
+`blinds`, `briefcase`, `building-2`, `camera`, `check-circle`, `cloud-rain`, `door-open`,
+`droplets`, `factory`, `file-check`, `flame`, `globe`, `graduation-cap`, `hammer`,
+`landmark`, `layers`, `layout-grid`, `lightbulb`, `map`, `map-pin`, `message-circle`,
+`monitor`, `moon`, `package`, `paint-roller`, `panels-top-left`, `party-popper`,
+`shield-check`, `shirt`, `shower-head`, `sparkles`, `spray-can`, `store`, `sun`, `timer`,
+`truck`, `users`, `utensils`, `wind`, `wrench`, `zap`.
 
-> Nota: los íconos de marcas (Facebook, etc.) fueron retirados de Lucide en versiones
-> nuevas. Si se necesita el ícono de una red social, hay que usar un SVG propio — avisar al
-> proveedor.
+> Nota: los íconos de marcas (Facebook, etc.) fueron retirados de Lucide. En este sitio la
+> red del pie (Facebook) usa un SVG propio en `Layout.astro`, y el botón de WhatsApp usa su
+> SVG de marca igualmente propio.
 
 ## Cómo ver los cambios antes de publicar
 

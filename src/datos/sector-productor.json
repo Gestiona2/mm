@@ -3,30 +3,30 @@
 
   "meta": {
     "titulo": "Sector productor · Manos Maestras",
-    "descripcion": "Somos tu departamento técnico y de instalaciones para que tu equipo se dedique a su core de negocio."
+    "descripcion": "Somos tu departamento técnico y de instalaciones para que tu equipo se dedique a su core de negocio, con garantía de hasta 24 meses."
   },
 
   "encabezado": {
     "etiqueta": "Sector productor",
     "titulo": "Sector\nproductor",
-    "texto": "Podemos ser tu departamento técnico y/o de instalaciones para que todo tu personal se dedique a su core de negocio.",
+    "texto": "Podemos ser tu departamento técnico y de instalaciones para que todo tu personal se dedique a su core de negocio: recibimos tus muebles o productos, los instalamos en campo con tu plan y protocolo, y reportamos cada instalación verificada.",
     "imagenFondo": "/img/carpinteria.jpg"
   },
 
   "servicios": {
     "encabezado": "Tu departamento de instalaciones",
     "titulo": "Proveedores estratégicos para garantizar la satisfacción de tus clientes",
-    "texto": "Atendemos servicios de instalación para fabricantes que no cuentan con un área propia.",
+    "texto": "Atendemos servicios de instalación para fabricantes y productores que no cuentan con un área propia: escalamos contigo por volumen, ciudad o temporada, sin que contrates ni capacites a nadie.",
     "items": [
-      { "titulo": "Instalación de cocinas sobre medidas", "texto": "Montaje de cocinas a la medida de cada proyecto.", "icono": "flame" },
-      { "titulo": "Instalación de puertas metálicas", "texto": "Instalación segura y verificada de puertas metálicas.", "icono": "door-open" },
-      { "titulo": "Instalación de muebles de baño", "texto": "Muebles de baño instalados con acabado profesional.", "icono": "shower-head" },
-      { "titulo": "Closets e interiores de closets", "texto": "Closets y sus interiores, listos para el uso diario.", "icono": "shirt" },
-      { "titulo": "Carpintería arquitectónica", "texto": "Trabajos de carpintería con precisión arquitectónica.", "icono": "hammer" },
-      { "titulo": "Instalación de muebles", "texto": "Montaje de muebles de línea y de medida.", "icono": "layout-grid" },
-      { "titulo": "Instalación de lámparas", "texto": "Lámparas instaladas con seguridad eléctrica.", "icono": "lightbulb" },
-      { "titulo": "Instalación de drywall", "texto": "Muros y estructuras en drywall terminados en obra.", "icono": "panels-top-left" },
-      { "titulo": "Instalación de pintura", "texto": "Pintura de interiores y exteriores con acabado fino.", "icono": "paint-roller" }
+      { "titulo": "Instalación de cocinas sobre medidas", "texto": "Montaje de cocinas a la medida de cada proyecto, del plano al acabado final.", "icono": "flame" },
+      { "titulo": "Instalación de puertas metálicas", "texto": "Instalación segura y verificada de puertas metálicas y de seguridad.", "icono": "door-open" },
+      { "titulo": "Instalación de muebles de baño", "texto": "Muebles de baño instalados con acabado profesional y griferías en su punto.", "icono": "shower-head" },
+      { "titulo": "Closets e interiores de closets", "texto": "Closets y sus divisiones internas, listos para el uso diario del cliente final.", "icono": "shirt" },
+      { "titulo": "Carpintería arquitectónica", "texto": "Trabajos de carpintería con precisión arquitectónica en obra.", "icono": "hammer" },
+      { "titulo": "Instalación de muebles", "texto": "Montaje de muebles de línea y a la medida del espacio donde quedan.", "icono": "layout-grid" },
+      { "titulo": "Instalación de lámparas", "texto": "Lámparas y luminarias instaladas con seguridad eléctrica y verificación de funcionamiento.", "icono": "lightbulb" },
+      { "titulo": "Instalación de drywall", "texto": "Muros y estructuras en drywall terminados en obra, con remate listo para pintar.", "icono": "panels-top-left" },
+      { "titulo": "Instalación de pintura", "texto": "Pintura de interiores y exteriores con acabado fino y limpieza final del punto.", "icono": "paint-roller" }
     ]
   },
 
@@ -42,10 +42,11 @@
   },
 
   "cta": {
-    "titulo": "Contáctanos para tener el gusto de atenderte",
-    "texto": "Déjanos ser tu departamento técnico y de instalaciones.",
+    "titulo": "Contacta nuestro equipo para atenderte",
+    "texto": "Déjanos ser tu departamento técnico y de instalaciones: cuéntanos tu producto, tu volumen y tus ciudades, y te proponemos un plan de instalación.",
     "botones": [
-      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" },
+      { "texto": "Escribir por WhatsApp", "href": "wa", "estilo": "btn-ghost-oscuro" }
     ]
   }
 }

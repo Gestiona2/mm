@@ -3,28 +3,31 @@
 
   "meta": {
     "titulo": "Sector retail · Manos Maestras",
-    "descripcion": "Instalación y montaje para almacenes de cadena: 12 años de alianza con el retail colombiano."
+    "descripcion": "Instalación y montaje para almacenes de cadena: 12 años de alianza con el retail colombiano, con garantía de hasta 24 meses."
   },
 
   "encabezado": {
     "etiqueta": "Sector retail",
     "titulo": "Sector\nretail",
-    "texto": "Contamos con más de 12 años de experiencia en el sector del retail, atendiendo los principales almacenes de cadena en el mercado colombiano.",
+    "texto": "Contamos con más de 12 años de experiencia en el sector del retail, atendiendo los principales almacenes de cadena del mercado colombiano. Somos el equipo que llega a la casa del cliente final con el producto montado, verificado y listo para usarse.",
     "imagenFondo": "/img/cocina-integral.jpg"
   },
 
   "servicios": {
     "encabezado": "12 años instalando",
     "titulo": "Lo que instalamos para el retail",
-    "texto": "Equipos que acompañan la comodidad en la casa de los clientes de los almacenes.",
+    "texto": "Muebles, accesorios y estructuras que acompañan la comodidad en la casa de los clientes de los almacenes. Cada entrega se agenda por franjas, se confirma con el comprador y se verifica antes de cerrar el servicio.",
     "items": [
-      { "titulo": "Muebles de baño", "texto": "Hacemos nuestro trabajo de manera ágil para los clientes.", "icono": "shower-head" },
-      { "titulo": "Persianas", "texto": "Embellecemos cada espacio de nuestros clientes.", "icono": "blinds" },
-      { "titulo": "Soportes de TV", "texto": "Hacemos más fácil la vida de nuestros clientes.", "icono": "monitor" },
-      { "titulo": "Duchas y cabinas de duchas", "texto": "Somos cómplices de los sueños de nuestros clientes.", "icono": "droplets" },
-      { "titulo": "Muebles modulares", "texto": "Acompañamos la comodidad en la casa de nuestros clientes.", "icono": "layout-grid" },
-      { "titulo": "Camas y camarotes", "texto": "Hacemos parte de ese descanso perfecto que buscan nuestros clientes.", "icono": "bed-double" },
-      { "titulo": "Comedor", "texto": "Armamos espacios para compartir en familia.", "icono": "utensils" }
+      { "titulo": "Muebles de baño", "texto": "Vanitorios y muebles de baño instalados con griferías y accesorios en el punto exacto.", "icono": "shower-head" },
+      { "titulo": "Persianas", "texto": "Persianas y cortinas instaladas a la altura y acabado correctos en cada ventana.", "icono": "blinds" },
+      { "titulo": "Soportes de TV", "texto": "Bases y soportes fijados a la estructura y nivelados, listos para la pantalla del cliente.", "icono": "monitor" },
+      { "titulo": "Duchas y cabinas", "texto": "Cabinas y duchas montadas con sello, nivel y acabado impecable.", "icono": "droplets" },
+      { "titulo": "Muebles modulares", "texto": "Closets, estantes y módulos armados y listos para usar el mismo día de la entrega.", "icono": "layout-grid" },
+      { "titulo": "Camas y camarotes", "texto": "Camas y camarotes montados y verificados para el descanso del cliente.", "icono": "bed-double" },
+      { "titulo": "Comedores", "texto": "Mesas, sillas y muebles de comedor armados para compartir en familia.", "icono": "utensils" },
+      { "titulo": "Cocinas", "texto": "Cocinas integrales montadas con precisión, incluidas griferías y electrodomésticos.", "icono": "flame" },
+      { "titulo": "Tendederos", "texto": "Tendederos fijos y extensibles instalados con seguridad y sin daños en el muro.", "icono": "wind" },
+      { "titulo": "Organizadores", "texto": "Organizadores y accesorios instalados en el punto exacto que el cliente necesita.", "icono": "package" }
     ]
   },
 
@@ -41,9 +44,10 @@
 
   "cta": {
     "titulo": "Contáctanos para tener el gusto de atenderte",
-    "texto": "Déjanos ser tu aliado en cada instalación del retail.",
+    "texto": "Déjanos ser tu aliado en cada instalación del retail: agenda tu primera entrega y conoce cómo reducimos el tiempo entre la compra y la instalación.",
     "botones": [
-      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" },
+      { "texto": "Escribir por WhatsApp", "href": "wa", "estilo": "btn-ghost-oscuro" }
     ]
   }
 }

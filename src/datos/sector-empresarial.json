@@ -3,25 +3,29 @@
 
   "meta": {
     "titulo": "Sector empresarial · Manos Maestras",
-    "descripcion": "Personal técnico calificado para proyectos empresariales: traslados, adecuaciones e instalaciones."
+    "descripcion": "Personal técnico calificado para proyectos empresariales: traslados, adecuaciones e instalaciones con respaldo de empresa."
   },
 
   "encabezado": {
     "etiqueta": "Sector empresarial",
     "titulo": "Sector\nempresarial",
-    "texto": "Estamos en capacidad de apoyarte en esos proyectos donde requieres personal técnico altamente calificado y el respaldo de una empresa.",
+    "texto": "Estamos en capacidad de apoyarte en esos proyectos donde requieres personal técnico altamente calificado y el respaldo de una empresa: traslados, adecuaciones, montajes e instalaciones sin detener tu operación.",
     "imagenFondo": "/img/oficina.jpg"
   },
 
   "servicios": {
     "encabezado": "Aliados de tu empresa",
     "titulo": "Somos tus aliados en todos los proyectos que requieras",
-    "texto": "Grandes, medianas y pequeñas empresas nos abren sus puertas cada año.",
+    "texto": "Grandes, medianas y pequeñas empresas nos abren sus puertas cada año. Llegamos con personal presentado y verificado, programación coordinada con tu operación y cero interrupciones en tu jornada.",
     "items": [
-      { "titulo": "Traslado de oficinas", "texto": "Traslados ágiles que reducen el tiempo muerto de tu operación.", "icono": "truck" },
-      { "titulo": "Adecuación de espacios", "texto": "Preparamos tus espacios para que estén listos antes de abrir.", "icono": "layout-grid" },
-      { "titulo": "Refacciones para oficinas", "texto": "Reparaciones y ajustes que mantienen tu oficina en orden.", "icono": "hammer" },
-      { "titulo": "Mobiliario para sesiones fotográficas", "texto": "Montajes profesionales para tus campañas y catálogos.", "icono": "camera" }
+      { "titulo": "Traslado de oficinas", "texto": "Traslados ágiles que reducen el tiempo muerto de tu operación, con desmonte, transporte y reinstalación.", "icono": "truck" },
+      { "titulo": "Adecuación de espacios", "texto": "Preparamos tus espacios para que estén listos antes de abrir, sin sumar horas extras a tu equipo.", "icono": "layout-grid" },
+      { "titulo": "Puestos de trabajo", "texto": "Escritorios, sillas y estaciones de trabajo instaladas, alineadas y listas para operar.", "icono": "panels-top-left" },
+      { "titulo": "Refacciones para oficinas", "texto": "Reparaciones y ajustes del mobiliario y la infraestructura que mantienen tu oficina en orden.", "icono": "hammer" },
+      { "titulo": "Áreas de bienestar", "texto": "Cocinas, comedores y zonas de descanso montadas y equipadas para el bienestar de tu equipo.", "icono": "utensils" },
+      { "titulo": "Mobiliario para sesiones fotográficas", "texto": "Montajes profesionales para tus campañas, catálogos y producciones, listos a la hora pactada.", "icono": "camera" },
+      { "titulo": "Instalación de estructuras", "texto": "Estructuras, módulos y mobiliario especial instalados dentro de tu sede con planos incluidos.", "icono": "layers" },
+      { "titulo": "Señalética y cartelería", "texto": "Cartelería, pendones y señalética instalada con precisión y de acuerdo a la normativa.", "icono": "map-pin" }
     ]
   },
 
@@ -37,10 +41,11 @@
   },
 
   "cta": {
-    "titulo": "Contáctanos para tener el gusto de atenderte",
-    "texto": "Déjanos ser el respaldo de tu empresa en cada proyecto.",
+    "titulo": "Contacta nuestro equipo para atenderte",
+    "texto": "Déjanos ser el respaldo de tu empresa en cada proyecto: cuéntanos la fecha y el alcance y coordinamos el equipo que tu operación necesita.",
     "botones": [
-      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" },
+      { "texto": "Escribir por WhatsApp", "href": "wa", "estilo": "btn-ghost-oscuro" }
     ]
   }
 }

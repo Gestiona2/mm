@@ -1,0 +1,58 @@
+# Publica la demo en GitHub Pages con cada cambio en main.
+# La demo queda en https://demos.emp2web.com/mm (dominio del sitio raíz
+# de la organización en GitHub Pages; el repo es Gestiona2/mm).
+name: Publicar demo
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:      # permite lanzarlo a mano desde la pestaña Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si llegan dos cambios seguidos, publica el último y descarta el anterior.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  compilar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Comprobar que no quedaron enlaces internos rotos
+        run: |
+          set -e
+          roto=0
+          for f in $(find dist -name '*.html'); do
+            for h in $(grep -oh 'href="/mm[^"#]*"' "$f" 2>/dev/null | sed 's/href="//;s/"//' | sed 's#^/mm##'); do
+              if [ ! -f "dist${h}" ] && [ ! -f "dist${h%/}/index.html" ]; then
+                echo "::error file=$f::Enlace roto → $h"
+                roto=1
+              fi
+            done
+          done
+          [ "$roto" = "0" ] || exit 1
+          echo "Sin enlaces internos rotos."
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  publicar:
+    needs: compilar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

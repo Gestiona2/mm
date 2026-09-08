@@ -1,17 +1,19 @@
 # Cómo publicar y cómo deshacer
 
-> **Estado actual: este sitio es una propuesta de diseño, aún NO está publicado.**
-> Aún no tiene hosting ni dominio. Todo lo de este archivo queda listo para cuando se
-> contrate la publicación.
+> **Estado actual: propuesta de diseño publicada como demo** en
+> **https://demos.emp2web.com/mm** (GitHub Pages, repositorio `Gestiona2/mm`, se actualiza
+> solo con cada cambio en la rama `main`). Aún NO tiene hosting ni dominio propios: eso se
+> define cuando el cliente contrate la publicación.
 
 ## Lo que existe hoy
 
 - El código de producción se genera con `npm run build` → carpeta `dist/`.
-- El sitio se ve en `http://localhost:4321` (vista previa de la propuesta).
-- Dominio de referencia en la configuración: `https://manosmaestras.com` (ver
-  `PENDIENTES.md`). No registrarlo ni publicar nada con ese dominio sin confirmar.
-- Spot en `astro.config.mjs` → `site`: punto único a ajustar cuando se sepa el dominio
-  final.
+- La demo vive en `https://demos.emp2web.com/mm` (el push a `main` publica automáticamente
+  vía GitHub Actions → GitHub Pages; tarda 2 a 4 minutos).
+- Local: `astro preview --port 4321` → `http://localhost:4321/mm`.
+- **Punto único a ajustar** cuando se sepa el dominio final: en `astro.config.mjs` →
+  `site` (hoy `https://demos.emp2web.com`) y `base` (hoy `/mm`). Los enlaces no se tocan:
+  todos pasan por `src/lib/ruta.ts` (ver `SECCIONES.md` y `STACK.md`).
 
 ## Flujo de publicación (cuando esté contratado)
 
@@ -20,7 +22,8 @@
    abajo).
 3. **Esperar aprobación explícita** — "se ve bien" aprueba. El silencio no aprueba. Nunca
    publicar por iniciativa propia.
-4. **Publicar** — subir `dist/` o pushear al repo conectado al hosting.
+4. **Publicar** — el sitio se publica solo con el push a `main` (GitHub Actions). El cambio
+   queda en `demos.emp2web.com/mm`.
 5. **Avisar** — decir que la publicación tarda de 2 a 4 minutos (según el proveedor) y que
    si no lo ve, recargue con Ctrl+F5.
 

@@ -3,29 +3,29 @@
 
   "meta": {
     "titulo": "Sector estatal · Manos Maestras",
-    "descripcion": "Apoyamos el progreso del país: mantenimiento y montaje para entidades del Estado en licitaciones."
+    "descripcion": "Apoyamos el progreso del país: mantenimiento, remodelación y montaje para entidades del Estado en licitaciones públicas."
   },
 
   "encabezado": {
     "etiqueta": "Sector estatal",
     "titulo": "Sector\nestatal",
-    "texto": "Apoyamos el progreso del país, en diferentes licitaciones, adquiriendo experiencia y siendo un elemento de desarrollo para Colombia.",
+    "texto": "Apoyamos el progreso del país participando en diferentes licitaciones públicas, adquiriendo experiencia y siendo un elemento de desarrollo para Colombia, con capacidad técnica y de ejecución comprobable en cada contrato.",
     "imagenFondo": "/img/construccion.jpg"
   },
 
   "servicios": {
     "encabezado": "Qué podemos hacer por ti",
     "titulo": "¿Qué podemos hacer por ti?",
-    "texto": "Mantenimiento y montaje para edificios públicos, oficinas y espacios de trabajo.",
+    "texto": "Mantenimiento, remodelación y montaje para edificios públicos, oficinas y espacios de trabajo, con planeación por fases para no interrumpir la operación de la entidad.",
     "items": [
       { "titulo": "Mantenimiento de edificios", "texto": "Mantenimiento integral que conserva los espacios públicos en buen estado.", "icono": "building-2" },
-      { "titulo": "Mobiliario empresarial", "texto": "Fabricación e instalación de mobiliario para entidades.", "icono": "layout-grid" },
-      { "titulo": "Refacciones para oficinas", "texto": "Reparaciones y ajustes para oficinas y dependencias.", "icono": "wrench" },
-      { "titulo": "Remodelaciones de espacios laborales", "texto": "Remodelaciones para oficinas y espacios de trabajo.", "icono": "hammer" },
-      { "titulo": "Pinturas para edificios", "texto": "Pintura interior y exterior de edificios institucionales.", "icono": "paint-roller" },
-      { "titulo": "Impermeabilizaciones", "texto": "Protección de cubiertas y estructuras contra filtraciones.", "icono": "cloud-rain" },
-      { "titulo": "Mantenimientos técnicos", "texto": "Mantenimientos hidráulicos, eléctricos y de pinturas.", "icono": "droplets" },
-      { "titulo": "Limpieza de fachadas", "texto": "Limpieza y mantenimiento de fachadas institucionales.", "icono": "spray-can" }
+      { "titulo": "Mobiliario empresarial", "texto": "Fabricación e instalación de mobiliario para entidades y dependencias públicas.", "icono": "layout-grid" },
+      { "titulo": "Refacciones para oficinas", "texto": "Reparaciones y ajustes para oficinas y dependencias en operación.", "icono": "wrench" },
+      { "titulo": "Remodelaciones de espacios laborales", "texto": "Remodelaciones de oficinas y espacios de trabajo, programadas por fases.", "icono": "hammer" },
+      { "titulo": "Pinturas para edificios", "texto": "Pintura interior y exterior de edificios institucionales con acabado de entrega.", "icono": "paint-roller" },
+      { "titulo": "Impermeabilizaciones", "texto": "Protección de cubiertas y estructuras contra filtraciones y humedad.", "icono": "cloud-rain" },
+      { "titulo": "Mantenimientos técnicos", "texto": "Mantenimientos hidráulicos, eléctricos y de pintura con reporte de cada intervención.", "icono": "droplets" },
+      { "titulo": "Limpieza de fachadas", "texto": "Limpieza y mantenimiento de fachadas institucionales con protocolo de seguridad.", "icono": "spray-can" }
     ]
   },
 
@@ -42,9 +42,10 @@
 
   "cta": {
     "titulo": "Contáctanos para tener el gusto de atenderte",
-    "texto": "Déjanos ser parte de tus proyectos y del desarrollo del país.",
+    "texto": "Déjanos ser parte de tus proyectos y del desarrollo del país: cuéntanos el requerimiento de tu entidad y te acompañamos en la estructuración.",
     "botones": [
-      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" },
+      { "texto": "Escribir por WhatsApp", "href": "wa", "estilo": "btn-ghost-oscuro" }
     ]
   }
 }

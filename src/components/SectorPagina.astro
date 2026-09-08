@@ -6,6 +6,7 @@
  */
 import Layout from "../layouts/Layout.astro";
 import sitio from "../datos/sitio.json";
+import { ruta } from "../lib/ruta";
 
 interface Props {
   datos: Record<string, any>;
@@ -15,21 +16,24 @@ const { meta, encabezado, servicios, pilares, cta } = datos;
 
 function rutaWa(destino: string) {
   if (destino === "wa") return `https://wa.me/${sitio.whatsapp}`;
-  return destino;
+  return ruta(destino);
 }
-const idSector = Astro.url.pathname.split("/")[1]?.replace("sector-", "") ?? "";
+const idSector = Astro.url.pathname
+  .replace(import.meta.env.BASE_URL, "")
+  .split("/")[0]
+  ?.replace("sector-", "") ?? "";
 ---
 
 <Layout titulo={meta.titulo} descripcion={meta.descripcion} activa={idSector}>
   {/* ==================== ENCABEZADO ==================== */}
   <header class="encabezado">
     <div class="encabezado-fondo">
-      <img src={encabezado.imagenFondo} alt="" loading="eager" />
+      <img src={ruta(encabezado.imagenFondo)} alt="" loading="eager" />
     </div>
     <div class="encabezado-velo"></div>
     <div class="container">
       <nav class="miga reveal">
-        <a href="/">Inicio</a>
+        <a href={ruta("/")}>Inicio</a>
         <span>/</span>
         <span>{encabezado.etiqueta}</span>
       </nav>

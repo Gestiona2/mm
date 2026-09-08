@@ -1,4 +1,17 @@
-lucide.min.js
-Descargar de unpkg.com/lucide@<version>/dist/umd/lucide.min.js y guardar aqui.
-OJO: los iconos de marcas (facebook, instagram...) fueron removidos de Lucide.
-Usar iconos genericos seguros o SVG propios.
+Lucide vendored — solo los 46 iconos que usa el sitio.
+
+Versión: lucide@1.43.0
+Origen: npm/lucide → generado por herramientas/build-lucide.mjs
+
+IMPORTANTE: Los iconos de marca (Facebook, Instagram, Twitter…)
+fueron eliminados de Lucide desde la versión 1.x.
+Para esas redes se usan SVGs inline en src/layouts/Layout.astro.
+
+Para regenerar este archivo tras cambiar iconos en src/datos/:
+
+  npm i                # instala lucide (devDep)
+  npx esbuild herramientas/build-lucide.mjs --bundle --format=iife --minify \
+    --charset=utf8 --outfile=public/vendor/lucide/lucide.min.js
+
+Si necesitas iconos nuevos, añade los import y la entrada PascalCase en
+herramientas/build-lucide.mjs, rebuild de astro, y listo.

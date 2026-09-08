@@ -3,25 +3,31 @@
 
   "meta": {
     "titulo": "Sector constructor · Manos Maestras",
-    "descripcion": "Aliados estratégicos de constructoras: instalación y montaje en obra para cumplir tus proyectos."
+    "descripcion": "Aliados estratégicos de constructoras: instalación y montaje en obra para cumplir tus proyectos, con garantía de hasta 24 meses."
   },
 
   "encabezado": {
     "etiqueta": "Sector constructor",
     "titulo": "Sector\nconstructor",
-    "texto": "Somos aliados estratégicos en el cumplimiento de todos tus proyectos.",
+    "texto": "Somos aliados estratégicos en el cumplimiento de todos tus proyectos: llegamos a obra cuando el cronograma lo exige y entregamos instalado, probado y listo para la entrega, coordinados con tu residente de obra.",
     "imagenFondo": "/img/obra-edificio.jpg"
   },
 
   "servicios": {
     "encabezado": "12 años instalando",
     "titulo": "Lo que instalamos en obra",
-    "texto": "Equipos técnicos que llegan a tu proyecto cuando el cronograma lo requiere.",
+    "texto": "Equipos técnicos que llegan a tu proyecto cuando el cronograma lo requiere, con acabados de entrega, cuidado de los espacios ya terminados y programación anticipada por etapas.",
     "items": [
-      { "titulo": "Cocinas", "texto": "Cocinas integrales y todos sus accesorios, como griferías y electrodomésticos.", "icono": "flame" },
-      { "titulo": "Muebles de baño", "texto": "Hacemos nuestro trabajo de manera ágil para los clientes.", "icono": "shower-head" },
-      { "titulo": "Persianas", "texto": "Embellecemos cada espacio de nuestros clientes.", "icono": "blinds" },
-      { "titulo": "Soportes de TV", "texto": "Hacemos más fácil la vida de nuestros clientes.", "icono": "monitor" }
+      { "titulo": "Cocinas", "texto": "Cocinas integrales y todos sus accesorios, como griferías y electrodomésticos, instaladas por etapa de obra.", "icono": "flame" },
+      { "titulo": "Muebles de baño", "texto": "Vanitorios y muebles de baño instalados al cronograma y listos para la entrega de la unidad.", "icono": "shower-head" },
+      { "titulo": "Persianas", "texto": "Blinds, cortinas y acuartamientos instalados en ventanas y puertas de cada unidad.", "icono": "blinds" },
+      { "titulo": "Soportes de TV", "texto": "Bases y soportes para televisores instalados de forma segura en cada apartamento.", "icono": "monitor" },
+      { "titulo": "Drywall y cielorrasos", "texto": "Muros, cielorrasos y estructuras en drywall terminados en obra, con remate y pintura.", "icono": "panels-top-left" },
+      { "titulo": "Carpintería fina", "texto": "Guardaescobas, remates y carpintería de interior con acabado fino de entrega.", "icono": "hammer" },
+      { "titulo": "Puertas metálicas", "texto": "Puertas metálicas y de seguridad instaladas, niveladas y verificadas en cada ingreso.", "icono": "door-open" },
+      { "titulo": "Pintura y acabados", "texto": "Pintura de interiores y exteriores con acabados limpios y programados por etapas.", "icono": "paint-roller" },
+      { "titulo": "Lámparas y luminarias", "texto": "Lámparas y luminarias instaladas con seguridad eléctrica en zonas comunes y unidades.", "icono": "lightbulb" },
+      { "titulo": "Muebles de medida", "texto": "Closets y mobiliario a la medida instalados en cada unidad antes de la entrega.", "icono": "shirt" }
     ]
   },
 
@@ -38,9 +44,10 @@
 
   "cta": {
     "titulo": "Contáctanos para tener el gusto de atenderte",
-    "texto": "Déjanos ser tu aliado estratégico en cada obra.",
+    "texto": "Déjanos ser tu aliado estratégico en cada obra: cuéntanos tu cronograma y coordinamos la instalación por etapas.",
     "botones": [
-      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" },
+      { "texto": "Escribir por WhatsApp", "href": "wa", "estilo": "btn-ghost-oscuro" }
     ]
   }
 }

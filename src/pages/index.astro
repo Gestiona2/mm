@@ -8,11 +8,12 @@
 import Layout from "../layouts/Layout.astro";
 import datos from "../datos/inicio.json";
 import sitio from "../datos/sitio.json";
+import { ruta } from "../lib/ruta";
 
-const { portada, campos, clientes, servicios, cifras, diferentes, cta, meta } = datos;
+const { portada, campos, clientes, servicios, cifras, proceso, diferentes, cta, meta } = datos;
 function rutaWa(destino) {
   if (destino === "wa") return `https://wa.me/${sitio.whatsapp}`;
-  return destino;
+  return ruta(destino);
 }
 ---
 
@@ -20,7 +21,7 @@ function rutaWa(destino) {
   {/* ==================== PORTADA ==================== */}
   <header class="portada">
     <div class="portada-fondo">
-      <img src={portada.imagenFondo} alt="" loading="eager" />
+      <img src={ruta(portada.imagenFondo)} alt="" loading="eager" />
     </div>
     <div class="portada-velo"></div>
     <div class="container portada-grid">
@@ -38,7 +39,7 @@ function rutaWa(destino) {
         </div>
       </div>
       <div class="portada-visual" data-parallax="0.06">
-        <img src={portada.imagenVisual} alt={portada.imagenAlt} loading="eager" />
+        <img src={ruta(portada.imagenVisual)} alt={portada.imagenAlt} loading="eager" />
         <div class="portada-badge">
           <strong>{portada.badge.numero}</strong>
           <span>{portada.badge.texto}</span>
@@ -56,9 +57,9 @@ function rutaWa(destino) {
 
       <div class="grid-sectores" data-stagger>
         {campos.items.map((s) => (
-          <a class="tarjeta-sector reveal-up" href={s.href}>
+          <a class="tarjeta-sector reveal-up" href={ruta(s.href)}>
             <div class="foto">
-              <img src={s.imagen} alt={`${s.titulo} — trabajos realizados por Manos Maestras`} loading="lazy" />
+              <img src={ruta(s.imagen)} alt={`${s.titulo} — trabajos realizados por Manos Maestras`} loading="lazy" />
             </div>
             <div class="cuerpo">
               <div class="icono-marca"><i data-lucide={s.icono}></i></div>
@@ -87,7 +88,7 @@ function rutaWa(destino) {
     <div class="cinta reveal">
       <div class="cinta-pista">
         {[...clientes.logos, ...clientes.logos].map((l, i) => (
-          <img key={i} src={l.archivo} alt={l.nombre} loading="lazy" />
+          <img key={i} src={ruta(l.archivo)} alt={l.nombre} loading="lazy" />
         ))}
       </div>
     </div>
@@ -114,7 +115,8 @@ function rutaWa(destino) {
               <article>
                 <div class="icono-mini"><i data-lucide={s.icono}></i></div>
                 <h4>{s.titulo}</h4>
-                <a href="/contacto">
+                {s.texto && <p class="servicio-tab-texto">{s.texto}</p>}
+                <a href={ruta("/contacto")}>
                   Cotizar <i data-lucide="arrow-right"></i>
                 </a>
               </article>
@@ -135,6 +137,26 @@ function rutaWa(destino) {
           <p>{c.texto}</p>
         </div>
       ))}
+    </div>
+  </section>
+
+  {/* ==================== CÓMO TRABAJAMOS ==================== */}
+  <section class="pad" id="como-trabajamos" style="background:var(--bg-soft)">
+    <div class="container">
+      <span class="eyebrow reveal"><span class="dot"></span> {proceso.encabezado}</span>
+      <h2 class="section-title reveal">{proceso.titulo}</h2>
+      <p class="lead reveal">{proceso.texto}</p>
+
+      <div class="grid-pasos" data-stagger>
+        {proceso.items.map((p, i) => (
+          <article class="paso reveal-up">
+            <span class="paso-num">0{i + 1}</span>
+            <div class="icono-caja"><i data-lucide={p.icono}></i></div>
+            <h3>{p.titulo}</h3>
+            <p>{p.texto}</p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 

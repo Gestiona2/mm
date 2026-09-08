@@ -3,20 +3,24 @@
 
   "meta": {
     "titulo": "Nosotros · Manos Maestras",
-    "descripcion": "Más de 12 años de experiencia instalando y montando en Colombia y Perú. Conoce nuestros valores y nuestro legado."
+    "descripcion": "Más de 12 años de experiencia instalando y montando en Colombia y Perú. Conoce nuestros valores, nuestro equipo y nuestro legado."
   },
 
   "encabezado": {
     "etiqueta": "Nosotros",
     "titulo": "Nosotros",
-    "texto": "Expertos con experiencia y calidad a tu servicio.",
+    "texto": "Expertos con experiencia y calidad a tu servicio. Más de 12 años instalando y montando para los sectores que mueven la economía.",
     "imagenFondo": "/img/foto-grupal-manos-maestras.jpg"
   },
 
   "presentacion": {
     "encabezado": "Quiénes somos",
     "titulo": "Nuestros valores son la clave del éxito al servir",
-    "texto": "En Manos Maestras, todos los valores están enfocados en prestar la mejor atención.",
+    "texto": "En Manos Maestras somos una compañía especializada en instalación, montaje y mantenimiento de muebles, estructuras y accesorios para hogares, oficinas, obras, almacenes, eventos y entidades públicas.",
+    "parrafos": [
+      "Nacimos para resolver ese eslabón que más se subestima en un proyecto: la instalación final. No basta con vender un mueble o entregar una obra: tiene que quedar montado, probado y listo para usarse, y nosotros nos hacemos responsables de esa última milla.",
+      "Hoy operamos en 7 ciudades de Colombia y en Lima, Perú, con equipos propios que se presentan y se capacitan de manera constante. Trabajamos como aliados de nuestros clientes: llegamos puntuales, cuidamos los espacios y respondemos con garantía, porque la atención oportuna es la base de la satisfacción de quienes confían en nosotros."
+    ],
     "imagen": "/img/foto-grupal-manos-maestras.jpg",
     "imagenAlt": "Equipo de trabajo de Manos Maestras"
   },
@@ -27,22 +31,22 @@
     "items": [
       {
         "titulo": "Oportunidad",
-        "texto": "Nunca hay una segunda oportunidad para causar una primera buena impresión; por eso velamos por prestar un servicio oportuno.",
+        "texto": "Nunca hay una segunda oportunidad para causar una primera buena impresión; por eso velamos por prestar un servicio oportuno, con horarios confirmados y cumplidos.",
         "icono": "timer"
       },
       {
         "titulo": "Personal humano",
-        "texto": "Somos una compañía a la vanguardia de la tecnología, pero entendemos que la clave del éxito es nuestra gente.",
+        "texto": "Somos una compañía a la vanguardia de la tecnología, pero entendemos que la clave del éxito es nuestra gente: la seleccionamos, la formamos y la presentamos ante el cliente.",
         "icono": "users"
       },
       {
         "titulo": "Calidad en nuestro servicio",
-        "texto": "Trabajamos con estrictos procesos y procedimientos que aseguren la calidad para satisfacción de nuestros clientes.",
+        "texto": "Trabajamos con estrictos procesos y procedimientos que aseguren la calidad en cada instalación, verificada antes de cerrar el servicio.",
         "icono": "badge-check"
       },
       {
         "titulo": "Respaldo",
-        "texto": "Con más de 12 años de experiencia ofrecemos respaldo prestando servicios con personal altamente calificado.",
+        "texto": "Con más de 12 años de experiencia ofrecemos respaldo prestando servicios con personal altamente calificado y pólizas de responsabilidad y cumplimiento.",
         "icono": "shield-check"
       }
     ]
@@ -55,7 +59,7 @@
     "items": [
       {
         "titulo": "Operación en 2 países",
-        "texto": "Perú y Colombia.",
+        "texto": "Perú y Colombia, con equipos locales coordinados por nuestra sede principal en Bogotá.",
         "icono": "globe"
       },
       {
@@ -65,7 +69,7 @@
       },
       {
         "titulo": "Más de 490.000 servicios prestados",
-        "texto": "Una cifra que nos compromete a seguir mejorando cada día.",
+        "texto": "Una cifra que nos compromete a seguir mejorando cada día y a mantener la calidad de nuestro equipo.",
         "icono": "check-circle"
       }
     ]
@@ -74,7 +78,7 @@
   "clientes": {
     "encabezado": "Confianza",
     "titulo": "Ellos confían en nosotros",
-    "texto": "Almacenes de cadena y marcas líderes nos confían sus proyectos año tras año.",
+    "texto": "Almacenes de cadena y marcas líderes nos confían sus proyectos de instalación y montaje año tras año.",
     "logos": [
       { "archivo": "/img/clientes/homecenter.jpg", "nombre": "Homecenter" },
       { "archivo": "/img/clientes/falabella.jpg", "nombre": "Falabella" },
@@ -87,7 +91,7 @@
 
   "cta": {
     "titulo": "Sé parte de los que confían en Manos Maestras",
-    "texto": "Comunícate con nuestro equipo y cuéntanos tu proyecto.",
+    "texto": "Comunícate con nuestro equipo, cuéntanos tu proyecto y conoce por qué nos eligen año tras año.",
     "botones": [
       { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
     ]

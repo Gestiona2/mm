@@ -9,7 +9,7 @@
   "encabezado": {
     "etiqueta": "Contacto",
     "titulo": "Cuéntanos tu proyecto",
-    "texto": "Muy pronto nos comunicaremos contigo.",
+    "texto": "Déjanos tus datos y el sector en el que trabajas: nuestro equipo comercial te contactará muy pronto con la propuesta adecuada para tu proyecto.",
     "imagenFondo": "/img/contacto-bogota.jpg"
   },
 
@@ -51,7 +51,7 @@
   "formulario": {
     "encabezado": "Escribe tu mensaje",
     "titulo": "Comunícate con nuestro equipo de trabajo",
-    "texto": "Déjanos tu nombre, tu sector y un mensaje. Un asesor te responderá por WhatsApp con la propuesta adecuada para tu proyecto.",
+    "texto": "Déjanos tu nombre, tu sector y un mensaje. Un asesor te responderá por WhatsApp con la propuesta y el siguiente paso para tu proyecto, en Colombia o Perú.",
     "campos": {
       "nombre": { "etiqueta": "Nombre", "requerido": true, "placeholder": "Tu nombre" },
       "empresa": { "etiqueta": "Empresa", "requerido": false, "placeholder": "Tu empresa (opcional)" },
@@ -69,9 +69,9 @@
           "Otro"
         ]
       },
-      "mensaje": { "etiqueta": "Cuéntanos tu proyecto", "requerido": false, "placeholder": "Describe brevemente en qué necesitas ayuda…" }
+      "mensaje": { "etiqueta": "Cuéntanos tu proyecto", "requerido": false, "placeholder": "Describe qué necesitas instalar, en qué ciudad y para cuándo…" }
     },
     "boton": "Enviar mensaje por WhatsApp",
-    "nota": "Al enviar, se abrirá WhatsApp con tu mensaje. Sin formularios ocultos ni listas de correo."
+    "nota": "Al enviar, se abrirá WhatsApp con tu mensaje listo para enviar. Sin formularios ocultos ni listas de correo."
   }
 }

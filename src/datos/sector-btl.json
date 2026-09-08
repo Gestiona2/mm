@@ -3,22 +3,27 @@
 
   "meta": {
     "titulo": "Sector BTL · Manos Maestras",
-    "descripcion": "Montajes y activaciones para eventos: hacemos realidad los sueños de nuestros clientes."
+    "descripcion": "Montajes, stands y activaciones para eventos y campañas BTL: hacemos realidad los sueños de tus clientes."
   },
 
   "encabezado": {
     "etiqueta": "Sector BTL",
     "titulo": "Sector\nBTL",
-    "texto": "Hacemos parte del equipo que cumple los intereses de tus clientes.",
+    "texto": "Hacemos parte del equipo que cumple los intereses de tus clientes: montajes a tiempo, con seguridad y con la imagen impecable que una activación exige, desde el punto de venta hasta el evento masivo.",
     "imagenFondo": "/img/evento.jpg"
   },
 
   "servicios": {
     "encabezado": "Qué podemos hacer por ti",
     "titulo": "¿Qué podemos hacer por ti?",
-    "texto": "Somos tu equipo para que cada activación llegue a tiempo y se vea impecable.",
+    "texto": "Somos tu equipo para que cada activación llegue a tiempo y se vea impecable: la logística, el montaje y el desmonte quedan a nuestro cargo mientras tu equipo se enfoca en la marca.",
     "items": [
-      { "titulo": "Montajes para eventos", "texto": "Montajes profesionales que convierten cada evento en una experiencia memorable.", "icono": "party-popper" }
+      { "titulo": "Montajes para eventos", "texto": "Escenarios, mobiliario y puesta en escena montados con seguridad y a tiempo para cada evento.", "icono": "party-popper" },
+      { "titulo": "Activaciones de marca", "texto": "Puntos de venta, pódiums y estructuras armados en tiempo récord en centros comerciales y espacios públicos.", "icono": "sparkles" },
+      { "titulo": "Stands para ferias", "texto": "Montaje y desmontaje de stands para ferias y exposiciones, con cronograma cerrado por día.", "icono": "layout-grid" },
+      { "titulo": "Tarimas y escenarios", "texto": "Tarimas, tramoyas y escenarios montados y verificados en el lugar del evento.", "icono": "layers" },
+      { "titulo": "Sets para fotografía y video", "texto": "Sets y mobiliario listos para producción audiovisual y campañas de marca.", "icono": "camera" },
+      { "titulo": "Logística de montaje y desmontaje", "texto": "Carga, transporte y desmonte del montaje sin contratiempos, antes y después del evento.", "icono": "truck" }
     ]
   },
 
@@ -35,9 +40,10 @@
 
   "cta": {
     "titulo": "Contáctanos para tener el gusto de atenderte",
-    "texto": "Déjanos ser parte del equipo que cumple los intereses de tus clientes.",
+    "texto": "Déjanos ser parte del equipo que cumple los intereses de tus clientes: cuéntanos la fecha y el tipo de activación y avisamos con el plan de montaje.",
     "botones": [
-      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" },
+      { "texto": "Escribir por WhatsApp", "href": "wa", "estilo": "btn-ghost-oscuro" }
     ]
   }
 }

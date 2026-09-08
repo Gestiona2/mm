@@ -8,6 +8,7 @@
 import Layout from "../layouts/Layout.astro";
 import datos from "../datos/contacto.json";
 import sitio from "../datos/sitio.json";
+import { ruta } from "../lib/ruta";
 
 const { meta, encabezado, sedes, formulario } = datos;
 const filasTel = (sede) => {
@@ -21,12 +22,12 @@ const filasTel = (sede) => {
   {/* ==================== ENCABEZADO ==================== */}
   <header class="encabezado">
     <div class="encabezado-fondo">
-      <img src={encabezado.imagenFondo} alt="" loading="eager" />
+      <img src={ruta(encabezado.imagenFondo)} alt="" loading="eager" />
     </div>
     <div class="encabezado-velo"></div>
     <div class="container">
       <nav class="miga reveal">
-        <a href="/">Inicio</a>
+        <a href={ruta("/")}>Inicio</a>
         <span>/</span>
         <span>{encabezado.etiqueta}</span>
       </nav>
@@ -42,7 +43,7 @@ const filasTel = (sede) => {
         <div class="contacto-datos" data-stagger>
           {sedes.map((s) => (
             <article class="contacto-tarjeta reveal-up">
-              {s.foto && <img src={s.foto} alt={`${s.pais} — ${s.ciudad} — ${s.nombre}`} style="width:100%;border-radius:14px;margin-bottom:16px" loading="lazy" />}
+              {s.foto && <img src={ruta(s.foto)} alt={`${s.pais} — ${s.ciudad} — ${s.nombre}`} style="width:100%;border-radius:14px;margin-bottom:16px" loading="lazy" />}
               <h3>
                 <span class="icono-caja"><i data-lucide={s.pais === "Perú" ? "map" : "map-pin"}></i></span>
                 <span>{s.nombre} · {s.pais}, {s.ciudad}</span>

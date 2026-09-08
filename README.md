@@ -20,8 +20,13 @@ archivos `.astro` tienen el diseño y ninguna frase escrita a mano.
 
 ```bash
 npm install     # solo la primera vez
-npm run dev     # abre http://localhost:4321
+npm run dev     # abre http://localhost:4321/mm
 ```
+
+## Demo en línea
+
+La propuesta está publicada como demo en **https://demos.emp2web.com/mm** (GitHub Pages:
+cada push a `main` la actualiza). El dominio final del negocio se define al contratar.
 
 ## Compilar
 
@@ -31,5 +36,6 @@ npm run build   # deja el sitio listo en dist/
 
 Hecho con Astro 7 y Tailwind 4. Sitio estático: sin base de datos ni servidor.
 
-> **Este sitio es una propuesta de diseño.** Aún no está publicado: ver
-> `conocimiento_generado/PENDIENTES.md`.
+> **Este sitio es una propuesta de diseño.** La demo ya está en línea, pero falta la
+> aprobación del cliente y resolver los pendientes de
+> `conocimiento_generado/PENDIENTES.md` antes de pasar a su dominio propio.

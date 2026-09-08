@@ -31,11 +31,13 @@
   fotografiados del sitio original; confirmar que se pueden usar y si falta alguno (los
   logos se ven ligeramente recortados al estar muy cerca del borde de la foto).
 
-## 4. Publicación (cuando el cliente contrate)
+## 4. Publicación
 
-- **No hay hosting ni dominio contratados.** El dominio `manosmaestras.com` está puesto en
-  `astro.config.mjs` como referencia y **no debe registrarse ni usarse sin confirmar**.
-- Definir con el proveedor (Gestiona2 · WhatsApp 301 366 5076) dónde se publica y cómo.
+- El sitio está publicado como **demo** en `https://demos.emp2web.com/mm` (GitHub Pages,
+  repo `Gestiona2/mm`; cada push a `main` la actualiza). Es solo para mostrar la propuesta.
+- **El dominio `manosmaestras.com` no está contratado** y no debe registrarse ni usarse
+  sin confirmar. Cuando el cliente contrate, se ajusta `site` y `base` en
+  `astro.config.mjs` (ver `PUBLICAR.md`).
 - El formulario abre WhatsApp con el mensaje armado: sin backend, funciona desde ya. Si el
   cliente lo quiere a correo u otro destino, eso es trabajo extra (ver `LIMITES.md`).
 
@@ -46,7 +48,9 @@
 
 ## 6. Detalles técnicos
 
-- **Ícono de Facebook en el pie:** los íconos de marcas fueron retirados de Lucide; el del
-  pie puede salir vacío. Si hace falta, usar un SVG propio (ver `STACK.md`).
+- ~~**Ícono de Facebook en el pie:**~~ resuelto: la red del pie usa un SVG propio de marca
+  en `Layout.astro` (los íconos de marcas fueron retirados de Lucide). Ver `STACK.md`.
+- La librería de íconos (Lucide) quedó recortada a los 46 que usa el sitio; para agregar
+  otros, ver `STACK.md` y `public/vendor/lucide/LEEME.txt`.
 - Las imágenes de descarga del sitio original quedaron en `insumos/` (documentación,
   descargas, marca) dentro del proyecto, como referencia.
