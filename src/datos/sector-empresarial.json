@@ -1,0 +1,46 @@
+{
+  "_comentario": "Contenido de la página Sector empresarial. El encabezado, los servicios y los pilares se editan aquí.",
+
+  "meta": {
+    "titulo": "Sector empresarial · Manos Maestras",
+    "descripcion": "Personal técnico calificado para proyectos empresariales: traslados, adecuaciones e instalaciones."
+  },
+
+  "encabezado": {
+    "etiqueta": "Sector empresarial",
+    "titulo": "Sector\nempresarial",
+    "texto": "Estamos en capacidad de apoyarte en esos proyectos donde requieres personal técnico altamente calificado y el respaldo de una empresa.",
+    "imagenFondo": "/img/oficina.jpg"
+  },
+
+  "servicios": {
+    "encabezado": "Aliados de tu empresa",
+    "titulo": "Somos tus aliados en todos los proyectos que requieras",
+    "texto": "Grandes, medianas y pequeñas empresas nos abren sus puertas cada año.",
+    "items": [
+      { "titulo": "Traslado de oficinas", "texto": "Traslados ágiles que reducen el tiempo muerto de tu operación.", "icono": "truck" },
+      { "titulo": "Adecuación de espacios", "texto": "Preparamos tus espacios para que estén listos antes de abrir.", "icono": "layout-grid" },
+      { "titulo": "Refacciones para oficinas", "texto": "Reparaciones y ajustes que mantienen tu oficina en orden.", "icono": "hammer" },
+      { "titulo": "Mobiliario para sesiones fotográficas", "texto": "Montajes profesionales para tus campañas y catálogos.", "icono": "camera" }
+    ]
+  },
+
+  "pilares": {
+    "encabezado": "Nuestro servicio",
+    "titulo": "Los pilares de nuestro servicio",
+    "items": [
+      { "titulo": "Puntualidad", "texto": "La atención oportuna es la base de la satisfacción de nuestros clientes.", "icono": "timer" },
+      { "titulo": "Servicio oportuno", "texto": "La mezcla perfecta entre talento y compromiso en el momento más indicado.", "icono": "zap" },
+      { "titulo": "Garantía", "texto": "Todos nuestros servicios cuentan con hasta 24 meses de garantía.", "icono": "shield-check" },
+      { "titulo": "Equipo humano capacitado", "texto": "Todo nuestro personal cuenta con capacitaciones frecuentes.", "icono": "graduation-cap" }
+    ]
+  },
+
+  "cta": {
+    "titulo": "Contáctanos para tener el gusto de atenderte",
+    "texto": "Déjanos ser el respaldo de tu empresa en cada proyecto.",
+    "botones": [
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+    ]
+  }
+}

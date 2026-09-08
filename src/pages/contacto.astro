@@ -1,0 +1,131 @@
+---
+/**
+ * Página Contacto.
+ * REGLA: aquí NO se escribe texto. Todo sale de src/datos/contacto.json
+ * y los datos globales de src/datos/sitio.json.
+ * El formulario arma un mensaje y lo abre en WhatsApp (sin backend).
+ */
+import Layout from "../layouts/Layout.astro";
+import datos from "../datos/contacto.json";
+import sitio from "../datos/sitio.json";
+
+const { meta, encabezado, sedes, formulario } = datos;
+const filasTel = (sede) => {
+  const partes = [sede.telefono];
+  if (sede.lineaNacional) partes.push(`Línea nacional ${sede.lineaNacional}`);
+  return partes;
+};
+---
+
+<Layout titulo={meta.titulo} descripcion={meta.descripcion} activa="contacto">
+  {/* ==================== ENCABEZADO ==================== */}
+  <header class="encabezado">
+    <div class="encabezado-fondo">
+      <img src={encabezado.imagenFondo} alt="" loading="eager" />
+    </div>
+    <div class="encabezado-velo"></div>
+    <div class="container">
+      <nav class="miga reveal">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <span>{encabezado.etiqueta}</span>
+      </nav>
+      <h1 class="reveal">{encabezado.titulo}</h1>
+      <p class="reveal">{encabezado.texto}</p>
+    </div>
+  </header>
+
+  {/* ==================== SEDES ==================== */}
+  <section class="pad" id="sedes">
+    <div class="container">
+      <div class="grid-contacto">
+        <div class="contacto-datos" data-stagger>
+          {sedes.map((s) => (
+            <article class="contacto-tarjeta reveal-up">
+              {s.foto && <img src={s.foto} alt={`${s.pais} — ${s.ciudad} — ${s.nombre}`} style="width:100%;border-radius:14px;margin-bottom:16px" loading="lazy" />}
+              <h3>
+                <span class="icono-caja"><i data-lucide={s.pais === "Perú" ? "map" : "map-pin"}></i></span>
+                <span>{s.nombre} · {s.pais}, {s.ciudad}</span>
+              </h3>
+              <ul>
+                <li>{s.direccion}</li>
+                {s.referencia && <li><span style="color:var(--text-muted)">{s.referencia}</span></li>}
+                {filasTel(s).map((t) => <li>{t}</li>)}
+                <li>WhatsApp: {s.whatsapp}</li>
+                <li><a href={`mailto:${s.correo}`}>{s.correo}</a></li>
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        {/* ==================== FORMULARIO ==================== */}
+        <form class="form-caja reveal-right" id="form-contacto" novalidate>
+          <span class="eyebrow"><span class="dot"></span> {formulario.encabezado}</span>
+          <h2 class="section-title">{formulario.titulo}</h2>
+          <p class="lead">{formulario.texto}</p>
+
+          <div class="form-grid">
+            {Object.entries(formulario.campos).map(([clave, campo]) => {
+              if (campo.opciones) {
+                return (
+                  <div class="campo ancho">
+                    <label for={clave}>{campo.etiqueta} {campo.requerido && <span style="color:var(--marca)">*</span>}</label>
+                    <select id={clave} name={clave} required={campo.requerido}>
+                      <option value="" disabled selected>Selecciona una opción</option>
+                      {campo.opciones.map((o) => <option value={o}>{o}</option>)}
+                    </select>
+                  </div>
+                );
+              }
+              const esMensaje = clave === "mensaje";
+              return (
+                <div class="campo {esMensaje ? 'ancho' : ''}">
+                  <label for={clave}>{campo.etiqueta} {campo.requerido && <span style="color:var(--marca)">*</span>}</label>
+                  {esMensaje
+                    ? <textarea id={clave} name={clave} placeholder={campo.placeholder} required={campo.requerido}></textarea>
+                    : <input id={clave} name={clave} type="text" placeholder={campo.placeholder} required={campo.requerido} />}
+                </div>
+              );
+            })}
+
+            <div class="ancho">
+              <button type="submit" class="btn btn-primary" id="boton-form">
+                {formulario.boton}
+                <i data-lucide="arrow-right"></i>
+              </button>
+              <p class="form-nota">{formulario.nota}</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline define:vars={{ whatsapp: sitio.whatsapp }}>
+  (function () {
+    const form = document.getElementById("form-contacto");
+    const boton = document.getElementById("boton-form");
+    if (!form) return;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const datos = Object.fromEntries(new FormData(form).entries());
+      const lineas = [
+        "Hola, Manos Maestras. Quiero información sobre un proyecto.",
+        "",
+        `Nombre: ${datos.nombre || "—"}`,
+        datos.empresa ? `Empresa: ${datos.empresa}` : "",
+        `Celular: ${datos.telefono || "—"}`,
+        `Sector: ${datos.sector || "—"}`,
+      ].filter(Boolean);
+      const mensaje = [...lineas, datos.mensaje ? `Mensaje: ${datos.mensaje}` : ""].filter(Boolean).join("\n");
+
+      boton.disabled = true;
+      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(mensaje)}`, "_blank");
+      setTimeout(() => { boton.disabled = false; }, 2500);
+    });
+  })();
+</script>

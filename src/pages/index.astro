@@ -1,0 +1,215 @@
+---
+/**
+ * Página de inicio.
+ *
+ * REGLA: aquí NO se escribe texto. Todo sale de src/datos/inicio.json.
+ * Si hay que cambiar una palabra, se cambia en el JSON — nunca aquí.
+ */
+import Layout from "../layouts/Layout.astro";
+import datos from "../datos/inicio.json";
+import sitio from "../datos/sitio.json";
+
+const { portada, campos, clientes, servicios, cifras, diferentes, cta, meta } = datos;
+function rutaWa(destino) {
+  if (destino === "wa") return `https://wa.me/${sitio.whatsapp}`;
+  return destino;
+}
+---
+
+<Layout titulo={meta.titulo} descripcion={meta.descripcion} activa="inicio">
+  {/* ==================== PORTADA ==================== */}
+  <header class="portada">
+    <div class="portada-fondo">
+      <img src={portada.imagenFondo} alt="" loading="eager" />
+    </div>
+    <div class="portada-velo"></div>
+    <div class="container portada-grid">
+      <div>
+        <span class="eyebrow reveal"><span class="dot"></span> {portada.encabezado}</span>
+        <h1 class="reveal">
+          {portada.titulo}
+          <span class="marca-text">{portada.tituloAcento}</span>
+        </h1>
+        <p class="lead reveal">{portada.texto}</p>
+        <div class="portada-botones reveal">
+          {portada.botones.map((b) => (
+            <a href={rutaWa(b.href)} class={`btn ${b.estilo}`}>{b.texto}</a>
+          ))}
+        </div>
+      </div>
+      <div class="portada-visual" data-parallax="0.06">
+        <img src={portada.imagenVisual} alt={portada.imagenAlt} loading="eager" />
+        <div class="portada-badge">
+          <strong>{portada.badge.numero}</strong>
+          <span>{portada.badge.texto}</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {/* ==================== CAMPOS DE ACCIÓN ==================== */}
+  <section class="pad" id="campos">
+    <div class="container">
+      <span class="eyebrow reveal"><span class="dot"></span> {campos.encabezado}</span>
+      <h2 class="section-title reveal">{campos.titulo}</h2>
+      <p class="lead reveal">{campos.texto}</p>
+
+      <div class="grid-sectores" data-stagger>
+        {campos.items.map((s) => (
+          <a class="tarjeta-sector reveal-up" href={s.href}>
+            <div class="foto">
+              <img src={s.imagen} alt={`${s.titulo} — trabajos realizados por Manos Maestras`} loading="lazy" />
+            </div>
+            <div class="cuerpo">
+              <div class="icono-marca"><i data-lucide={s.icono}></i></div>
+              <h3>{s.titulo}</h3>
+              <p>{s.texto}</p>
+              <span class="ver-mas">
+                Conocer más
+                <i data-lucide="arrow-right"></i>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ==================== CLIENTES ==================== */}
+  <div class="clientes">
+    <div class="container">
+      <div class="titulo">
+        <span class="eyebrow reveal"><span class="dot"></span> {clientes.encabezado}</span>
+        <h2 class="section-title reveal">{clientes.titulo}</h2>
+        <p class="lead reveal">{clientes.texto}</p>
+      </div>
+    </div>
+    <div class="cinta reveal">
+      <div class="cinta-pista">
+        {[...clientes.logos, ...clientes.logos].map((l, i) => (
+          <img key={i} src={l.archivo} alt={l.nombre} loading="lazy" />
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* ==================== SERVICIOS POR TAB ==================== */}
+  <section class="pad" id="servicios" style="background:var(--bg-soft)">
+    <div class="container">
+      <span class="eyebrow reveal"><span class="dot"></span> {servicios.encabezado}</span>
+      <h2 class="section-title reveal">{servicios.titulo}</h2>
+      <p class="lead reveal">{servicios.texto}</p>
+
+      <div class="tabs reveal">
+        <div class="tabs-pestanas">
+          {servicios.tabs.map((t, i) => (
+            <button class="tabs-btn" data-tab={t.id} onclick={`cambiarTab("${t.id}")`}>
+              {t.nombre}
+            </button>
+          ))}
+        </div>
+        {servicios.tabs.map((t, i) => (
+          <div class="tabs-panel" data-panel={t.id}>
+            {t.items.map((s) => (
+              <article>
+                <div class="icono-mini"><i data-lucide={s.icono}></i></div>
+                <h4>{s.titulo}</h4>
+                <a href="/contacto">
+                  Cotizar <i data-lucide="arrow-right"></i>
+                </a>
+              </article>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ==================== CIFRAS ==================== */}
+  <section class="pad cifras">
+    <div class="container grid-cifras" data-stagger>
+      {cifras.items.map((c) => (
+        <div class="reveal-pop">
+          <i data-lucide={c.icono}></i>
+          <div class="cifra-num" data-contar={c.numero} data-sufijo={c.sufijo}>0</div>
+          <p>{c.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* ==================== DIFERENCIADORES ==================== */}
+  <section class="pad" id="diferentes">
+    <div class="container">
+      <span class="eyebrow reveal"><span class="dot"></span> {diferentes.encabezado}</span>
+      <h2 class="section-title reveal">{diferentes.titulo}</h2>
+      <p class="lead reveal">{diferentes.texto}</p>
+
+      <div class="grid-diferenciales" data-stagger>
+        {diferentes.items.map((d) => (
+          <article class="diferencial reveal-up">
+            <div class="icono-caja"><i data-lucide={d.icono}></i></div>
+            <h3>{d.titulo}</h3>
+            <p>{d.texto}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ==================== CTA FINAL ==================== */}
+  <section class="pad" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="cta-final reveal">
+        <div class="brillo"></div>
+        <span class="eyebrow"><span class="dot"></span> {cta.encabezado}</span>
+        <h2>{cta.titulo}</h2>
+        <p>{cta.texto}</p>
+        <div class="acciones">
+          {cta.botones.map((b) => (
+            <a href={rutaWa(b.href)} class={`btn ${b.estilo}`}>{b.texto}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+  /* Cambiar entre los paneles de servicios de cada sector. */
+  window.cambiarTab = function (id) {
+    document.querySelectorAll(".tabs-btn").forEach((b) => b.classList.toggle("activa", b.dataset.tab === id));
+    document.querySelectorAll(".tabs-panel").forEach((p) => p.classList.toggle("activa", p.dataset.panel === id));
+  };
+  (function () {
+    const activa = document.querySelector(".tabs-btn");
+    if (activa) activa.classList.add("activa");
+    const panel = document.querySelector(".tabs-panel");
+    if (panel) panel.classList.add("activa");
+
+    /* Contadores: animan de 0 al número final cuando entran en pantalla. */
+    const menosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const nums = Array.from(document.querySelectorAll("[data-contar]"));
+    const pintar = (el) => {
+      const destino = parseInt(el.dataset.contar, 10) || 0;
+      const sufijo = el.dataset.sufijo || "";
+      if (menosMovimiento) { el.textContent = destino.toLocaleString("es-CO") + sufijo; return; }
+      const inicio = performance.now();
+      const paso = (ahora) => {
+        const t = Math.min((ahora - inicio) / 1400, 1);
+        el.textContent = Math.round(destino * (1 - Math.pow(1 - t, 3))).toLocaleString("es-CO") + sufijo;
+        if (t < 1) requestAnimationFrame(paso);
+      };
+      requestAnimationFrame(paso);
+    };
+    if (nums.length) {
+      if (!("IntersectionObserver" in window)) { nums.forEach(pintar); }
+      else {
+        const io = new IntersectionObserver((es) => {
+          es.forEach((e) => { if (e.isIntersecting) { pintar(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.5 });
+        nums.forEach((n) => io.observe(n));
+      }
+    }
+  })();
+</script>

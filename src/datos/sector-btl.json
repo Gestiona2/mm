@@ -1,0 +1,43 @@
+{
+  "_comentario": "Contenido de la página Sector BTL. El encabezado, los servicios y los pilares se editan aquí.",
+
+  "meta": {
+    "titulo": "Sector BTL · Manos Maestras",
+    "descripcion": "Montajes y activaciones para eventos: hacemos realidad los sueños de nuestros clientes."
+  },
+
+  "encabezado": {
+    "etiqueta": "Sector BTL",
+    "titulo": "Sector\nBTL",
+    "texto": "Hacemos parte del equipo que cumple los intereses de tus clientes.",
+    "imagenFondo": "/img/evento.jpg"
+  },
+
+  "servicios": {
+    "encabezado": "Qué podemos hacer por ti",
+    "titulo": "¿Qué podemos hacer por ti?",
+    "texto": "Somos tu equipo para que cada activación llegue a tiempo y se vea impecable.",
+    "items": [
+      { "titulo": "Montajes para eventos", "texto": "Montajes profesionales que convierten cada evento en una experiencia memorable.", "icono": "party-popper" }
+    ]
+  },
+
+  "pilares": {
+    "encabezado": "Nuestro servicio",
+    "titulo": "Los pilares de nuestro servicio",
+    "items": [
+      { "titulo": "Puntualidad", "texto": "La atención oportuna es la base de la satisfacción de nuestros clientes.", "icono": "timer" },
+      { "titulo": "Servicio oportuno", "texto": "La mezcla perfecta entre talento y compromiso en el momento más indicado.", "icono": "zap" },
+      { "titulo": "Garantía", "texto": "Todos nuestros servicios cuentan con hasta 24 meses de garantía.", "icono": "shield-check" },
+      { "titulo": "Equipo humano capacitado", "texto": "Todo nuestro personal cuenta con capacitaciones frecuentes.", "icono": "graduation-cap" }
+    ]
+  },
+
+  "cta": {
+    "titulo": "Contáctanos para tener el gusto de atenderte",
+    "texto": "Déjanos ser parte del equipo que cumple los intereses de tus clientes.",
+    "botones": [
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+    ]
+  }
+}

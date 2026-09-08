@@ -1,0 +1,220 @@
+{
+  "_comentario": "Todo el contenido de la página de inicio (index.astro). Una entrada por sección, en el orden de aparición. Los textos se editan aquí; el diseño no se toca. Los datos de contacto salen de sitio.json.",
+
+  "meta": {
+    "titulo": "Manos Maestras · Instalación y montaje para retail, construcción, empresas y sector público",
+    "descripcion": "Más de 12 años instalando y montando para almacenes de cadena, constructoras, empresas, productores, BTL y entidades estatales en Colombia y Perú."
+  },
+
+  "portada": {
+    "encabezado": "Manos Maestras",
+    "titulo": "El equipo que tu proyecto necesita,",
+    "tituloAcento": "cuando tú lo necesitas",
+    "texto": "Expertos con experiencia y calidad a tu servicio. Más de 12 años de proyectos de instalación y montaje en Colombia y Perú, con garantía de hasta 24 meses en cada trabajo.",
+    "imagenFondo": "/img/hero-instalacion.jpg",
+    "imagenAlt": "Técnico instalando una cocina integral en un hogar",
+    "imagenVisual": "/img/cocina-integral.jpg",
+    "badge": {
+      "numero": "12+",
+      "texto": "años de experiencia"
+    },
+    "botones": [
+      { "texto": "Cuéntanos tu proyecto", "href": "/contacto", "estilo": "btn-accent" },
+      { "texto": "Ver campos de acción", "href": "#campos", "estilo": "btn-ghost-oscuro" }
+    ]
+  },
+
+  "campos": {
+    "encabezado": "Campos de acción",
+    "titulo": "Sectores a los que servimos",
+    "texto": "Seis sectores, un mismo compromiso: hacer el trabajo bien, a tiempo y con respaldo.",
+    "items": [
+      {
+        "id": "retail",
+        "titulo": "Sector retail",
+        "texto": "Llevamos 12 años de alianza con los principales almacenes de cadena del país.",
+        "imagen": "/img/cocina-integral.jpg",
+        "href": "/sector-retail",
+        "icono": "store"
+      },
+      {
+        "id": "constructor",
+        "titulo": "Sector constructor",
+        "texto": "Somos aliados estratégicos en el cumplimiento de todos tus proyectos.",
+        "imagen": "/img/obra-edificio.jpg",
+        "href": "/sector-constructor",
+        "icono": "building-2"
+      },
+      {
+        "id": "empresarial",
+        "titulo": "Sector empresarial",
+        "texto": "Grandes, medianas y pequeñas empresas nos abren sus puertas cada año.",
+        "imagen": "/img/oficina.jpg",
+        "href": "/sector-empresarial",
+        "icono": "briefcase"
+      },
+      {
+        "id": "productor",
+        "titulo": "Sector productor",
+        "texto": "Una solución para los fabricantes que no cuentan con un área propia de instalación.",
+        "imagen": "/img/carpinteria.jpg",
+        "href": "/sector-productor",
+        "icono": "factory"
+      },
+      {
+        "id": "btl",
+        "titulo": "Sector BTL",
+        "texto": "Hacemos realidad la construcción de los sueños de nuestros clientes.",
+        "imagen": "/img/evento.jpg",
+        "href": "/sector-btl",
+        "icono": "sparkles"
+      },
+      {
+        "id": "estatal",
+        "titulo": "Sector estatal",
+        "texto": "Apoyamos el progreso del país participando en licitaciones públicas.",
+        "imagen": "/img/construccion.jpg",
+        "href": "/sector-estatal",
+        "icono": "landmark"
+      }
+    ]
+  },
+
+  "clientes": {
+    "encabezado": "Confianza",
+    "titulo": "Ellos confían en nosotros",
+    "texto": "Almacenes de cadena y marcas líderes delegamos sus instalaciones y montajes a nuestro equipo.",
+    "logos": [
+      { "archivo": "/img/clientes/homecenter.jpg", "nombre": "Homecenter" },
+      { "archivo": "/img/clientes/falabella.jpg", "nombre": "Falabella" },
+      { "archivo": "/img/clientes/tugo.jpg", "nombre": "TuGo" },
+      { "archivo": "/img/clientes/easy.jpg", "nombre": "Easy" },
+      { "archivo": "/img/clientes/sodimac.jpg", "nombre": "Sodimac" },
+      { "archivo": "/img/clientes/sentry.png", "nombre": "Sentry" }
+    ]
+  },
+
+  "servicios": {
+    "encabezado": "Servicios",
+    "titulo": "¿Lo que podemos hacer por ti?",
+    "texto": "Equipos de instalación y montaje para cada sector. Explora los servicios según el campo en el que trabajes.",
+    "tabs": [
+      {
+        "id": "retail",
+        "nombre": "Sector retail",
+        "items": [
+          { "titulo": "Instalación de muebles modulares", "icono": "layout-grid" },
+          { "titulo": "Instalación de cocinas", "icono": "flame" },
+          { "titulo": "Instalación de tendederos", "icono": "wind" },
+          { "titulo": "Instalación de soportes de TV", "icono": "monitor" },
+          { "titulo": "Instalación de organizadores", "icono": "package" },
+          { "titulo": "Instalación de persianas", "icono": "blinds" }
+        ]
+      },
+      {
+        "id": "constructor",
+        "nombre": "Sector constructor",
+        "items": [
+          { "titulo": "Instalación de cocinas", "icono": "flame" },
+          { "titulo": "Instalación de muebles de baño", "icono": "shower-head" },
+          { "titulo": "Instalación de persianas", "icono": "blinds" },
+          { "titulo": "Instalación de soportes de TV", "icono": "monitor" }
+        ]
+      },
+      {
+        "id": "productor",
+        "nombre": "Sector productor",
+        "items": [
+          { "titulo": "Instalación de cocinas sobre medidas", "icono": "flame" },
+          { "titulo": "Instalación de puertas metálicas", "icono": "door-open" },
+          { "titulo": "Instalación de muebles de baño", "icono": "shower-head" },
+          { "titulo": "Closets e interiores de closets", "icono": "shirt" },
+          { "titulo": "Carpintería arquitectónica", "icono": "hammer" }
+        ]
+      },
+      {
+        "id": "empresarial",
+        "nombre": "Sector empresarial",
+        "items": [
+          { "titulo": "Traslado de oficinas", "icono": "truck" },
+          { "titulo": "Desmonte e instalación de mobiliario", "icono": "package" },
+          { "titulo": "Mobiliario para sesiones fotográficas", "icono": "camera" },
+          { "titulo": "Instalación de estructuras", "icono": "layers" }
+        ]
+      },
+      {
+        "id": "btl",
+        "nombre": "Sector BTL",
+        "items": [
+          { "titulo": "Montajes para eventos", "icono": "party-popper" }
+        ]
+      },
+      {
+        "id": "estatal",
+        "nombre": "Sector estatal",
+        "items": [
+          { "titulo": "Mantenimiento de edificios", "icono": "building-2" },
+          { "titulo": "Mantenimiento de redes eléctricas", "icono": "zap" }
+        ]
+      }
+    ]
+  },
+
+  "cifras": {
+    "_limite": "Exactamente 4. Solo cifras reales y verificables.",
+    "items": [
+      { "numero": 12, "sufijo": "+", "texto": "Años de experiencia en Colombia y Perú", "icono": "award" },
+      { "numero": 490000, "sufijo": "+", "texto": "Servicios prestados", "icono": "check-circle" },
+      { "numero": 7, "sufijo": "", "texto": "Ciudades atendidas", "icono": "map-pin" },
+      { "numero": 2, "sufijo": "", "texto": "Países de operación", "icono": "globe" }
+    ]
+  },
+
+  "diferentes": {
+    "encabezado": "Diferenciadores",
+    "titulo": "Lo que nos hace diferentes",
+    "texto": "No solo instalas: trabajamos como un socio que responde y respalda cada proyecto.",
+    "items": [
+      {
+        "titulo": "Personal rápido y oportuno",
+        "texto": "Equipos que atienden de manera ágil las solicitudes de nuestros clientes.",
+        "icono": "timer"
+      },
+      {
+        "titulo": "+12 años en el mercado",
+        "texto": "Experiencia nacional e internacional en diferentes tipos de proyectos.",
+        "icono": "award"
+      },
+      {
+        "titulo": "Personal calificado",
+        "texto": "Capacitaciones frecuentes para aumentar la productividad y la excelencia.",
+        "icono": "graduation-cap"
+      },
+      {
+        "titulo": "Garantía",
+        "texto": "Todos nuestros trabajos cuentan con garantía de hasta 24 meses.",
+        "icono": "shield-check"
+      },
+      {
+        "titulo": "Respaldo",
+        "texto": "Pólizas de responsabilidad y de cumplimiento que dan confianza a los clientes.",
+        "icono": "file-check"
+      },
+      {
+        "titulo": "Confianza",
+        "texto": "Estrictos procesos de selección para formar los mejores equipos de trabajo.",
+        "icono": "users"
+      }
+    ]
+  },
+
+  "cta": {
+    "encabezado": "Comunícate",
+    "titulo": "Comunícate con nuestro equipo de trabajo",
+    "texto": "Cuéntanos tu proyecto y el equipo adecuado te contactará con el servicio oportuno que necesitas.",
+    "botones": [
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" },
+      { "texto": "Escribir por WhatsApp", "href": "wa", "estilo": "btn-ghost-oscuro" }
+    ]
+  }
+}

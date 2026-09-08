@@ -1,0 +1,97 @@
+---
+/**
+ * Plantilla de página de sector (retail, constructor, empresarial,
+ * productor, BTL, estatal). Recibe los datos por prop.
+ * REGLA: aquí NO se escribe texto. Todo sale del JSON del sector.
+ */
+import Layout from "../layouts/Layout.astro";
+import sitio from "../datos/sitio.json";
+
+interface Props {
+  datos: Record<string, any>;
+}
+const { datos } = Astro.props;
+const { meta, encabezado, servicios, pilares, cta } = datos;
+
+function rutaWa(destino: string) {
+  if (destino === "wa") return `https://wa.me/${sitio.whatsapp}`;
+  return destino;
+}
+const idSector = Astro.url.pathname.split("/")[1]?.replace("sector-", "") ?? "";
+---
+
+<Layout titulo={meta.titulo} descripcion={meta.descripcion} activa={idSector}>
+  {/* ==================== ENCABEZADO ==================== */}
+  <header class="encabezado">
+    <div class="encabezado-fondo">
+      <img src={encabezado.imagenFondo} alt="" loading="eager" />
+    </div>
+    <div class="encabezado-velo"></div>
+    <div class="container">
+      <nav class="miga reveal">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <span>{encabezado.etiqueta}</span>
+      </nav>
+      <h1 class="reveal">
+        {encabezado.titulo.split("\n").map((l, i, arr) => (
+          <span>{l}{i < arr.length - 1 && <br />}</span>
+        ))}
+      </h1>
+      <p class="reveal" style="max-width:64ch">{encabezado.texto}</p>
+    </div>
+  </header>
+
+  {/* ==================== SERVICIOS ==================== */}
+  <section class="pad" id="servicios">
+    <div class="container">
+      <span class="eyebrow reveal"><span class="dot"></span> {servicios.encabezado}</span>
+      <h2 class="section-title reveal">{servicios.titulo}</h2>
+      <p class="lead reveal">{servicios.texto}</p>
+
+      <div class="servicios-sector" data-stagger>
+        {servicios.items.map((s) => (
+          <article class="servicio-item reveal-up">
+            <div class="icono-caja"><i data-lucide={s.icono}></i></div>
+            <h3>{s.titulo}</h3>
+            <p>{s.texto}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ==================== PILARES ==================== */}
+  <section class="pad bloque-oscuro" id="pilares">
+    <div class="container">
+      <span class="eyebrow reveal"><span class="dot"></span> {pilares.encabezado}</span>
+      <h2 class="section-title reveal">{pilares.titulo}</h2>
+
+      <div class="grid-pilares" data-stagger>
+        {pilares.items.map((p) => (
+          <article class="pilar reveal-pop">
+            <div class="icono-caja"><i data-lucide={p.icono}></i></div>
+            <h3>{p.titulo}</h3>
+            <p>{p.texto}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ==================== CTA FINAL ==================== */}
+  <section class="pad" style="background:var(--bg-soft)">
+    <div class="container">
+      <div class="cta-final reveal">
+        <div class="brillo"></div>
+        <h2>{cta.titulo}</h2>
+        <p>{cta.texto}</p>
+        <div class="acciones">
+          {cta.botones.map((b) => (
+            <a href={rutaWa(b.href)} class={`btn ${b.estilo}`}>{b.texto}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

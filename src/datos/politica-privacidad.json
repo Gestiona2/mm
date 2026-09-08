@@ -1,0 +1,51 @@
+{
+  "_comentario": "Contenido de la página Política de privacidad. Texto genérico de propuesta: revisar y ajustar con el cliente antes de publicar.",
+
+  "meta": {
+    "titulo": "Política de privacidad · Manos Maestras",
+    "descripcion": "Política de privacidad de Manos Maestras."
+  },
+
+  "encabezado": {
+    "etiqueta": "Legal",
+    "titulo": "Política de privacidad",
+    "texto": "Última actualización: propuesta de diseño.",
+    "imagenFondo": "/img/oficina.jpg"
+  },
+
+  "secciones": [
+    {
+      "titulo": "Responsable del tratamiento",
+      "parrafos": [
+        "Manos Maestras, con domicilio en Bogotá, Colombia, es el responsable del tratamiento de los datos personales que usted suministra a través de este sitio web."
+      ]
+    },
+    {
+      "titulo": "Datos que recopilamos",
+      "parrafos": [
+        "A través del formulario de contacto recopilamos su nombre, empresa, número de celular, el sector al que pertenece y el mensaje que nos envía.",
+        "No utilizamos cookies de seguimiento de terceros ni herramientas de publicidad que compartan sus datos con terceros."
+      ]
+    },
+    {
+      "titulo": "Finalidad del tratamiento",
+      "parrafos": [
+        "Los datos que nos suministra se utilizan únicamente para dar respuesta a su solicitud de contacto y para presentarle la propuesta de servicio que requiere.",
+        "Si usted no otorga una autorización expresa, sus datos no se usarán para fines de mercadeo ni se compartirán con terceros."
+      ]
+    },
+    {
+      "titulo": "Ejercicio de sus derechos",
+      "parrafos": [
+        "De acuerdo con la Ley 1581 de 2012 y sus decretos reglamentarios, usted puede conocer, actualizar, rectificar o suprimir sus datos personales y revocar la autorización.",
+        "Para ejercer estos derechos puede escribirnos a servicioalcliente@manosmaestras.com indicando el asunto \"Protección de datos\"."
+      ]
+    },
+    {
+      "titulo": "Vigencia",
+      "parrafos": [
+        "Esta política puede ser actualizada en cualquier momento. La versión vigente será la publicada en este sitio."
+      ]
+    }
+  ]
+}

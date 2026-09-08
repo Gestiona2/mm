@@ -1,0 +1,95 @@
+{
+  "_comentario": "Contenido de la página Nosotros (nosotros.astro). El texto, los valores y el legado se editan aquí.",
+
+  "meta": {
+    "titulo": "Nosotros · Manos Maestras",
+    "descripcion": "Más de 12 años de experiencia instalando y montando en Colombia y Perú. Conoce nuestros valores y nuestro legado."
+  },
+
+  "encabezado": {
+    "etiqueta": "Nosotros",
+    "titulo": "Nosotros",
+    "texto": "Expertos con experiencia y calidad a tu servicio.",
+    "imagenFondo": "/img/foto-grupal-manos-maestras.jpg"
+  },
+
+  "presentacion": {
+    "encabezado": "Quiénes somos",
+    "titulo": "Nuestros valores son la clave del éxito al servir",
+    "texto": "En Manos Maestras, todos los valores están enfocados en prestar la mejor atención.",
+    "imagen": "/img/foto-grupal-manos-maestras.jpg",
+    "imagenAlt": "Equipo de trabajo de Manos Maestras"
+  },
+
+  "valores": {
+    "encabezado": "Valores",
+    "titulo": "Lo que nos guía en cada servicio",
+    "items": [
+      {
+        "titulo": "Oportunidad",
+        "texto": "Nunca hay una segunda oportunidad para causar una primera buena impresión; por eso velamos por prestar un servicio oportuno.",
+        "icono": "timer"
+      },
+      {
+        "titulo": "Personal humano",
+        "texto": "Somos una compañía a la vanguardia de la tecnología, pero entendemos que la clave del éxito es nuestra gente.",
+        "icono": "users"
+      },
+      {
+        "titulo": "Calidad en nuestro servicio",
+        "texto": "Trabajamos con estrictos procesos y procedimientos que aseguren la calidad para satisfacción de nuestros clientes.",
+        "icono": "badge-check"
+      },
+      {
+        "titulo": "Respaldo",
+        "texto": "Con más de 12 años de experiencia ofrecemos respaldo prestando servicios con personal altamente calificado.",
+        "icono": "shield-check"
+      }
+    ]
+  },
+
+  "legado": {
+    "_nota": "El legado es una lista con foto e ícono. Cada entrada es un dato de la compañía.",
+    "encabezado": "Legado",
+    "titulo": "Legado Manos Maestras",
+    "items": [
+      {
+        "titulo": "Operación en 2 países",
+        "texto": "Perú y Colombia.",
+        "icono": "globe"
+      },
+      {
+        "titulo": "7 ciudades atendidas",
+        "texto": "Bogotá, Medellín, Cali, Cartagena, Barranquilla y Pereira en Colombia; y Lima, Perú.",
+        "icono": "map-pin"
+      },
+      {
+        "titulo": "Más de 490.000 servicios prestados",
+        "texto": "Una cifra que nos compromete a seguir mejorando cada día.",
+        "icono": "check-circle"
+      }
+    ]
+  },
+
+  "clientes": {
+    "encabezado": "Confianza",
+    "titulo": "Ellos confían en nosotros",
+    "texto": "Almacenes de cadena y marcas líderes nos confían sus proyectos año tras año.",
+    "logos": [
+      { "archivo": "/img/clientes/homecenter.jpg", "nombre": "Homecenter" },
+      { "archivo": "/img/clientes/falabella.jpg", "nombre": "Falabella" },
+      { "archivo": "/img/clientes/tugo.jpg", "nombre": "TuGo" },
+      { "archivo": "/img/clientes/easy.jpg", "nombre": "Easy" },
+      { "archivo": "/img/clientes/sodimac.jpg", "nombre": "Sodimac" },
+      { "archivo": "/img/clientes/sentry.png", "nombre": "Sentry" }
+    ]
+  },
+
+  "cta": {
+    "titulo": "Sé parte de los que confían en Manos Maestras",
+    "texto": "Comunícate con nuestro equipo y cuéntanos tu proyecto.",
+    "botones": [
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+    ]
+  }
+}

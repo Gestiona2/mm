@@ -1,0 +1,44 @@
+{
+  "_comentario": "Contenido de la página Tratamiento de datos. Texto genérico de propuesta: revisar y ajustar con el cliente antes de publicar.",
+
+  "meta": {
+    "titulo": "Tratamiento de datos · Manos Maestras",
+    "descripcion": "Autorización y tratamiento de datos personales de Manos Maestras."
+  },
+
+  "encabezado": {
+    "etiqueta": "Legal",
+    "titulo": "Tratamiento de datos",
+    "texto": "Cómo tratamos los datos personales que nos confías.",
+    "imagenFondo": "/img/oficina.jpg"
+  },
+
+  "secciones": [
+    {
+      "titulo": "Autorización",
+      "parrafos": [
+        "Al enviar el formulario de contacto de este sitio, usted autoriza de manera libre, previa, expresa e informada a Manos Maestras para tratar sus datos personales conforme a esta política."
+      ]
+    },
+    {
+      "titulo": "Tratamiento autorizado",
+      "parrafos": [
+        "El tratamiento incluye recolectar, almacenar, usar, circular y suprimir los datos necesarios para atender su solicitud de contacto y presentar la propuesta de servicio requerida."
+      ]
+    },
+    {
+      "titulo": "Derechos del titular",
+      "parrafos": [
+        "Usted puede, en cualquier momento, solicitar la actualización, rectificación o supresión de sus datos, así como revocar la autorización otorgada.",
+        "Para tales efectos escriba a servicioalcliente@manosmaestras.com."
+      ]
+    },
+    {
+      "titulo": "Seguridad",
+      "parrafos": [
+        "Manos Maestras adopta medidas técnicas y administrativas razonables para proteger los datos personales contra pérdida, uso indebido y acceso no autorizado.",
+        "Sus datos no serán compartidos con terceros salvo obligación legal o autorización expresa."
+      ]
+    }
+  ]
+}

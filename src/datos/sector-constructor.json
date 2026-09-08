@@ -1,0 +1,46 @@
+{
+  "_comentario": "Contenido de la página Sector constructor. El encabezado, los servicios y los pilares se editan aquí.",
+
+  "meta": {
+    "titulo": "Sector constructor · Manos Maestras",
+    "descripcion": "Aliados estratégicos de constructoras: instalación y montaje en obra para cumplir tus proyectos."
+  },
+
+  "encabezado": {
+    "etiqueta": "Sector constructor",
+    "titulo": "Sector\nconstructor",
+    "texto": "Somos aliados estratégicos en el cumplimiento de todos tus proyectos.",
+    "imagenFondo": "/img/obra-edificio.jpg"
+  },
+
+  "servicios": {
+    "encabezado": "12 años instalando",
+    "titulo": "Lo que instalamos en obra",
+    "texto": "Equipos técnicos que llegan a tu proyecto cuando el cronograma lo requiere.",
+    "items": [
+      { "titulo": "Cocinas", "texto": "Cocinas integrales y todos sus accesorios, como griferías y electrodomésticos.", "icono": "flame" },
+      { "titulo": "Muebles de baño", "texto": "Hacemos nuestro trabajo de manera ágil para los clientes.", "icono": "shower-head" },
+      { "titulo": "Persianas", "texto": "Embellecemos cada espacio de nuestros clientes.", "icono": "blinds" },
+      { "titulo": "Soportes de TV", "texto": "Hacemos más fácil la vida de nuestros clientes.", "icono": "monitor" }
+    ]
+  },
+
+  "pilares": {
+    "encabezado": "Nuestro servicio",
+    "titulo": "Los pilares de nuestro servicio",
+    "items": [
+      { "titulo": "Puntualidad", "texto": "La atención oportuna es la base de la satisfacción de nuestros clientes.", "icono": "timer" },
+      { "titulo": "Servicio oportuno", "texto": "La mezcla perfecta entre talento y compromiso en el momento más indicado.", "icono": "zap" },
+      { "titulo": "Garantía", "texto": "Todos nuestros servicios cuentan con hasta 24 meses de garantía.", "icono": "shield-check" },
+      { "titulo": "Equipo humano capacitado", "texto": "Todo nuestro personal cuenta con capacitaciones frecuentes.", "icono": "graduation-cap" }
+    ]
+  },
+
+  "cta": {
+    "titulo": "Contáctanos para tener el gusto de atenderte",
+    "texto": "Déjanos ser tu aliado estratégico en cada obra.",
+    "botones": [
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+    ]
+  }
+}

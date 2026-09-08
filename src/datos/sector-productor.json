@@ -1,0 +1,51 @@
+{
+  "_comentario": "Contenido de la página Sector productor. El encabezado, los servicios y los pilares se editan aquí.",
+
+  "meta": {
+    "titulo": "Sector productor · Manos Maestras",
+    "descripcion": "Somos tu departamento técnico y de instalaciones para que tu equipo se dedique a su core de negocio."
+  },
+
+  "encabezado": {
+    "etiqueta": "Sector productor",
+    "titulo": "Sector\nproductor",
+    "texto": "Podemos ser tu departamento técnico y/o de instalaciones para que todo tu personal se dedique a su core de negocio.",
+    "imagenFondo": "/img/carpinteria.jpg"
+  },
+
+  "servicios": {
+    "encabezado": "Tu departamento de instalaciones",
+    "titulo": "Proveedores estratégicos para garantizar la satisfacción de tus clientes",
+    "texto": "Atendemos servicios de instalación para fabricantes que no cuentan con un área propia.",
+    "items": [
+      { "titulo": "Instalación de cocinas sobre medidas", "texto": "Montaje de cocinas a la medida de cada proyecto.", "icono": "flame" },
+      { "titulo": "Instalación de puertas metálicas", "texto": "Instalación segura y verificada de puertas metálicas.", "icono": "door-open" },
+      { "titulo": "Instalación de muebles de baño", "texto": "Muebles de baño instalados con acabado profesional.", "icono": "shower-head" },
+      { "titulo": "Closets e interiores de closets", "texto": "Closets y sus interiores, listos para el uso diario.", "icono": "shirt" },
+      { "titulo": "Carpintería arquitectónica", "texto": "Trabajos de carpintería con precisión arquitectónica.", "icono": "hammer" },
+      { "titulo": "Instalación de muebles", "texto": "Montaje de muebles de línea y de medida.", "icono": "layout-grid" },
+      { "titulo": "Instalación de lámparas", "texto": "Lámparas instaladas con seguridad eléctrica.", "icono": "lightbulb" },
+      { "titulo": "Instalación de drywall", "texto": "Muros y estructuras en drywall terminados en obra.", "icono": "panels-top-left" },
+      { "titulo": "Instalación de pintura", "texto": "Pintura de interiores y exteriores con acabado fino.", "icono": "paint-roller" }
+    ]
+  },
+
+  "pilares": {
+    "encabezado": "Nuestro servicio",
+    "titulo": "Los pilares de nuestro servicio",
+    "items": [
+      { "titulo": "Puntualidad", "texto": "La atención oportuna es la base de la satisfacción de nuestros clientes.", "icono": "timer" },
+      { "titulo": "Servicio oportuno", "texto": "La mezcla perfecta entre talento y compromiso en el momento más indicado.", "icono": "zap" },
+      { "titulo": "Garantía", "texto": "Todos nuestros servicios cuentan con hasta 24 meses de garantía.", "icono": "shield-check" },
+      { "titulo": "Equipo humano capacitado", "texto": "Todo nuestro personal cuenta con capacitaciones frecuentes.", "icono": "graduation-cap" }
+    ]
+  },
+
+  "cta": {
+    "titulo": "Contáctanos para tener el gusto de atenderte",
+    "texto": "Déjanos ser tu departamento técnico y de instalaciones.",
+    "botones": [
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+    ]
+  }
+}

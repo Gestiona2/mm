@@ -1,0 +1,77 @@
+{
+  "_comentario": "Contenido de la página Contacto (contacto.astro). Datos de sedes y formulario. Los datos globales (WhatsApp principal, correo) vienen de sitio.json.",
+
+  "meta": {
+    "titulo": "Contacto · Manos Maestras",
+    "descripcion": "Comunícate con nuestro equipo de trabajo en Colombia y Perú. Cuéntanos tu proyecto."
+  },
+
+  "encabezado": {
+    "etiqueta": "Contacto",
+    "titulo": "Cuéntanos tu proyecto",
+    "texto": "Muy pronto nos comunicaremos contigo.",
+    "imagenFondo": "/img/contacto-bogota.jpg"
+  },
+
+  "sedes": [
+    {
+      "pais": "Colombia",
+      "ciudad": "Bogotá",
+      "nombre": "Sede principal",
+      "foto": "/img/contacto-bogota.jpg",
+      "direccion": "Calle 67G # 65A-95, Bogotá",
+      "telefono": "(571) 744 8746",
+      "lineaNacional": "018000188746",
+      "whatsapp": "318 351 7494",
+      "correo": "servicioalcliente@manosmaestras.com"
+    },
+    {
+      "pais": "Colombia",
+      "ciudad": "Bogotá",
+      "nombre": "Oficina",
+      "direccion": "Carrera 66 No 67A-81, Oficina 201",
+      "telefono": "(571) 744 8746",
+      "lineaNacional": "018000188746",
+      "whatsapp": "317 644 8011",
+      "correo": "servicioalcliente@manosmaestras.com"
+    },
+    {
+      "pais": "Perú",
+      "ciudad": "Lima",
+      "nombre": "Sede Perú",
+      "foto": "/img/contacto-peru.jpg",
+      "direccion": "Calle Alfredo Novoa 142, Urb. Vista Alegre, Santiago de Surco",
+      "referencia": "Referencia: altura de la Av. de Velasco Astete",
+      "telefono": "(01) 692 9988",
+      "whatsapp": "982 521 051",
+      "correo": "serviciosalclienteperu@manosmaestras.com"
+    }
+  ],
+
+  "formulario": {
+    "encabezado": "Escribe tu mensaje",
+    "titulo": "Comunícate con nuestro equipo de trabajo",
+    "texto": "Déjanos tu nombre, tu sector y un mensaje. Un asesor te responderá por WhatsApp con la propuesta adecuada para tu proyecto.",
+    "campos": {
+      "nombre": { "etiqueta": "Nombre", "requerido": true, "placeholder": "Tu nombre" },
+      "empresa": { "etiqueta": "Empresa", "requerido": false, "placeholder": "Tu empresa (opcional)" },
+      "telefono": { "etiqueta": "Celular", "requerido": true, "placeholder": "Tu número de WhatsApp" },
+      "sector": {
+        "etiqueta": "Sector al que perteneces",
+        "requerido": true,
+        "opciones": [
+          "Sector retail",
+          "Sector constructor",
+          "Sector empresarial",
+          "Sector productor",
+          "Sector BTL",
+          "Sector estatal",
+          "Otro"
+        ]
+      },
+      "mensaje": { "etiqueta": "Cuéntanos tu proyecto", "requerido": false, "placeholder": "Describe brevemente en qué necesitas ayuda…" }
+    },
+    "boton": "Enviar mensaje por WhatsApp",
+    "nota": "Al enviar, se abrirá WhatsApp con tu mensaje. Sin formularios ocultos ni listas de correo."
+  }
+}

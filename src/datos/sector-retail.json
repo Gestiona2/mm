@@ -1,0 +1,49 @@
+{
+  "_comentario": "Contenido de la página Sector retail. El encabezado, los servicios y los pilares se editan aquí.",
+
+  "meta": {
+    "titulo": "Sector retail · Manos Maestras",
+    "descripcion": "Instalación y montaje para almacenes de cadena: 12 años de alianza con el retail colombiano."
+  },
+
+  "encabezado": {
+    "etiqueta": "Sector retail",
+    "titulo": "Sector\nretail",
+    "texto": "Contamos con más de 12 años de experiencia en el sector del retail, atendiendo los principales almacenes de cadena en el mercado colombiano.",
+    "imagenFondo": "/img/cocina-integral.jpg"
+  },
+
+  "servicios": {
+    "encabezado": "12 años instalando",
+    "titulo": "Lo que instalamos para el retail",
+    "texto": "Equipos que acompañan la comodidad en la casa de los clientes de los almacenes.",
+    "items": [
+      { "titulo": "Muebles de baño", "texto": "Hacemos nuestro trabajo de manera ágil para los clientes.", "icono": "shower-head" },
+      { "titulo": "Persianas", "texto": "Embellecemos cada espacio de nuestros clientes.", "icono": "blinds" },
+      { "titulo": "Soportes de TV", "texto": "Hacemos más fácil la vida de nuestros clientes.", "icono": "monitor" },
+      { "titulo": "Duchas y cabinas de duchas", "texto": "Somos cómplices de los sueños de nuestros clientes.", "icono": "droplets" },
+      { "titulo": "Muebles modulares", "texto": "Acompañamos la comodidad en la casa de nuestros clientes.", "icono": "layout-grid" },
+      { "titulo": "Camas y camarotes", "texto": "Hacemos parte de ese descanso perfecto que buscan nuestros clientes.", "icono": "bed-double" },
+      { "titulo": "Comedor", "texto": "Armamos espacios para compartir en familia.", "icono": "utensils" }
+    ]
+  },
+
+  "pilares": {
+    "encabezado": "Nuestro servicio",
+    "titulo": "Los pilares de nuestro servicio",
+    "items": [
+      { "titulo": "Puntualidad", "texto": "La atención oportuna es la base de la satisfacción de nuestros clientes.", "icono": "timer" },
+      { "titulo": "Servicio oportuno", "texto": "La mezcla perfecta entre talento y compromiso en el momento más indicado.", "icono": "zap" },
+      { "titulo": "Garantía", "texto": "Todos nuestros servicios cuentan con hasta 24 meses de garantía.", "icono": "shield-check" },
+      { "titulo": "Equipo humano capacitado", "texto": "Todo nuestro personal cuenta con capacitaciones frecuentes.", "icono": "graduation-cap" }
+    ]
+  },
+
+  "cta": {
+    "titulo": "Contáctanos para tener el gusto de atenderte",
+    "texto": "Déjanos ser tu aliado en cada instalación del retail.",
+    "botones": [
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "_comentario": "Datos que se repiten en todas las páginas: menú, pie, contacto. El contenido de cada página va en su propio archivo (inicio.json, sector-retail.json...).",
+
+  "nombre": "Manos Maestras",
+  "razonSocial": "Manos Maestras",
+  "nit": "PENDIENTE — confirmar con el cliente",
+  "descripcion": "Expertos con experiencia y calidad a tu servicio. Más de 12 años de experiencia en proyectos nacionales e internacionales de instalación y montaje para retail, construcción, empresas y entidades públicas.",
+
+  "whatsapp": "573183517494",
+  "correo": "servicioalcliente@manosmaestras.com",
+  "correoLegal": "servicioalcliente@manosmaestras.com",
+  "direccion": "Calle 67G # 65A-95, Bogotá, Colombia",
+  "direccionPeru": "Calle Alfredo Novoa 142, Urb. Vista Alegre, Santiago de Surco, Lima, Perú",
+  "telefonoColombia": "(571) 744 8746",
+  "telefonoPeru": "(01) 692 9988",
+  "horario": "Lunes a viernes, 8:00 a.m. a 6:00 p.m.",
+
+  "claveTema": "manos-maestras-tema",
+
+  "menu": [
+    { "id": "inicio", "texto": "Inicio", "href": "/" },
+    { "id": "campos", "texto": "Campos de acción", "href": "/sector-retail", "despliega": "sectores" },
+    { "id": "nosotros", "texto": "Nosotros", "href": "/nosotros" },
+    { "id": "contacto", "texto": "Contacto", "href": "/contacto" }
+  ],
+
+  "sectores": [
+    { "id": "retail", "texto": "Sector retail", "href": "/sector-retail" },
+    { "id": "constructor", "texto": "Sector constructor", "href": "/sector-constructor" },
+    { "id": "empresarial", "texto": "Sector empresarial", "href": "/sector-empresarial" },
+    { "id": "productor", "texto": "Sector productor", "href": "/sector-productor" },
+    { "id": "btl", "texto": "Sector BTL", "href": "/sector-btl" },
+    { "id": "estatal", "texto": "Sector estatal", "href": "/sector-estatal" }
+  ],
+
+  "ctaPrincipal": {
+    "texto": "Cotizar",
+    "href": "/contacto"
+  },
+
+  "redes": [
+    { "nombre": "Facebook", "icono": "facebook", "href": "https://es-la.facebook.com/manosmaestrascolombia/" }
+  ],
+
+  "legales": [
+    { "texto": "Política de privacidad", "href": "/politica-privacidad" },
+    { "texto": "Tratamiento de datos", "href": "/tratamiento-datos" }
+  ]
+}

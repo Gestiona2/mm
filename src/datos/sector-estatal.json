@@ -1,0 +1,50 @@
+{
+  "_comentario": "Contenido de la página Sector estatal. El encabezado, los servicios y los pilares se editan aquí.",
+
+  "meta": {
+    "titulo": "Sector estatal · Manos Maestras",
+    "descripcion": "Apoyamos el progreso del país: mantenimiento y montaje para entidades del Estado en licitaciones."
+  },
+
+  "encabezado": {
+    "etiqueta": "Sector estatal",
+    "titulo": "Sector\nestatal",
+    "texto": "Apoyamos el progreso del país, en diferentes licitaciones, adquiriendo experiencia y siendo un elemento de desarrollo para Colombia.",
+    "imagenFondo": "/img/construccion.jpg"
+  },
+
+  "servicios": {
+    "encabezado": "Qué podemos hacer por ti",
+    "titulo": "¿Qué podemos hacer por ti?",
+    "texto": "Mantenimiento y montaje para edificios públicos, oficinas y espacios de trabajo.",
+    "items": [
+      { "titulo": "Mantenimiento de edificios", "texto": "Mantenimiento integral que conserva los espacios públicos en buen estado.", "icono": "building-2" },
+      { "titulo": "Mobiliario empresarial", "texto": "Fabricación e instalación de mobiliario para entidades.", "icono": "layout-grid" },
+      { "titulo": "Refacciones para oficinas", "texto": "Reparaciones y ajustes para oficinas y dependencias.", "icono": "wrench" },
+      { "titulo": "Remodelaciones de espacios laborales", "texto": "Remodelaciones para oficinas y espacios de trabajo.", "icono": "hammer" },
+      { "titulo": "Pinturas para edificios", "texto": "Pintura interior y exterior de edificios institucionales.", "icono": "paint-roller" },
+      { "titulo": "Impermeabilizaciones", "texto": "Protección de cubiertas y estructuras contra filtraciones.", "icono": "cloud-rain" },
+      { "titulo": "Mantenimientos técnicos", "texto": "Mantenimientos hidráulicos, eléctricos y de pinturas.", "icono": "droplets" },
+      { "titulo": "Limpieza de fachadas", "texto": "Limpieza y mantenimiento de fachadas institucionales.", "icono": "spray-can" }
+    ]
+  },
+
+  "pilares": {
+    "encabezado": "Nuestro servicio",
+    "titulo": "Los pilares de nuestro servicio",
+    "items": [
+      { "titulo": "Puntualidad", "texto": "La atención oportuna es la base de la satisfacción de nuestros clientes.", "icono": "timer" },
+      { "titulo": "Servicio oportuno", "texto": "La mezcla perfecta entre talento y compromiso en el momento más indicado.", "icono": "zap" },
+      { "titulo": "Garantía", "texto": "Todos nuestros servicios cuentan con hasta 24 meses de garantía.", "icono": "shield-check" },
+      { "titulo": "Equipo humano capacitado", "texto": "Todo nuestro personal cuenta con capacitaciones frecuentes.", "icono": "graduation-cap" }
+    ]
+  },
+
+  "cta": {
+    "titulo": "Contáctanos para tener el gusto de atenderte",
+    "texto": "Déjanos ser parte de tus proyectos y del desarrollo del país.",
+    "botones": [
+      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" }
+    ]
+  }
+}
