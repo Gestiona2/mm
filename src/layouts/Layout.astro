@@ -54,6 +54,7 @@ const camposActivo = ["retail", "constructor", "empresarial", "productor", "btl"
   <body>
     <!-- ==================== MENÚ ==================== -->
     <header class="nav" id="nav">
+      <div class="nav-progreso" aria-hidden="true"></div>
       <div class="container nav-inner">
         <a href={ruta("/")} class="nav-logo">
           <img src={ruta("/brand/logo.png")} alt={sitio.nombre} />
@@ -285,12 +286,18 @@ const camposActivo = ["retail", "constructor", "empresarial", "productor", "btl"
         apariciones.forEach((el) => observador.observe(el));
       }
 
-      /* ---------- Menú con fondo al bajar + volver arriba ---------- */
+      /* ---------- Menú con fondo al bajar + volver arriba + barra de progreso ---------- */
       const nav = $("#nav");
+      const navProgreso = $(".nav-progreso");
       const volverArriba = $("#volverArriba");
+      const hero = document.querySelector(".portada, .encabezado");
       const alBajar = () => {
-        nav.classList.toggle("bajado", window.scrollY > 20);
+        const limite = hero ? Math.max(hero.offsetHeight - 80, 0) : 240;
+        nav.classList.toggle("bajado", window.scrollY > limite);
         volverArriba.classList.toggle("visible", window.scrollY > 600);
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progreso = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0;
+        navProgreso.style.transform = `scaleX(${progreso})`;
       };
       window.addEventListener("scroll", alBajar, { passive: true });
       alBajar();

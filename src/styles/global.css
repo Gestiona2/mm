@@ -201,6 +201,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
   transition-delay: calc(var(--i, 0) * 90ms);
 }
+.hero-ay { opacity: 0; }
 .reveal-up    { transform: translateY(32px); }
 .reveal-left  { transform: translateX(-32px); }
 .reveal-right { transform: translateX(32px); }
@@ -231,12 +232,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 90;
   padding: 16px 0;
-  background: var(--nav-bg);
-  backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur));
-  border-bottom: 1px solid transparent;
-  transition: padding .3s ease, background .3s ease, box-shadow .3s ease;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: padding .3s ease, background .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
-.nav.bajado { padding: 10px 0; background: var(--nav-bg); border-bottom-color: var(--border); box-shadow: 0 10px 30px var(--shadow); }
+.nav.bajado { padding: 10px 0; background: transparent; border-bottom-color: transparent; box-shadow: none; }
+.nav-progreso { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--marca), var(--acento)); pointer-events: none; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .nav-logo img { height: 48px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
@@ -316,7 +318,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   padding: 150px 0 90px; overflow: hidden; background: var(--oscuro); color: #fff;
 }
 .portada-fondo { position: absolute; inset: 0; }
-.portada-fondo img { width: 100%; height: 100%; object-fit: cover; opacity: .3; }
+.portada-fondo img { width: 100%; height: 100%; object-fit: cover; opacity: .3; animation: fondo-lento 22s ease-in-out infinite alternate; transform-origin: 50% 60%; }
 .portada-velo {
   position: absolute; inset: 0;
   background: radial-gradient(900px 600px at 78% 12%, color-mix(in srgb, var(--acento) 22%, transparent), transparent 62%),
@@ -332,6 +334,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .portada-badge {
   position: absolute; bottom: -22px; left: -22px; background: var(--marca); color: #fff;
   padding: 18px 22px; border-radius: 18px; box-shadow: 0 18px 40px color-mix(in srgb, var(--marca) 40%, transparent);
+  animation: flotar 5s ease-in-out infinite;
 }
 .portada-badge strong { display: block; font-family: var(--font-display); font-size: 1.7rem; line-height: 1; }
 .portada-badge span { font-size: .78rem; opacity: .9; }
@@ -383,6 +386,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   display: grid; place-items: center; background: var(--marca); color: #fff; font-size: 1.2rem;
   box-shadow: 0 10px 26px color-mix(in srgb, var(--marca) 40%, transparent);
 }
+.icono-caja svg, .icono-mini svg, .icono-marca svg, .icono-marca i { transition: transform .3s ease; }
+.tarjeta-sector:hover .icono-marca svg, .tarjeta-sector:hover .icono-marca i { transform: translateY(-4px); }
 @media (max-width: 1024px) { .grid-sectores { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .grid-sectores { grid-template-columns: 1fr; } }
 
@@ -401,7 +406,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .cinta-pista img { height: 44px; width: auto; object-fit: contain; filter: grayscale(1); opacity: .55; transition: filter .3s ease, opacity .3s ease; }
 .cinta-pista img:hover { filter: none; opacity: 1; }
 @keyframes correr { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .cinta-pista { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } }
+@keyframes fondo-lento { from { transform: scale(1); } to { transform: scale(1.1); } }
+@keyframes flotar { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes pulso-wa { 0% { transform: scale(1); opacity: .5; } 100% { transform: scale(2.2); opacity: 0; } }
+@keyframes derivar-brillo { from { transform: translate(0,0) scale(1); } to { transform: translate(-40px, 30px) scale(1.15); } }
+@media (prefers-reduced-motion: reduce) { .cinta-pista { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } .portada-fondo img, .portada-badge, .flota-wa::before, .cta-final .brillo { animation: none !important; } }
 
 /* ============================================================
    SERVICIOS POR SECTOR (tabs en portada)
@@ -576,6 +585,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .cta-final .brillo {
   position: absolute; width: 460px; height: 460px; right: -120px; top: -160px; border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--acento) 32%, transparent), transparent 68%);
+  animation: derivar-brillo 14s ease-in-out infinite alternate;
 }
 @media (max-width: 640px) { .cta-final { padding: 40px 26px; border-radius: 20px; } }
 
@@ -609,8 +619,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   width: 56px; height: 56px; border-radius: 50%; cursor: pointer; border: none;
   transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
 }
-.flota-wa { bottom: 22px; background: #25d366; color: #fff; box-shadow: 0 12px 30px rgba(37,211,102,.4); }
-.flota-wa svg { width: 28px; height: 28px; }
+.flota-wa { bottom: 22px; background: #25d366; color: #fff; box-shadow: 0 12px 30px rgba(37,211,102,.4); overflow: visible; }
+.flota-wa svg { width: 28px; height: 28px; position: relative; z-index: 1; }
+.flota-wa::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: rgba(37,211,102,.5); z-index: 0; animation: pulso-wa 2.4s ease-out infinite; }
 .flota-wa:hover { transform: scale(1.08); }
 .volver-arriba {
   bottom: 90px; background: var(--oscuro); color: #fff; opacity: 0; visibility: hidden;

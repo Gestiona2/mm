@@ -26,13 +26,13 @@ function rutaWa(destino) {
     <div class="portada-velo"></div>
     <div class="container portada-grid">
       <div>
-        <span class="eyebrow reveal"><span class="dot"></span> {portada.encabezado}</span>
-        <h1 class="reveal">
+        <span class="eyebrow hero-ay"><span class="dot"></span> {portada.encabezado}</span>
+        <h1 class="hero-ay">
           {portada.titulo}
           <span class="marca-text">{portada.tituloAcento}</span>
         </h1>
-        <p class="lead reveal">{portada.texto}</p>
-        <div class="portada-botones reveal">
+        <p class="lead hero-ay">{portada.texto}</p>
+        <div class="portada-botones hero-ay">
           {portada.botones.map((b) => (
             <a href={rutaWa(b.href)} class={`btn ${b.estilo}`}>{b.texto}</a>
           ))}
@@ -198,6 +198,24 @@ function rutaWa(destino) {
 </Layout>
 
 <script is:inline>
+  /* ---------------- Aparición en cascada de la portada ---------------- */
+  (function () {
+    const menosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const h1 = document.querySelector(".portada h1");
+    const btn = document.querySelector(".portada-botones");
+    const visualImg = document.querySelector(".portada-visual img");
+    if (h1 && btn && !menosMovimiento && window.gsap) {
+      const tl = gsap.timeline({ delay: .2 });
+      tl.from(".portada .eyebrow", { yPercent: 60, opacity: 0, duration: .6, ease: "power3.out" })
+        .from(".portada h1", { yPercent: 90, opacity: 0, duration: .7, ease: "power3.out" }, "-=.4")
+        .from(".portada .lead", { y: 22, opacity: 0, duration: .6, ease: "power3.out" }, "-=.3")
+        .from(".portada-botones", { y: 28, opacity: 0, duration: .6, ease: "power3.out" }, "-=.3")
+        .from(visualImg, { scale: 1.07, duration: 1.1, ease: "power2.out" }, "-=.7");
+    } else if (h1 && btn) {
+      [h1, btn].forEach((el) => { el.style.opacity = 1; el.style.transform = "none"; });
+    }
+  })();
+
   /* Cambiar entre los paneles de servicios de cada sector. */
   window.cambiarTab = function (id) {
     document.querySelectorAll(".tabs-btn").forEach((b) => b.classList.toggle("activa", b.dataset.tab === id));
