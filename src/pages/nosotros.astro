@@ -14,7 +14,7 @@ const { meta, encabezado, presentacion, valores, legado, clientes, cta } = datos
   {/* ==================== ENCABEZADO ==================== */}
   <header class="encabezado">
     <div class="encabezado-fondo">
-      <img src={ruta(encabezado.imagenFondo)} alt="" loading="eager" />
+      <img src={ruta(encabezado.imagenFondo)} alt="" width="1920" height="1080" loading="eager" fetchpriority="high" />
     </div>
     <div class="encabezado-velo"></div>
     <div class="container">
@@ -37,7 +37,7 @@ const { meta, encabezado, presentacion, valores, legado, clientes, cta } = datos
         <p class="lead">{presentacion.texto}</p>
         {presentacion.parrafos?.map((p) => <p class="lead" style="font-weight:400;margin-top:14px">{p}</p>)}
       </div>
-      <img class="foto-redonda reveal-right" src={ruta(presentacion.imagen)} alt={presentacion.imagenAlt} loading="lazy" />
+      <img class="foto-redonda reveal-right" src={ruta(presentacion.imagen)} alt={presentacion.imagenAlt} width="800" height="800" loading="lazy" decoding="async" />
     </div>
   </section>
 
@@ -91,7 +91,7 @@ const { meta, encabezado, presentacion, valores, legado, clientes, cta } = datos
     <div class="cinta reveal">
       <div class="cinta-pista">
         {[...clientes.logos, ...clientes.logos].map((l, i) => (
-          <img key={i} src={ruta(l.archivo)} alt={l.nombre} loading="lazy" />
+          <img key={i} src={ruta(l.archivo)} alt={l.nombre} width="160" height="44" loading="lazy" decoding="async" />
         ))}
       </div>
     </div>

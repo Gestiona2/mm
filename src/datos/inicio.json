@@ -1,11 +1,9 @@
 {
   "_comentario": "Todo el contenido de la página de inicio (index.astro). Una entrada por sección, en el orden de aparición. Los textos se editan aquí; el diseño no se toca. Los datos de contacto salen de sitio.json.",
-
   "meta": {
     "titulo": "Manos Maestras · Instalación y montaje para retail, construcción, empresas y sector público",
     "descripcion": "Más de 12 años instalando y montando para almacenes de cadena, constructoras, empresas, productores, BTL y entidades estatales en Colombia y Perú."
   },
-
   "portada": {
     "encabezado": "Manos Maestras",
     "titulo": "El equipo que tu proyecto necesita,",
@@ -19,11 +17,18 @@
       "texto": "años de experiencia"
     },
     "botones": [
-      { "texto": "Cuéntanos tu proyecto", "href": "/contacto", "estilo": "btn-accent" },
-      { "texto": "Ver campos de acción", "href": "#campos", "estilo": "btn-ghost-oscuro" }
+      {
+        "texto": "Cuéntanos tu proyecto",
+        "href": "/contacto",
+        "estilo": "btn-accent"
+      },
+      {
+        "texto": "Ver campos de acción",
+        "href": "#campos",
+        "estilo": "btn-ghost-oscuro"
+      }
     ]
   },
-
   "campos": {
     "encabezado": "Campos de acción",
     "titulo": "Sectores a los que servimos",
@@ -79,21 +84,37 @@
       }
     ]
   },
-
   "clientes": {
     "encabezado": "Confianza",
     "titulo": "Ellos confían en nosotros",
     "texto": "Almacenes de cadena y marcas líderes nos confían sus proyectos de instalación y montaje año tras año, en Colombia y Perú.",
     "logos": [
-      { "archivo": "/img/clientes/homecenter.jpg", "nombre": "Homecenter" },
-      { "archivo": "/img/clientes/falabella.jpg", "nombre": "Falabella" },
-      { "archivo": "/img/clientes/tugo.jpg", "nombre": "TuGo" },
-      { "archivo": "/img/clientes/easy.jpg", "nombre": "Easy" },
-      { "archivo": "/img/clientes/sodimac.jpg", "nombre": "Sodimac" },
-      { "archivo": "/img/clientes/sentry.png", "nombre": "Sentry" }
+      {
+        "archivo": "/img/clientes/homecenter.jpg",
+        "nombre": "Homecenter"
+      },
+      {
+        "archivo": "/img/clientes/falabella.jpg",
+        "nombre": "Falabella"
+      },
+      {
+        "archivo": "/img/clientes/tugo.jpg",
+        "nombre": "TuGo"
+      },
+      {
+        "archivo": "/img/clientes/easy.jpg",
+        "nombre": "Easy"
+      },
+      {
+        "archivo": "/img/clientes/sodimac.jpg",
+        "nombre": "Sodimac"
+      },
+      {
+        "archivo": "/img/clientes/sentry.png",
+        "nombre": "Sentry"
+      }
     ]
   },
-
   "servicios": {
     "encabezado": "Servicios",
     "titulo": "¿Lo que podemos hacer por ti?",
@@ -103,99 +124,309 @@
         "id": "retail",
         "nombre": "Sector retail",
         "items": [
-          { "titulo": "Muebles modulares", "texto": "Closets, estantes y módulos armados y listos para usar el mismo día de la entrega.", "icono": "layout-grid" },
-          { "titulo": "Cocinas", "texto": "Cocinas integrales montadas con precisión, griferías y electrodomésticos incluidos.", "icono": "flame" },
-          { "titulo": "Tendederos", "texto": "Tendederos fijos, extensibles y de pared instalados con seguridad y nivel.", "icono": "wind" },
-          { "titulo": "Soportes de TV", "texto": "Soportes nivelados y fijados a la estructura, listos para tu pantalla.", "icono": "monitor" },
-          { "titulo": "Organizadores", "texto": "Organizadores y accesorios instalados en el punto exacto que tu cliente necesita.", "icono": "package" },
-          { "titulo": "Persianas", "texto": "Persianas y cortinas instaladas a la altura y acabado correctos.", "icono": "blinds" },
-          { "titulo": "Camas y camarotes", "texto": "Montaje y verificación de camas y camarotes para el descanso del cliente.", "icono": "bed-double" },
-          { "titulo": "Muebles de baño", "texto": "Muebles de baño con griferías y accesorios en su punto.", "icono": "shower-head" },
-          { "titulo": "Comedores", "texto": "Mesas, sillas y muebles de comedor armados y verificados.", "icono": "utensils" }
+          {
+            "titulo": "Muebles modulares",
+            "texto": "Closets, estantes y módulos armados y listos para usar el mismo día de la entrega.",
+            "icono": "layout-grid"
+          },
+          {
+            "titulo": "Cocinas",
+            "texto": "Cocinas integrales montadas con precisión, griferías y electrodomésticos incluidos.",
+            "icono": "flame"
+          },
+          {
+            "titulo": "Tendederos",
+            "texto": "Tendederos fijos, extensibles y de pared instalados con seguridad y nivel.",
+            "icono": "wind"
+          },
+          {
+            "titulo": "Soportes de TV",
+            "texto": "Soportes nivelados y fijados a la estructura, listos para tu pantalla.",
+            "icono": "monitor"
+          },
+          {
+            "titulo": "Organizadores",
+            "texto": "Organizadores y accesorios instalados en el punto exacto que tu cliente necesita.",
+            "icono": "package"
+          },
+          {
+            "titulo": "Persianas",
+            "texto": "Persianas y cortinas instaladas a la altura y acabado correctos.",
+            "icono": "blinds"
+          },
+          {
+            "titulo": "Camas y camarotes",
+            "texto": "Montaje y verificación de camas y camarotes para el descanso del cliente.",
+            "icono": "bed-double"
+          },
+          {
+            "titulo": "Muebles de baño",
+            "texto": "Muebles de baño con griferías y accesorios en su punto.",
+            "icono": "shower-head"
+          },
+          {
+            "titulo": "Comedores",
+            "texto": "Mesas, sillas y muebles de comedor armados y verificados.",
+            "icono": "utensils"
+          }
         ]
       },
       {
         "id": "constructor",
         "nombre": "Sector constructor",
         "items": [
-          { "titulo": "Cocinas integrales", "texto": "Cocinas completas con accesorios, griferías y electrodomésticos instaladas al cronograma de obra.", "icono": "flame" },
-          { "titulo": "Muebles de baño", "texto": "Vanitorios y muebles de baño instalados a tiempo para la entrega del proyecto.", "icono": "shower-head" },
-          { "titulo": "Persianas", "texto": "Blinds, cortinas y acuartamientos en ventanas y puertas.", "icono": "blinds" },
-          { "titulo": "Soportes de TV", "texto": "Bases y soportes para televisores instalados de forma segura en cada unidad.", "icono": "monitor" },
-          { "titulo": "Drywall y cielorrasos", "texto": "Muros, cielorrasos y estructuras en drywall terminados en obra.", "icono": "panels-top-left" },
-          { "titulo": "Carpintería fina", "texto": "Remates, guardaescobas y carpintería de interior con acabado fino.", "icono": "hammer" },
-          { "titulo": "Pintura y acabados", "texto": "Pintura de interiores y exteriores con acabados limpios para entrega.", "icono": "paint-roller" },
-          { "titulo": "Puertas metálicas", "texto": "Puertas metálicas y de seguridad instaladas y verificadas.", "icono": "door-open" }
+          {
+            "titulo": "Cocinas integrales",
+            "texto": "Cocinas completas con accesorios, griferías y electrodomésticos instaladas al cronograma de obra.",
+            "icono": "flame"
+          },
+          {
+            "titulo": "Muebles de baño",
+            "texto": "Vanitorios y muebles de baño instalados a tiempo para la entrega del proyecto.",
+            "icono": "shower-head"
+          },
+          {
+            "titulo": "Persianas",
+            "texto": "Blinds, cortinas y acuartamientos en ventanas y puertas.",
+            "icono": "blinds"
+          },
+          {
+            "titulo": "Soportes de TV",
+            "texto": "Bases y soportes para televisores instalados de forma segura en cada unidad.",
+            "icono": "monitor"
+          },
+          {
+            "titulo": "Drywall y cielorrasos",
+            "texto": "Muros, cielorrasos y estructuras en drywall terminados en obra.",
+            "icono": "panels-top-left"
+          },
+          {
+            "titulo": "Carpintería fina",
+            "texto": "Remates, guardaescobas y carpintería de interior con acabado fino.",
+            "icono": "hammer"
+          },
+          {
+            "titulo": "Pintura y acabados",
+            "texto": "Pintura de interiores y exteriores con acabados limpios para entrega.",
+            "icono": "paint-roller"
+          },
+          {
+            "titulo": "Puertas metálicas",
+            "texto": "Puertas metálicas y de seguridad instaladas y verificadas.",
+            "icono": "door-open"
+          }
         ]
       },
       {
         "id": "productor",
         "nombre": "Sector productor",
         "items": [
-          { "titulo": "Cocinas sobre medidas", "texto": "Cocinas a la medida de cada proyecto, del plano al montaje final.", "icono": "flame" },
-          { "titulo": "Puertas metálicas", "texto": "Instalación segura y verificada de puertas metálicas.", "icono": "door-open" },
-          { "titulo": "Muebles de baño", "texto": "Vanitorios y muebles de baño instalados con acabado profesional.", "icono": "shower-head" },
-          { "titulo": "Closets e interiores", "texto": "Closets y sus divisiones, listos para el uso diario.", "icono": "shirt" },
-          { "titulo": "Carpintería arquitectónica", "texto": "Trabajos de carpintería con precisión arquitectónica.", "icono": "hammer" },
-          { "titulo": "Muebles de línea y de medida", "texto": "Montaje de muebles de línea y a la medida del espacio.", "icono": "layout-grid" },
-          { "titulo": "Lámparas", "texto": "Lámparas instaladas con seguridad eléctrica.", "icono": "lightbulb" },
-          { "titulo": "Drywall", "texto": "Muros y estructuras en drywall terminados en obra.", "icono": "panels-top-left" },
-          { "titulo": "Pintura", "texto": "Pintura de interiores y exteriores con acabado fino.", "icono": "paint-roller" }
+          {
+            "titulo": "Cocinas sobre medidas",
+            "texto": "Cocinas a la medida de cada proyecto, del plano al montaje final.",
+            "icono": "flame"
+          },
+          {
+            "titulo": "Puertas metálicas",
+            "texto": "Instalación segura y verificada de puertas metálicas.",
+            "icono": "door-open"
+          },
+          {
+            "titulo": "Muebles de baño",
+            "texto": "Vanitorios y muebles de baño instalados con acabado profesional.",
+            "icono": "shower-head"
+          },
+          {
+            "titulo": "Closets e interiores",
+            "texto": "Closets y sus divisiones, listos para el uso diario.",
+            "icono": "shirt"
+          },
+          {
+            "titulo": "Carpintería arquitectónica",
+            "texto": "Trabajos de carpintería con precisión arquitectónica.",
+            "icono": "hammer"
+          },
+          {
+            "titulo": "Muebles de línea y de medida",
+            "texto": "Montaje de muebles de línea y a la medida del espacio.",
+            "icono": "layout-grid"
+          },
+          {
+            "titulo": "Lámparas",
+            "texto": "Lámparas instaladas con seguridad eléctrica.",
+            "icono": "lightbulb"
+          },
+          {
+            "titulo": "Drywall",
+            "texto": "Muros y estructuras en drywall terminados en obra.",
+            "icono": "panels-top-left"
+          },
+          {
+            "titulo": "Pintura",
+            "texto": "Pintura de interiores y exteriores con acabado fino.",
+            "icono": "paint-roller"
+          }
         ]
       },
       {
         "id": "empresarial",
         "nombre": "Sector empresarial",
         "items": [
-          { "titulo": "Traslado de oficinas", "texto": "Traslados ágiles que reducen el tiempo muerto de tu operación.", "icono": "truck" },
-          { "titulo": "Adecuación de espacios", "texto": "Preparamos tus espacios para que estén listos antes de abrir.", "icono": "layout-grid" },
-          { "titulo": "Puestos de trabajo", "texto": "Escritorios, sillas y puestos de trabajo instalados y alineados.", "icono": "panels-top-left" },
-          { "titulo": "Refacciones para oficinas", "texto": "Reparaciones y ajustes que mantienen tu oficina en orden.", "icono": "hammer" },
-          { "titulo": "Áreas de bienestar", "texto": "Cocinas, comedores y zonas de descanso montadas para tu equipo.", "icono": "utensils" },
-          { "titulo": "Sesiones fotográficas", "texto": "Montajes profesionales para tus campañas y catálogos.", "icono": "camera" },
-          { "titulo": "Instalación de estructuras", "texto": "Estructuras, módulos y mobiliario especial en tu sede.", "icono": "layers" },
-          { "titulo": "Señalética", "texto": "Cartelería y señalética instalada con precisión.", "icono": "map-pin" }
+          {
+            "titulo": "Traslado de oficinas",
+            "texto": "Traslados ágiles que reducen el tiempo muerto de tu operación.",
+            "icono": "truck"
+          },
+          {
+            "titulo": "Adecuación de espacios",
+            "texto": "Preparamos tus espacios para que estén listos antes de abrir.",
+            "icono": "layout-grid"
+          },
+          {
+            "titulo": "Puestos de trabajo",
+            "texto": "Escritorios, sillas y puestos de trabajo instalados y alineados.",
+            "icono": "panels-top-left"
+          },
+          {
+            "titulo": "Refacciones para oficinas",
+            "texto": "Reparaciones y ajustes que mantienen tu oficina en orden.",
+            "icono": "hammer"
+          },
+          {
+            "titulo": "Áreas de bienestar",
+            "texto": "Cocinas, comedores y zonas de descanso montadas para tu equipo.",
+            "icono": "utensils"
+          },
+          {
+            "titulo": "Sesiones fotográficas",
+            "texto": "Montajes profesionales para tus campañas y catálogos.",
+            "icono": "camera"
+          },
+          {
+            "titulo": "Instalación de estructuras",
+            "texto": "Estructuras, módulos y mobiliario especial en tu sede.",
+            "icono": "layers"
+          },
+          {
+            "titulo": "Señalética",
+            "texto": "Cartelería y señalética instalada con precisión.",
+            "icono": "map-pin"
+          }
         ]
       },
       {
         "id": "btl",
         "nombre": "Sector BTL",
         "items": [
-          { "titulo": "Montajes para eventos", "texto": "Escenarios, mobiliario y puesta en escena montados con seguridad.", "icono": "party-popper" },
-          { "titulo": "Activaciones de marca", "texto": "Puntos de venta y estructuras armadas en tiempo récord.", "icono": "sparkles" },
-          { "titulo": "Stands para ferias", "texto": "Montaje y desmontaje de stands para ferias y exposiciones.", "icono": "layout-grid" },
-          { "titulo": "Sets para fotografía y video", "texto": "Sets y mobiliario listos para producción audiovisual.", "icono": "camera" },
-          { "titulo": "Tarimas y escenarios", "texto": "Tarimas y escenarios montados y verificados en el lugar del evento.", "icono": "layers" },
-          { "titulo": "Logística de montaje", "texto": "Carga, transporte y desmonte del montaje sin contratiempos.", "icono": "truck" }
+          {
+            "titulo": "Montajes para eventos",
+            "texto": "Escenarios, mobiliario y puesta en escena montados con seguridad.",
+            "icono": "party-popper"
+          },
+          {
+            "titulo": "Activaciones de marca",
+            "texto": "Puntos de venta y estructuras armadas en tiempo récord.",
+            "icono": "sparkles"
+          },
+          {
+            "titulo": "Stands para ferias",
+            "texto": "Montaje y desmontaje de stands para ferias y exposiciones.",
+            "icono": "layout-grid"
+          },
+          {
+            "titulo": "Sets para fotografía y video",
+            "texto": "Sets y mobiliario listos para producción audiovisual.",
+            "icono": "camera"
+          },
+          {
+            "titulo": "Tarimas y escenarios",
+            "texto": "Tarimas y escenarios montados y verificados en el lugar del evento.",
+            "icono": "layers"
+          },
+          {
+            "titulo": "Logística de montaje",
+            "texto": "Carga, transporte y desmonte del montaje sin contratiempos.",
+            "icono": "truck"
+          }
         ]
       },
       {
         "id": "estatal",
         "nombre": "Sector estatal",
         "items": [
-          { "titulo": "Mantenimiento de edificios", "texto": "Mantenimiento integral que conserva los espacios públicos en buen estado.", "icono": "building-2" },
-          { "titulo": "Mobiliario para entidades", "texto": "Fabricación e instalación de mobiliario para dependencias.", "icono": "layout-grid" },
-          { "titulo": "Refacciones para oficinas", "texto": "Reparaciones y ajustes para oficinas y dependencias.", "icono": "wrench" },
-          { "titulo": "Remodelaciones", "texto": "Remodelaciones de oficinas y espacios de trabajo.", "icono": "hammer" },
-          { "titulo": "Pintura de edificios", "texto": "Pintura interior y exterior de edificios institucionales.", "icono": "paint-roller" },
-          { "titulo": "Impermeabilizaciones", "texto": "Protección de cubiertas y estructuras contra filtraciones.", "icono": "cloud-rain" },
-          { "titulo": "Mantenimientos técnicos", "texto": "Mantenimientos hidráulicos, eléctricos y de pintura.", "icono": "droplets" },
-          { "titulo": "Limpieza de fachadas", "texto": "Limpieza y mantenimiento de fachadas institucionales.", "icono": "spray-can" }
+          {
+            "titulo": "Mantenimiento de edificios",
+            "texto": "Mantenimiento integral que conserva los espacios públicos en buen estado.",
+            "icono": "building-2"
+          },
+          {
+            "titulo": "Mobiliario para entidades",
+            "texto": "Fabricación e instalación de mobiliario para dependencias.",
+            "icono": "layout-grid"
+          },
+          {
+            "titulo": "Refacciones para oficinas",
+            "texto": "Reparaciones y ajustes para oficinas y dependencias.",
+            "icono": "wrench"
+          },
+          {
+            "titulo": "Remodelaciones",
+            "texto": "Remodelaciones de oficinas y espacios de trabajo.",
+            "icono": "hammer"
+          },
+          {
+            "titulo": "Pintura de edificios",
+            "texto": "Pintura interior y exterior de edificios institucionales.",
+            "icono": "paint-roller"
+          },
+          {
+            "titulo": "Impermeabilizaciones",
+            "texto": "Protección de cubiertas y estructuras contra filtraciones.",
+            "icono": "cloud-rain"
+          },
+          {
+            "titulo": "Mantenimientos técnicos",
+            "texto": "Mantenimientos hidráulicos, eléctricos y de pintura.",
+            "icono": "droplets"
+          },
+          {
+            "titulo": "Limpieza de fachadas",
+            "texto": "Limpieza y mantenimiento de fachadas institucionales.",
+            "icono": "spray-can"
+          }
         ]
       }
     ]
   },
-
   "cifras": {
     "_limite": "Exactamente 4. Solo cifras reales y verificables.",
     "items": [
-      { "numero": 12, "sufijo": "+", "texto": "Años de experiencia en Colombia y Perú", "icono": "award" },
-      { "numero": 490000, "sufijo": "+", "texto": "Servicios prestados", "icono": "check-circle" },
-      { "numero": 7, "sufijo": "", "texto": "Ciudades atendidas", "icono": "map-pin" },
-      { "numero": 2, "sufijo": "", "texto": "Países de operación", "icono": "globe" }
+      {
+        "numero": 12,
+        "sufijo": "+",
+        "texto": "Años de experiencia en Colombia y Perú",
+        "icono": "award"
+      },
+      {
+        "numero": 490000,
+        "sufijo": "+",
+        "texto": "Servicios prestados",
+        "icono": "check-circle"
+      },
+      {
+        "numero": 7,
+        "sufijo": "",
+        "texto": "Ciudades atendidas",
+        "icono": "map-pin"
+      },
+      {
+        "numero": 2,
+        "sufijo": "",
+        "texto": "Países de operación",
+        "icono": "globe"
+      }
     ]
   },
-
   "proceso": {
     "encabezado": "Cómo trabajamos",
     "titulo": "Un proceso simple, de principio a fin",
@@ -223,7 +454,17 @@
       }
     ]
   },
-
+  "video": {
+    "_limite": "Un solo video. La miniatura y el archivo viven en public/. El video solo se carga cuando el visitante lo pide.",
+    "encabezado": "En video",
+    "titulo": "Así trabaja Manos Maestras",
+    "texto": "Un minuto para ver de qué hablamos: el equipo, las obras y la forma de entregar.",
+    "archivo": "/video/manos-maestras.mp4",
+    "miniatura": "/img/video-portada.jpg",
+    "miniaturaAlt": "Dos ingenieros de Manos Maestras se dan la mano frente a una obra en construcción",
+    "botonAlt": "Reproducir el video de Manos Maestras",
+    "duracion": "1:04"
+  },
   "diferentes": {
     "encabezado": "Diferenciadores",
     "titulo": "Lo que nos hace diferentes",
@@ -261,14 +502,21 @@
       }
     ]
   },
-
   "cta": {
     "encabezado": "Comunícate",
     "titulo": "Comunícate con nuestro equipo de trabajo",
     "texto": "Cuéntanos tu proyecto y el equipo adecuado te contactará con el servicio oportuno que necesitas, en Colombia o Perú.",
     "botones": [
-      { "texto": "Contáctanos", "href": "/contacto", "estilo": "btn-accent" },
-      { "texto": "Escribir por WhatsApp", "href": "wa", "estilo": "btn-ghost-oscuro" }
+      {
+        "texto": "Contáctanos",
+        "href": "/contacto",
+        "estilo": "btn-accent"
+      },
+      {
+        "texto": "Escribir por WhatsApp",
+        "href": "wa",
+        "estilo": "btn-ghost-oscuro"
+      }
     ]
   }
 }

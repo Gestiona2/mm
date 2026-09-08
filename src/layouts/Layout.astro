@@ -39,6 +39,9 @@ const camposActivo = ["retail", "constructor", "empresarial", "productor", "btl"
     -->
     <script is:inline define:vars={{ clave: sitio.claveTema }}>
       (function () {
+        // Marca que el JS corre: solo entonces el CSS se atreve a ocultar
+        // lo que una animación tiene que revelar después.
+        document.documentElement.classList.add("js");
         try {
           document.documentElement.setAttribute(
             "data-theme",
@@ -52,26 +55,29 @@ const camposActivo = ["retail", "constructor", "empresarial", "productor", "btl"
   </head>
 
   <body>
+    <a href="#contenido" class="salta-contenido">Saltar al contenido</a>
+
     <!-- ==================== MENÚ ==================== -->
     <header class="nav" id="nav">
       <div class="nav-progreso" aria-hidden="true"></div>
       <div class="container nav-inner">
         <a href={ruta("/")} class="nav-logo">
-          <img src={ruta("/brand/logo.png")} alt={sitio.nombre} />
+          <img src={ruta("/brand/logo.png")} alt={sitio.nombre} width="180" height="48" />
         </a>
 
         <nav class="nav-links" id="navLinks">
           {sitio.menu.map((item) => (
             item.despliega ? (
               <div class="nav-item" data-drop>
-                <a
-                  href={ruta(item.href)}
+                <button
+                  type="button"
                   class={camposActivo ? "activo con-flecha" : "con-flecha"}
-                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="submenu-sectores"
                 >
                   {item.texto}
-                </a>
-                <ul class="nav-sub">
+                </button>
+                <ul class="nav-sub" id="submenu-sectores">
                   {sitio.sectores.map((s) => (
                     <li><a href={ruta(s.href)} class={activa === s.id ? "activo" : ""}>{s.texto}</a></li>
                   ))}
@@ -92,7 +98,7 @@ const camposActivo = ["retail", "constructor", "empresarial", "productor", "btl"
       </div>
     </header>
 
-    <main>
+    <main id="contenido">
       <slot />
     </main>
 
@@ -101,7 +107,7 @@ const camposActivo = ["retail", "constructor", "empresarial", "productor", "btl"
       <div class="container">
         <div class="pie-top">
           <div>
-            <img class="pie-logo" src={ruta("/brand/logo.png")} alt={sitio.nombre} />
+            <img class="pie-logo" src={ruta("/brand/logo.png")} alt={sitio.nombre} width="180" height="48" loading="lazy" />
             <p style="max-width:36ch;font-size:.94rem">{sitio.descripcion}</p>
             <div class="pie-redes">
               {sitio.redes.map((r) => (
@@ -207,37 +213,67 @@ const camposActivo = ["retail", "constructor", "empresarial", "productor", "btl"
 
       /* ---------- Menú en celular ---------- */
       const botonMenu = $("#botonMenu");
+      const navLinks = $("#navLinks");
+      const cerrarMenu = () => {
+        navLinks?.classList.remove("abierto");
+        botonMenu?.setAttribute("aria-expanded", "false");
+      };
       botonMenu?.addEventListener("click", () => {
-        const abierto = $("#navLinks").classList.toggle("abierto");
+        const abierto = navLinks.classList.toggle("abierto");
         botonMenu.setAttribute("aria-expanded", String(abierto));
       });
-
-      /* ---------- Submenú desplegable (escritorio: hover; también click) ---------- */
-      $$("[data-drop]").forEach((item) => {
-        const sub = item.querySelector(".nav-sub");
-        const animar = (abre) => {
-          if (!sub) return;
-          sub.classList.toggle("abierto", abre);
-          item.classList.toggle("abierto", abre);
-        };
-        item.addEventListener("mouseenter", () => animar(true));
-        item.addEventListener("mouseleave", () => animar(false));
-        item.querySelector("a")?.addEventListener("click", (e) => {
-          if (window.innerWidth <= 1100 || !sub) return;
-          e.preventDefault();
-          const ahoraAbierto = sub.classList.contains("abierto");
-          $$("[data-drop]").forEach((o) => {
-            o.querySelector(".nav-sub")?.classList.remove("abierto");
-            o.classList.remove("abierto");
-          });
-          animar(!ahoraAbierto);
-        });
+      // Cerrar al tocar CUALQUIER enlace del menú: si no, en celular
+      // el panel queda abierto encima de la página recién cargada.
+      $$("#navLinks a").forEach((a) => a.addEventListener("click", cerrarMenu));
+      // Cerrar con Escape y al tocar fuera.
+      document.addEventListener("keydown", (e) => {
+        if (e.key !== "Escape") return;
+        cerrarMenu();
+        $$("[data-drop]").forEach((o) => cerrarSub(o));
       });
-      // Al hacer clic en un enlace del submenú en celular, cerrar el desplegable general.
-      $$(".nav-sub a").forEach((a) => {
-        a.addEventListener("click", () => {
-          $("#navLinks")?.classList.remove("abierto");
-          botonMenu?.setAttribute("aria-expanded", "false");
+      document.addEventListener("click", (e) => {
+        if (navLinks?.classList.contains("abierto") &&
+            !navLinks.contains(e.target) && !botonMenu?.contains(e.target)) cerrarMenu();
+        $$("[data-drop]").forEach((o) => { if (!o.contains(e.target)) cerrarSub(o); });
+      });
+
+      /* ---------- Submenú desplegable ----------
+         Escritorio: se abre al pasar el cursor y con clic o teclado.
+         Celular: SOLO con clic — antes se salía temprano y el submenú
+         era inalcanzable, lo que dejaba las 6 páginas de sector sin
+         camino desde el menú. */
+      function abrirSub(item, abre) {
+        const sub = item.querySelector(".nav-sub");
+        const disparador = item.querySelector("button");
+        if (!sub) return;
+        sub.classList.toggle("abierto", abre);
+        item.classList.toggle("abierto", abre);
+        disparador?.setAttribute("aria-expanded", String(abre));
+      }
+      function cerrarSub(item) { abrirSub(item, false); }
+
+      $$("[data-drop]").forEach((item) => {
+        const disparador = item.querySelector("button");
+        const esEscritorio = () => window.innerWidth > 1100;
+
+        item.addEventListener("mouseenter", () => { if (esEscritorio()) abrirSub(item, true); });
+        item.addEventListener("mouseleave", () => { if (esEscritorio()) cerrarSub(item); });
+
+        disparador?.addEventListener("click", () => {
+          const abierto = item.classList.contains("abierto");
+          $$("[data-drop]").forEach(cerrarSub);
+          abrirSub(item, !abierto);
+        });
+        // El submenú también se abre con flecha abajo desde el disparador.
+        disparador?.addEventListener("keydown", (e) => {
+          if (e.key !== "ArrowDown") return;
+          e.preventDefault();
+          abrirSub(item, true);
+          item.querySelector(".nav-sub a")?.focus();
+        });
+        // Al salir con el tabulador del último enlace, se cierra.
+        item.addEventListener("focusout", (e) => {
+          if (esEscritorio() && !item.contains(e.relatedTarget)) cerrarSub(item);
         });
       });
 

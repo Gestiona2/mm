@@ -10,7 +10,7 @@ import datos from "../datos/inicio.json";
 import sitio from "../datos/sitio.json";
 import { ruta } from "../lib/ruta";
 
-const { portada, campos, clientes, servicios, cifras, proceso, diferentes, cta, meta } = datos;
+const { portada, campos, clientes, servicios, cifras, proceso, video, diferentes, cta, meta } = datos;
 function rutaWa(destino) {
   if (destino === "wa") return `https://wa.me/${sitio.whatsapp}`;
   return ruta(destino);
@@ -21,14 +21,14 @@ function rutaWa(destino) {
   {/* ==================== PORTADA ==================== */}
   <header class="portada">
     <div class="portada-fondo">
-      <img src={ruta(portada.imagenFondo)} alt="" loading="eager" />
+      <img src={ruta(portada.imagenFondo)} alt="" width="1920" height="1280" loading="eager" fetchpriority="high" />
     </div>
     <div class="portada-velo"></div>
     <div class="container portada-grid">
       <div>
         <span class="eyebrow hero-ay"><span class="dot"></span> {portada.encabezado}</span>
         <h1 class="hero-ay">
-          {portada.titulo}
+          {portada.titulo}{" "}
           <span class="marca-text">{portada.tituloAcento}</span>
         </h1>
         <p class="lead hero-ay">{portada.texto}</p>
@@ -39,7 +39,7 @@ function rutaWa(destino) {
         </div>
       </div>
       <div class="portada-visual" data-parallax="0.06">
-        <img src={ruta(portada.imagenVisual)} alt={portada.imagenAlt} loading="eager" />
+        <img src={ruta(portada.imagenVisual)} alt={portada.imagenAlt} width="900" height="600" loading="eager" fetchpriority="high" />
         <div class="portada-badge">
           <strong>{portada.badge.numero}</strong>
           <span>{portada.badge.texto}</span>
@@ -59,7 +59,7 @@ function rutaWa(destino) {
         {campos.items.map((s) => (
           <a class="tarjeta-sector reveal-up" href={ruta(s.href)}>
             <div class="foto">
-              <img src={ruta(s.imagen)} alt={`${s.titulo} — trabajos realizados por Manos Maestras`} loading="lazy" />
+              <img src={ruta(s.imagen)} alt={`${s.titulo} — trabajos realizados por Manos Maestras`} width="600" height="400" loading="lazy" decoding="async" />
             </div>
             <div class="cuerpo">
               <div class="icono-marca"><i data-lucide={s.icono}></i></div>
@@ -88,7 +88,7 @@ function rutaWa(destino) {
     <div class="cinta reveal">
       <div class="cinta-pista">
         {[...clientes.logos, ...clientes.logos].map((l, i) => (
-          <img key={i} src={ruta(l.archivo)} alt={l.nombre} loading="lazy" />
+          <img key={i} src={ruta(l.archivo)} alt={l.nombre} width="160" height="44" loading="lazy" decoding="async" />
         ))}
       </div>
     </div>
@@ -102,15 +102,31 @@ function rutaWa(destino) {
       <p class="lead reveal">{servicios.texto}</p>
 
       <div class="tabs reveal">
-        <div class="tabs-pestanas">
+        <div class="tabs-pestanas" role="tablist" aria-label={servicios.titulo}>
           {servicios.tabs.map((t, i) => (
-            <button class="tabs-btn" data-tab={t.id} onclick={`cambiarTab("${t.id}")`}>
+            <button
+              type="button"
+              class:list={["tabs-btn", i === 0 && "activa"]}
+              data-tab={t.id}
+              role="tab"
+              id={`tab-${t.id}`}
+              aria-controls={`panel-${t.id}`}
+              aria-selected={i === 0 ? "true" : "false"}
+              tabindex={i === 0 ? 0 : -1}
+            >
               {t.nombre}
             </button>
           ))}
         </div>
         {servicios.tabs.map((t, i) => (
-          <div class="tabs-panel" data-panel={t.id}>
+          <div
+            class:list={["tabs-panel", i === 0 && "activa"]}
+            data-panel={t.id}
+            id={`panel-${t.id}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${t.id}`}
+            hidden={i !== 0}
+          >
             {t.items.map((s) => (
               <article>
                 <div class="icono-mini"><i data-lucide={s.icono}></i></div>
@@ -160,6 +176,35 @@ function rutaWa(destino) {
     </div>
   </section>
 
+  {/* ==================== VIDEO ====================
+       El archivo se sirve desde el propio sitio, no desde YouTube: sin
+       terceros y sin cookies. Y solo se descarga cuando el visitante
+       toca reproducir — antes de eso pesa lo que pese la miniatura. */}
+  <section class="pad" id="video">
+    <div class="container">
+      <span class="eyebrow reveal"><span class="dot"></span> {video.encabezado}</span>
+      <h2 class="section-title reveal">{video.titulo}</h2>
+      <p class="lead reveal">{video.texto}</p>
+
+      <div class="video-caja reveal-up" id="video-caja" data-archivo={ruta(video.archivo)}>
+        <button type="button" class="video-disparador" id="video-disparador" aria-label={video.botonAlt}>
+          <img
+            src={ruta(video.miniatura)}
+            alt={video.miniaturaAlt}
+            width="1280"
+            height="720"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="video-play" aria-hidden="true">
+            <i data-lucide="play"></i>
+          </span>
+          <span class="video-duracion" aria-hidden="true">{video.duracion}</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   {/* ==================== DIFERENCIADORES ==================== */}
   <section class="pad" id="diferentes">
     <div class="container">
@@ -198,35 +243,104 @@ function rutaWa(destino) {
 </Layout>
 
 <script is:inline>
-  /* ---------------- Aparición en cascada de la portada ---------------- */
+  /* ---------------- Aparición en cascada de la portada ----------------
+     Ojo: .hero-ay arranca en opacity:0 desde el CSS. gsap.from() anima
+     DESDE 0 hasta el valor actual, que también es 0 — por eso el texto
+     de la portada quedaba invisible en producción. Aquí se revela
+     primero y se anima después, y hay una red de seguridad por si
+     GSAP no llega a cargar. */
   (function () {
     const menosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const h1 = document.querySelector(".portada h1");
-    const btn = document.querySelector(".portada-botones");
+    const piezas = Array.from(document.querySelectorAll(".portada .hero-ay"));
     const visualImg = document.querySelector(".portada-visual img");
-    if (h1 && btn && !menosMovimiento && window.gsap) {
-      const tl = gsap.timeline({ delay: .2 });
-      tl.from(".portada .eyebrow", { yPercent: 60, opacity: 0, duration: .6, ease: "power3.out" })
-        .from(".portada h1", { yPercent: 90, opacity: 0, duration: .7, ease: "power3.out" }, "-=.4")
-        .from(".portada .lead", { y: 22, opacity: 0, duration: .6, ease: "power3.out" }, "-=.3")
-        .from(".portada-botones", { y: 28, opacity: 0, duration: .6, ease: "power3.out" }, "-=.3")
-        .from(visualImg, { scale: 1.07, duration: 1.1, ease: "power2.out" }, "-=.7");
-    } else if (h1 && btn) {
-      [h1, btn].forEach((el) => { el.style.opacity = 1; el.style.transform = "none"; });
-    }
+    if (!piezas.length) return;
+
+    const mostrarTodo = () =>
+      piezas.forEach((el) => { el.style.opacity = 1; el.style.transform = "none"; });
+
+    if (menosMovimiento || !window.gsap) { mostrarTodo(); return; }
+
+    gsap.set(piezas, { opacity: 1 });
+    const tl = gsap.timeline({ delay: .2 });
+    tl.from(".portada .eyebrow", { yPercent: 60, opacity: 0, duration: .6, ease: "power3.out" })
+      .from(".portada h1", { yPercent: 90, opacity: 0, duration: .7, ease: "power3.out" }, "-=.4")
+      .from(".portada .lead", { y: 22, opacity: 0, duration: .6, ease: "power3.out" }, "-=.3")
+      .from(".portada-botones", { y: 28, opacity: 0, duration: .6, ease: "power3.out" }, "-=.3");
+    if (visualImg) tl.from(visualImg, { scale: 1.07, duration: 1.1, ease: "power2.out" }, "-=.7");
+
+    // Si algo falla a mitad de camino, el texto igual aparece.
+    setTimeout(mostrarTodo, 2500);
   })();
 
-  /* Cambiar entre los paneles de servicios de cada sector. */
-  window.cambiarTab = function (id) {
-    document.querySelectorAll(".tabs-btn").forEach((b) => b.classList.toggle("activa", b.dataset.tab === id));
-    document.querySelectorAll(".tabs-panel").forEach((p) => p.classList.toggle("activa", p.dataset.panel === id));
-  };
+  /* ---------------- Video ----------------
+     Se cambia la miniatura por el reproductor al primer clic. Si el JS
+     no corre, queda la miniatura: nunca un hueco vacío. */
   (function () {
-    const activa = document.querySelector(".tabs-btn");
-    if (activa) activa.classList.add("activa");
-    const panel = document.querySelector(".tabs-panel");
-    if (panel) panel.classList.add("activa");
+    const caja = document.getElementById("video-caja");
+    const disparador = document.getElementById("video-disparador");
+    if (!caja || !disparador) return;
 
+    disparador.addEventListener("click", () => {
+      const v = document.createElement("video");
+      v.src = caja.dataset.archivo;
+      v.controls = true;
+      v.autoplay = true;
+      v.playsInline = true;
+      v.preload = "auto";
+      v.className = "video-reproductor";
+      v.setAttribute("controlslist", "nodownload");
+      caja.replaceChildren(v);
+      v.focus();
+      // Si el navegador bloquea el arranque con sonido, se reintenta
+      // en silencio: mejor verlo mudo que ver un cuadro negro quieto.
+      const arrancar = v.play();
+      if (arrancar && arrancar.catch) {
+        arrancar.catch(() => { v.muted = true; v.play().catch(() => {}); });
+      }
+    }, { once: true });
+  })();
+
+  /* ---------------- Servicios por sector ----------------
+     Las pestañas ya vienen marcadas desde el servidor: la primera
+     activa y las demás con hidden. Si el JS no corre, la sección
+     sigue mostrando contenido en vez de quedar en blanco. */
+  (function () {
+    const botones = Array.from(document.querySelectorAll(".tabs-btn"));
+    const paneles = Array.from(document.querySelectorAll(".tabs-panel"));
+    if (!botones.length) return;
+
+    const cambiarTab = (id, mover) => {
+      botones.forEach((b) => {
+        const activa = b.dataset.tab === id;
+        b.classList.toggle("activa", activa);
+        b.setAttribute("aria-selected", String(activa));
+        b.tabIndex = activa ? 0 : -1;
+        if (activa && mover) b.focus();
+      });
+      paneles.forEach((p) => {
+        const activa = p.dataset.panel === id;
+        p.classList.toggle("activa", activa);
+        p.hidden = !activa;
+      });
+    };
+
+    botones.forEach((b, i) => {
+      b.addEventListener("click", () => cambiarTab(b.dataset.tab));
+      b.addEventListener("keydown", (e) => {
+        const saltos = { ArrowRight: 1, ArrowLeft: -1, Home: "inicio", End: "fin" };
+        if (!(e.key in saltos)) return;
+        e.preventDefault();
+        const salto = saltos[e.key];
+        const destino =
+          salto === "inicio" ? 0 :
+          salto === "fin" ? botones.length - 1 :
+          (i + salto + botones.length) % botones.length;
+        cambiarTab(botones[destino].dataset.tab, true);
+      });
+    });
+  })();
+
+  (function () {
     /* Contadores: animan de 0 al número final cuando entran en pantalla. */
     const menosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const nums = Array.from(document.querySelectorAll("[data-contar]"));

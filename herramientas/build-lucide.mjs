@@ -3,7 +3,7 @@ import {
   ArrowRight, ArrowUp, Award, BadgeCheck, BedDouble, Blinds, Briefcase, Building2,
   Camera, CheckCircle, CloudRain, DoorOpen, Droplets, Factory, FileCheck, Flame,
   Globe, GraduationCap, Hammer, Landmark, Layers, LayoutGrid, Lightbulb, Map, MapPin,
-  MessageCircle, Monitor, Moon, Package, PaintRoller, PanelsTopLeft, PartyPopper,
+  MessageCircle, Monitor, Moon, Package, PaintRoller, PanelsTopLeft, PartyPopper, Play,
   ShieldCheck, Shirt, ShowerHead, Sparkles, SprayCan, Store, Sun, Timer, Truck,
   Users, Utensils, Wind, Wrench, Zap,
 } from 'lucide';
@@ -38,6 +38,7 @@ const icons = {
   Monitor,
   Moon,
   Package,
+  Play,
   PaintRoller,
   PanelsTopLeft,
   PartyPopper,

@@ -109,7 +109,15 @@ section { position: relative; }
   * { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-ay { opacity: 1 !important; transform: none !important; }
 }
+
+.salta-contenido {
+  position: absolute; left: 12px; top: -100px; z-index: 200;
+  padding: 12px 18px; border-radius: 12px; font-weight: 600; font-size: .92rem;
+  background: var(--marca); color: #fff; transition: top .2s ease;
+}
+.salta-contenido:focus { top: 12px; }
 
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--acento); outline-offset: 3px; border-radius: 4px;
@@ -201,7 +209,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
   transition-delay: calc(var(--i, 0) * 90ms);
 }
-.hero-ay { opacity: 0; }
+html.js .hero-ay { opacity: 0; }
 .reveal-up    { transform: translateY(32px); }
 .reveal-left  { transform: translateX(-32px); }
 .reveal-right { transform: translateX(32px); }
@@ -232,23 +240,43 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 90;
   padding: 16px 0;
-  background: var(--surface);
+  background-color: var(--surface);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 10px 30px var(--shadow);
-  transition: padding .3s ease, background .3s ease, box-shadow .3s ease, border-color .3s ease;
+  /* El desenfoque va SIEMPRE puesto, no solo al bajar: arriba el fondo es
+     opaco y no se nota, y así no hay que animar backdrop-filter — animarlo
+     dejaba el menú congelado sin velo. Lo único que cambia es el color. */
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  transition: padding .3s ease, background-color .3s ease, box-shadow .3s ease,
+              border-color .3s ease;
 }
-.nav.bajado { padding: 10px 0; background: transparent; border-bottom-color: transparent; box-shadow: none; }
+/* Al bajar no se vuelve transparente del todo: queda un blanco velado
+   (oscuro velado en tema oscuro) con desenfoque detrás, para que el menú
+   siga legible sobre cualquier foto. */
+.nav.bajado {
+  padding: 10px 0;
+  background-color: var(--nav-bg);
+  border-bottom-color: var(--border);
+  box-shadow: 0 6px 24px var(--shadow);
+}
+/* Si el navegador no sabe desenfocar, se compensa con más opacidad. */
+@supports not (backdrop-filter: blur(2px)) {
+  .nav.bajado { background-color: color-mix(in srgb, var(--surface) 92%, transparent); }
+}
 .nav-progreso { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--marca), var(--acento)); pointer-events: none; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .nav-logo img { height: 48px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
-.nav-links a {
+.nav-links a, .nav-links .nav-item > button {
   padding: 9px 13px; border-radius: 10px; font-size: .92rem; font-weight: 500;
   color: var(--text-soft); transition: color .25s ease, background .25s ease;
+  font-family: inherit; background: transparent; border: 0; cursor: pointer;
 }
-.nav-links a:hover { color: var(--text); background: var(--surface-2); }
-.nav-links a.activo { color: var(--marca); font-weight: 600; }
-:root[data-theme="dark"] .nav-links a.activo { color: var(--acento); }
+.nav-links a:hover, .nav-links .nav-item > button:hover { color: var(--text); background: var(--surface-2); }
+.nav-links a.activo, .nav-links .nav-item > button.activo { color: var(--marca); font-weight: 600; }
+:root[data-theme="dark"] .nav-links a.activo,
+:root[data-theme="dark"] .nav-links .nav-item > button.activo { color: var(--acento); }
 .nav-actions { display: flex; align-items: center; gap: 12px; }
 #botonTema, #botonMenu {
   display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px;
@@ -260,13 +288,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Submenú desplegable */
 .nav-item { position: relative; }
-.nav-item > a { display: inline-flex; align-items: center; gap: 6px; }
-.nav-item > a.con-flecha::after {
+.nav-item > button { display: inline-flex; align-items: center; gap: 6px; }
+.nav-item > button.con-flecha::after {
   content: ''; width: 6px; height: 6px; border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px);
   transition: transform .25s ease;
 }
-.nav-item.abierto > a.con-flecha::after { transform: rotate(225deg) translateY(-2px); }
+.nav-item.abierto > button.con-flecha::after { transform: rotate(225deg) translateY(-2px); }
 .nav-sub {
   position: absolute; top: calc(100% + 10px); left: 0; min-width: 220px;
   background: var(--surface); border: 1px solid var(--border-strong); border-radius: 14px;
@@ -289,9 +317,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     transition: right .35s ease; z-index: 89;
   }
   .nav-links.abierto { right: 0; }
-  .nav-links > a, .nav-item > a { padding: 14px 10px; font-size: 1rem; border-bottom: 1px solid var(--border); border-radius: 0; }
+  .nav-links > a, .nav-item > button { padding: 14px 10px; font-size: 1rem; border-bottom: 1px solid var(--border); border-radius: 0; text-align: left; }
   .nav-item { display: flex; flex-direction: column; }
-  .nav-item > a { width: 100%; justify-content: space-between; }
+  .nav-item > button { width: 100%; justify-content: space-between; }
   .nav-sub {
     position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none;
     border: none; background: transparent; padding: 0 0 6px 12px; display: none; min-width: 0;
@@ -405,6 +433,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .cinta-pista { display: flex; gap: 50px; align-items: center; width: max-content; animation: correr 30s linear infinite; }
 .cinta-pista img { height: 44px; width: auto; object-fit: contain; filter: grayscale(1); opacity: .55; transition: filter .3s ease, opacity .3s ease; }
 .cinta-pista img:hover { filter: none; opacity: 1; }
+.cinta:hover .cinta-pista, .cinta:focus-within .cinta-pista { animation-play-state: paused; }
 @keyframes correr { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes fondo-lento { from { transform: scale(1); } to { transform: scale(1.1); } }
 @keyframes flotar { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
@@ -574,6 +603,58 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .campo textarea { min-height: 120px; resize: vertical; }
 @media (max-width: 900px) { .grid-contacto { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } }
 .form-nota { font-size: .82rem; color: var(--text-muted); margin-top: 14px; }
+.form-nota a { color: var(--marca); font-weight: 600; }
+:root[data-theme="dark"] .form-nota a { color: var(--acento); }
+.form-aviso {
+  margin-top: 16px; padding: 14px 16px; border-radius: 12px; font-size: .9rem;
+  background: color-mix(in srgb, var(--acento) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--acento) 40%, transparent);
+}
+.form-aviso.error {
+  background: color-mix(in srgb, var(--marca) 12%, transparent);
+  border-color: color-mix(in srgb, var(--marca) 45%, transparent);
+}
+.form-aviso a { color: var(--marca); font-weight: 700; text-decoration: underline; }
+:root[data-theme="dark"] .form-aviso a { color: var(--acento); }
+
+/* ============================================================
+   VIDEO
+   La miniatura es un botón: el video pesado solo entra al tocarlo.
+   ============================================================ */
+.video-caja {
+  position: relative; margin: 40px auto 0; max-width: 940px;
+  border-radius: 22px; overflow: hidden;
+  background: var(--oscuro); border: 1px solid var(--border);
+  box-shadow: 0 24px 60px var(--shadow); aspect-ratio: 16 / 9;
+}
+.video-disparador {
+  display: block; width: 100%; height: 100%; padding: 0; border: 0;
+  background: none; cursor: pointer; position: relative;
+}
+.video-disparador img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.video-disparador::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.05) 55%);
+  transition: background .35s ease;
+}
+.video-disparador:hover img { transform: scale(1.04); }
+.video-disparador:hover::after { background: linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.12) 55%); }
+.video-play {
+  position: absolute; inset: 0; margin: auto; z-index: 2;
+  width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--marca); color: #fff; font-size: 2rem;
+  box-shadow: 0 16px 40px color-mix(in srgb, var(--marca) 55%, transparent);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.video-play i { transform: translateX(3px); }
+.video-disparador:hover .video-play { transform: scale(1.09); }
+.video-duracion {
+  position: absolute; right: 16px; bottom: 16px; z-index: 2;
+  padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 600;
+  color: #fff; background: rgba(0,0,0,.55); backdrop-filter: blur(6px);
+}
+.video-reproductor { width: 100%; height: 100%; display: block; background: #000; }
+@media (max-width: 640px) { .video-play { width: 64px; height: 64px; font-size: 1.5rem; } }
 
 /* ============================================================
    LLAMADO FINAL (CTA)

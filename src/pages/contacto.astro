@@ -22,7 +22,7 @@ const filasTel = (sede) => {
   {/* ==================== ENCABEZADO ==================== */}
   <header class="encabezado">
     <div class="encabezado-fondo">
-      <img src={ruta(encabezado.imagenFondo)} alt="" loading="eager" />
+      <img src={ruta(encabezado.imagenFondo)} alt="" width="1920" height="1080" loading="eager" fetchpriority="high" />
     </div>
     <div class="encabezado-velo"></div>
     <div class="container">
@@ -43,7 +43,7 @@ const filasTel = (sede) => {
         <div class="contacto-datos" data-stagger>
           {sedes.map((s) => (
             <article class="contacto-tarjeta reveal-up">
-              {s.foto && <img src={ruta(s.foto)} alt={`${s.pais} — ${s.ciudad} — ${s.nombre}`} style="width:100%;border-radius:14px;margin-bottom:16px" loading="lazy" />}
+              {s.foto && <img src={ruta(s.foto)} alt={`${s.pais} — ${s.ciudad} — ${s.nombre}`} width="700" height="450" style="width:100%;height:auto;border-radius:14px;margin-bottom:16px" loading="lazy" decoding="async" />}
               <h3>
                 <span class="icono-caja"><i data-lucide={s.pais === "Perú" ? "map" : "map-pin"}></i></span>
                 <span>{s.nombre} · {s.pais}, {s.ciudad}</span>
@@ -80,11 +80,19 @@ const filasTel = (sede) => {
               }
               const esMensaje = clave === "mensaje";
               return (
-                <div class="campo {esMensaje ? 'ancho' : ''}">
+                <div class:list={["campo", esMensaje && "ancho"]}>
                   <label for={clave}>{campo.etiqueta} {campo.requerido && <span style="color:var(--marca)">*</span>}</label>
                   {esMensaje
                     ? <textarea id={clave} name={clave} placeholder={campo.placeholder} required={campo.requerido}></textarea>
-                    : <input id={clave} name={clave} type="text" placeholder={campo.placeholder} required={campo.requerido} />}
+                    : <input
+                        id={clave}
+                        name={clave}
+                        type={clave === "telefono" ? "tel" : clave === "correo" ? "email" : "text"}
+                        inputmode={clave === "telefono" ? "tel" : undefined}
+                        autocomplete={clave === "nombre" ? "name" : clave === "empresa" ? "organization" : clave === "telefono" ? "tel" : clave === "correo" ? "email" : "on"}
+                        placeholder={campo.placeholder}
+                        required={campo.requerido}
+                      />}
                 </div>
               );
             })}
@@ -95,6 +103,13 @@ const filasTel = (sede) => {
                 <i data-lucide="arrow-right"></i>
               </button>
               <p class="form-nota">{formulario.nota}</p>
+              <p class="form-nota">
+                ¿Prefieres correo? Escríbenos a
+                <a href={`mailto:${sitio.correo}`}>{sitio.correo}</a>
+                o llámanos al
+                <a href={`tel:${sitio.telefonoColombia.replace(/[^0-9+]/g, "")}`}>{sitio.telefonoColombia}</a>.
+              </p>
+              <p class="form-aviso" id="form-aviso" role="status" aria-live="polite" hidden></p>
             </div>
           </div>
         </form>
@@ -103,7 +118,7 @@ const filasTel = (sede) => {
   </section>
 </Layout>
 
-<script is:inline define:vars={{ whatsapp: sitio.whatsapp }}>
+<script is:inline define:vars={{ whatsapp: sitio.whatsapp, correo: sitio.correo }}>
   (function () {
     const form = document.getElementById("form-contacto");
     const boton = document.getElementById("boton-form");
@@ -124,8 +139,31 @@ const filasTel = (sede) => {
       ].filter(Boolean);
       const mensaje = [...lineas, datos.mensaje ? `Mensaje: ${datos.mensaje}` : ""].filter(Boolean).join("\n");
 
+      const enlace = `https://wa.me/${whatsapp}?text=${encodeURIComponent(mensaje)}`;
+      const aviso = document.getElementById("form-aviso");
+      const mostrar = (html, error) => {
+        if (!aviso) return;
+        aviso.innerHTML = html;
+        aviso.classList.toggle("error", Boolean(error));
+        aviso.hidden = false;
+      };
+
       boton.disabled = true;
-      window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(mensaje)}`, "_blank");
+      // Muchos navegadores bloquean la ventana nueva. Sin este control el
+      // visitante creía haber enviado y no pasaba nada.
+      const ventana = window.open(enlace, "_blank", "noopener");
+      if (!ventana || ventana.closed || typeof ventana.closed === "undefined") {
+        mostrar(
+          'Tu navegador bloqueó la ventana de WhatsApp. ' +
+          '<a href="' + enlace + '" target="_blank" rel="noopener">Abre el chat aquí</a> ' +
+          'o escríbenos a <a href="mailto:' + correo + '?subject=' +
+          encodeURIComponent("Nuevo proyecto — " + (datos.nombre || "")) + '&body=' +
+          encodeURIComponent(mensaje) + '">' + correo + '</a>.',
+          true
+        );
+      } else {
+        mostrar("Listo: abrimos WhatsApp con tu mensaje. Solo falta que le des enviar.");
+      }
       setTimeout(() => { boton.disabled = false; }, 2500);
     });
   })();

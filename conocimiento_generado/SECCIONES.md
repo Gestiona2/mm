@@ -98,11 +98,20 @@ Nueve secciones, en este orden.
 - **Dónde:** bloque `proceso` con `pasos`. Cada paso: `titulo`, `texto`, `icono`.
 - **Cuántos pasos caben bien:** exactamente 4.
 
-### 7. Diferenciadores
+### 7. Video
+- **Cómo la llama el cliente:** "el video", "el video institucional"
+- **Dónde:** bloque `video`. Se pueden cambiar `titulo`, `texto` y `duracion`.
+- **El archivo:** `public/video/manos-maestras.mp4`. Está guardado dentro del sitio, no en
+  YouTube: así no dependemos de nadie y no se cargan cookies ajenas. Para cambiar el video,
+  reemplazar ese archivo por otro con el mismo nombre y actualizar `duracion`.
+- **La miniatura:** `public/img/video-portada.jpg`. Es lo único que se descarga al entrar;
+  el video solo baja cuando el visitante toca reproducir.
+
+### 8. Diferenciadores
 - **Dónde:** bloque `diferentes` con `items` — 6 tarjetas (rápido y oportuno, experiencia,
   personal calificado, garantía, respaldo, confianza).
 
-### 8. CTA final
+### 9. CTA final
 - **Dónde:** bloque `cta`. Es el cierre de la página. Se puede cambiar texto y botones.
 
 ---

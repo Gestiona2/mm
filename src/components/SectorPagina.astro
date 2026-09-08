@@ -28,7 +28,7 @@ const idSector = Astro.url.pathname
   {/* ==================== ENCABEZADO ==================== */}
   <header class="encabezado">
     <div class="encabezado-fondo">
-      <img src={ruta(encabezado.imagenFondo)} alt="" loading="eager" />
+      <img src={ruta(encabezado.imagenFondo)} alt="" width="1920" height="1080" loading="eager" fetchpriority="high" />
     </div>
     <div class="encabezado-velo"></div>
     <div class="container">
