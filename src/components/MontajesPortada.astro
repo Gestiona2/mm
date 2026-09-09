@@ -1,0 +1,400 @@
+---
+/**
+ * El elemento firma de la portada: dos montajes encadenados en bucle.
+ *
+ *   1 · Llega una caja, se abre, salen las piezas y se arma una mesa.
+ *   2 · Se marca la pared, se ancla el soporte y se monta un televisor.
+ *   3 · Se mide el vano, se ancla el riel y cuelgan las lamas.
+ *
+ * Cada una remata con el logo. Es el negocio contado sin una sola frase:
+ * el producto llega y Manos Maestras lo deja montado y funcionando.
+ *
+ * REGLA CLAVE DE ROBUSTEZ: cada SVG dibuja su ESTADO FINAL —la mesa
+ * armada, el televisor puesto— y la animación parte de ahí hacia atrás.
+ * Si GSAP no carga, o el guion falla, se ve la primera escena terminada
+ * y el logo. Nunca un hueco. Es la lección de la portada que se quedó en
+ * blanco: nada que deba verse depende de que una animación se complete.
+ *
+ * REGLA: aquí NO se escribe texto. Los rótulos salen de
+ * src/datos/inicio.json → portada.montaje.escenas.
+ *
+ * Para añadir una escena: un <figure> nuevo con su id y su guion en
+ * `coreografias`, y sus rótulos en el JSON.
+ */
+import { ruta } from "../lib/ruta";
+interface Escena { id: string; rotulos: string[] }
+interface Props {
+  montaje: { escenas: Escena[] };
+  nombre: string;
+}
+const { montaje, nombre } = Astro.props;
+const escenas = montaje.escenas;
+---
+
+<div class="montaje" id="montaje">
+  <div class="montaje-lienzo">
+    {escenas.map((e, i) => (
+      <figure class="escena-montaje" data-escena={e.id} hidden={i !== 0}>
+        {e.id === "mesa" && (
+          <svg viewBox="0 0 440 340" role="img" aria-label="Una caja llega, se abre y sus piezas se arman hasta formar una mesa">
+            <defs>
+              <linearGradient id="mm-carton" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e0a978" />
+                <stop offset="1" stop-color="#c78a4e" />
+              </linearGradient>
+            </defs>
+
+            <ellipse class="suelo" cx="220" cy="292" rx="128" ry="13" />
+
+            {/* La caja va ANTES que la mesa: dibujada después tapaba las
+                piezas al salir. */}
+            <g class="caja" aria-hidden="true">
+              <rect class="caja-cuerpo" x="148" y="192" width="144" height="94" rx="5" fill="url(#mm-carton)" />
+              <rect class="caja-cinta" x="212" y="192" width="16" height="94" fill="#b97c42" />
+              <rect class="caja-etiqueta" x="164" y="212" width="40" height="26" rx="3" fill="#f6efe6" />
+              {/* Las solapas van DESPUÉS del cuerpo, o quedan tapadas. */}
+              <path class="solapa solapa-izq" d="M146 178 H220 V192 H146 Z" fill="#d1935a" />
+              <path class="solapa solapa-der" d="M220 178 H294 V192 H220 Z" fill="#c78a4e" />
+            </g>
+
+            <g class="mesa">
+              <g class="pieza" data-pieza="pata-tras-izq"><rect x="136" y="168" width="11" height="104" rx="3" fill="#b8431a" /></g>
+              <g class="pieza" data-pieza="pata-tras-der"><rect x="293" y="168" width="11" height="104" rx="3" fill="#b8431a" /></g>
+              <g class="pieza" data-pieza="travesano"><rect x="147" y="236" width="146" height="9" rx="3" fill="#c94a1d" /></g>
+              <g class="pieza" data-pieza="pata-del-izq"><rect x="120" y="176" width="14" height="102" rx="4" fill="#e85d26" /></g>
+              <g class="pieza" data-pieza="pata-del-der"><rect x="306" y="176" width="14" height="102" rx="4" fill="#e85d26" /></g>
+              <g class="pieza" data-pieza="tablero">
+                <rect x="96" y="146" width="248" height="15" rx="5" fill="#ffb877" />
+                <rect x="96" y="159" width="248" height="14" rx="5" fill="#ff9e3c" />
+              </g>
+              <circle class="tornillo" cx="127" cy="182" r="3.6" fill="#8a3212" />
+              <circle class="tornillo" cx="313" cy="182" r="3.6" fill="#8a3212" />
+              <circle class="tornillo" cx="141" cy="241" r="3.2" fill="#8a3212" />
+              <circle class="tornillo" cx="299" cy="241" r="3.2" fill="#8a3212" />
+            </g>
+          </svg>
+        )}
+
+        {e.id === "televisor" && (
+          <svg viewBox="0 0 440 340" role="img" aria-label="Se marca una pared, se ancla un soporte y se monta un televisor que queda encendido">
+            <defs>
+              <linearGradient id="mm-pantalla" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff9e3c" />
+                <stop offset="1" stop-color="#e85d26" />
+              </linearGradient>
+            </defs>
+
+            {/* pared: rodapié y esquina, para que se lea que es un muro */}
+            <rect class="rodapie" x="40" y="292" width="360" height="12" rx="3" fill="#e7d9cc" />
+            <path class="muro" d="M40 44 V292" stroke="#eadbcd" stroke-width="3" fill="none" />
+
+            {/* marcas de lápiz: lo primero que se hace */}
+            <g class="marcas" aria-hidden="true">
+              <path class="marca" d="M186 250 h14" stroke="#b8431a" stroke-width="2.6" stroke-linecap="round" />
+              <path class="marca" d="M240 250 h14" stroke="#b8431a" stroke-width="2.6" stroke-linecap="round" />
+              <path class="marca" d="M193 243 v14" stroke="#b8431a" stroke-width="2.6" stroke-linecap="round" />
+              <path class="marca" d="M247 243 v14" stroke="#b8431a" stroke-width="2.6" stroke-linecap="round" />
+            </g>
+
+            {/* placa anclada: queda visible DEBAJO del televisor, si no
+                la tapa la pantalla y no se entiende qué se instala */}
+            <g class="placa">
+              <rect x="180" y="236" width="80" height="28" rx="5" fill="#e85d26" />
+              <circle class="anclaje" cx="193" cy="250" r="4" fill="#8a3212" />
+              <circle class="anclaje" cx="247" cy="250" r="4" fill="#8a3212" />
+            </g>
+            <rect class="cuello" x="212" y="210" width="16" height="28" rx="3" fill="#c94a1d" />
+
+            {/* el televisor */}
+            <g class="tele">
+              <rect x="104" y="80" width="232" height="134" rx="9" fill="#2a2422" />
+              <rect class="pantalla" x="114" y="90" width="212" height="114" rx="5" fill="url(#mm-pantalla)" />
+              <rect x="196" y="214" width="48" height="5" rx="2.5" fill="#1c1917" />
+            </g>
+
+            {/* taladro: cuerpo, broca y empuñadura */}
+            <g class="taladro" aria-hidden="true">
+              {/* la broca acaba junto a la marca derecha (x 247): más
+                  atrás el taladro parecía perforar el aire */}
+              <rect x="262" y="238" width="46" height="24" rx="6" fill="#3b3330" />
+              <rect x="276" y="260" width="18" height="22" rx="4" fill="#2a2422" />
+              <rect x="248" y="247" width="16" height="6" rx="3" fill="#9a9490" />
+              <circle cx="308" cy="250" r="6" fill="#ff9e3c" />
+            </g>
+          </svg>
+        )}
+        {e.id === "persianas" && (
+          <svg viewBox="0 0 440 340" role="img" aria-label="Se mide una ventana, se ancla el riel y bajan las lamas de una persiana instalada a la medida">
+            <defs>
+              <linearGradient id="mm-cielo" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#cfe9f2" />
+                <stop offset="1" stop-color="#eaf6fa" />
+              </linearGradient>
+            </defs>
+
+            {/* la ventana ya está: es el inmueble, no lo que se instala */}
+            <rect class="alfeizar" x="98" y="268" width="244" height="11" rx="3" fill="#e7d9cc" />
+            <rect class="marco" x="108" y="62" width="224" height="206" rx="5" fill="#e7d9cc" />
+            <rect class="vidrio" x="122" y="76" width="196" height="178" rx="3" fill="url(#mm-cielo)" />
+
+            {/* cotas: lo primero es medir el vano */}
+            <g class="cotas" aria-hidden="true">
+              <path class="cota" d="M122 296 H318" stroke="#b8431a" stroke-width="2.4" stroke-linecap="round" />
+              <path class="cota" d="M122 290 v12" stroke="#b8431a" stroke-width="2.4" stroke-linecap="round" />
+              <path class="cota" d="M318 290 v12" stroke="#b8431a" stroke-width="2.4" stroke-linecap="round" />
+            </g>
+
+            {/* las lamas van ANTES del riel: el riel las tapa por arriba,
+                que es como cuelgan de verdad */}
+            <g class="lamas">
+              <rect class="lama" x="122" y="82"  width="196" height="15" rx="2" fill="#ffb877" />
+              <rect class="lama" x="122" y="103" width="196" height="15" rx="2" fill="#ffb877" />
+              <rect class="lama" x="122" y="124" width="196" height="15" rx="2" fill="#ffb877" />
+              <rect class="lama" x="122" y="145" width="196" height="15" rx="2" fill="#ffb877" />
+              <rect class="lama" x="122" y="166" width="196" height="15" rx="2" fill="#ffb877" />
+              <rect class="lama" x="122" y="187" width="196" height="15" rx="2" fill="#ffb877" />
+              <rect class="lama" x="122" y="208" width="196" height="15" rx="2" fill="#ffb877" />
+              <rect class="lama" x="122" y="229" width="196" height="15" rx="2" fill="#ffb877" />
+            </g>
+
+            {/* riel y sus anclajes */}
+            <g class="riel">
+              <rect x="104" y="56" width="232" height="18" rx="4" fill="#e85d26" />
+              <circle class="anclaje-riel" cx="118" cy="65" r="3.6" fill="#8a3212" />
+              <circle class="anclaje-riel" cx="322" cy="65" r="3.6" fill="#8a3212" />
+            </g>
+
+            {/* cordón para subirlas y bajarlas */}
+            <g class="cordon">
+              <path d="M330 74 V206" stroke="#c94a1d" stroke-width="2.6" stroke-linecap="round" fill="none" />
+              <rect x="325" y="206" width="10" height="16" rx="4" fill="#c94a1d" />
+            </g>
+          </svg>
+        )}
+      </figure>
+    ))}
+  </div>
+
+  <div class="montaje-pie">
+    <p class="montaje-rotulo" id="montaje-rotulo">
+      {escenas[0].rotulos[escenas[0].rotulos.length - 1]}
+    </p>
+    <img
+      class="montaje-logo"
+      id="montaje-logo"
+      src={ruta("/brand/logo.png")}
+      alt={nombre}
+      width="180"
+      height="48"
+      loading="eager"
+    />
+  </div>
+</div>
+
+<script is:inline define:vars={{ escenas }}>
+  /* Espera a "load": GSAP se carga al final del cuerpo, o sea DESPUÉS de
+     este componente. Sin esperar, window.gsap aún no existe. */
+  window.addEventListener("load", function () {
+    const caja = document.getElementById("montaje");
+    if (!caja) return;
+
+    const menosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    /* Sin GSAP o con movimiento reducido no se toca nada: queda la primera
+       escena terminada, su último rótulo y el logo. */
+    if (menosMovimiento || !window.gsap) return;
+
+    const rotulo = document.getElementById("montaje-rotulo");
+    const logo = document.getElementById("montaje-logo");
+    const figuras = Array.from(caja.querySelectorAll("[data-escena]"));
+    /* El atributo hidden solo sirve para el caso sin JavaScript. A partir
+       de aquí manda GSAP con display: así el cambio de escena también se
+       aplica al posicionar la línea de tiempo, cosa que un callback no
+       hace. */
+    figuras.forEach((f, n) => { f.hidden = false; f.style.display = n === 0 ? "block" : "none"; });
+    const decir = (t) => { if (rotulo) rotulo.textContent = t; };
+
+    const enBloque = (fig, sel) => Array.from(fig.querySelectorAll(sel));
+    const uno = (fig, sel) => fig.querySelector(sel);
+
+    /* Cada escena devuelve su propia línea de tiempo. Todas empiezan
+       colocando su estado de partida, para que el bucle vuelva a empezar
+       igual por muchas vueltas que dé. */
+    const coreografias = {
+      mesa(fig, rotulos) {
+        const piezas = enBloque(fig, ".pieza");
+        const tornillos = enBloque(fig, ".tornillo");
+        const cajaG = uno(fig, ".caja");
+
+        /* Las posiciones se miden con getBBox, en unidades del dibujo.
+           Con getBoundingClientRect se mezclaban píxeles de pantalla con
+           unidades del SVG y las piezas salían fuera del lienzo. */
+        const boca = { x: 220, y: 238 };
+        const enCaja = (el) => {
+          const b = el.getBBox();
+          return { x: boca.x - (b.x + b.width / 2), y: boca.y - (b.y + b.height / 2) };
+        };
+        /* Comprobado que ninguna se sale del lienzo (0-440 x 0-340). */
+        const dispersion = {
+          "tablero":       { x: 0,   y: -78, rotation: -6 },
+          "pata-del-izq":  { x: -74, y: -26, rotation: -55 },
+          "pata-del-der":  { x: 74,  y: -26, rotation: 55 },
+          "pata-tras-izq": { x: -86, y: 44,  rotation: 30 },
+          "pata-tras-der": { x: 86,  y: 44,  rotation: -30 },
+          "travesano":     { x: 0,   y: 48,  rotation: 8 },
+        };
+
+        /* El origen de giro lo pone GSAP, no el CSS: con transformBox de
+           CSS las coordenadas se descuadraban. */
+        gsap.set(piezas, { transformOrigin: "50% 50%" });
+        gsap.set(uno(fig, ".solapa-izq"), { transformOrigin: "left bottom" });
+        gsap.set(uno(fig, ".solapa-der"), { transformOrigin: "right bottom" });
+        gsap.set(cajaG, { transformOrigin: "50% 100%" });
+
+        const tl = gsap.timeline();
+        tl.set(piezas, {
+            opacity: 0, scale: .25, rotation: 0,
+            x: (i, el) => enCaja(el).x,
+            y: (i, el) => enCaja(el).y,
+          })
+          .set(tornillos, { opacity: 0, scale: 0 })
+          .set(cajaG, { opacity: 1, scale: 1 })
+          .set(enBloque(fig, ".solapa"), { rotation: 0 })
+          .call(() => decir(rotulos[0]))
+          .from(cajaG, { y: -280, duration: .8, ease: "bounce.out" })
+
+          .call(() => decir(rotulos[1]))
+          .to(uno(fig, ".solapa-izq"), { rotation: -148, duration: .45, ease: "back.out(1.5)" }, "+=.3")
+          .to(uno(fig, ".solapa-der"), { rotation: 148, duration: .45, ease: "back.out(1.5)" }, "<")
+
+          .call(() => decir(rotulos[2]))
+          .to(piezas, {
+            opacity: 1, scale: 1,
+            x: (i, el) => dispersion[el.dataset.pieza].x,
+            y: (i, el) => dispersion[el.dataset.pieza].y,
+            rotation: (i, el) => dispersion[el.dataset.pieza].rotation,
+            duration: .7, ease: "back.out(1.1)", stagger: .08,
+          }, "+=.1")
+
+          .to(cajaG, { opacity: 0, scale: .8, duration: .45, ease: "power2.in" }, "-=.3")
+          .to(piezas, { x: 0, y: 0, rotation: 0, duration: .75, ease: "power3.inOut", stagger: .09 }, "-=.15")
+          .to(tornillos, { opacity: 1, scale: 1, duration: .3, ease: "back.out(2)", stagger: .06 }, "-=.3")
+
+          .call(() => decir(rotulos[3]));
+        return tl;
+      },
+
+      televisor(fig, rotulos) {
+        const marcas = enBloque(fig, ".marca");
+        const placa = uno(fig, ".placa");
+        const anclajes = enBloque(fig, ".anclaje");
+        const cuello = uno(fig, ".cuello");
+        const tele = uno(fig, ".tele");
+        const pantalla = uno(fig, ".pantalla");
+        const taladro = uno(fig, ".taladro");
+
+        gsap.set([placa, cuello, tele, taladro], { transformOrigin: "50% 50%" });
+
+        const tl = gsap.timeline();
+        tl.set(marcas, { opacity: 0 })
+          .set(anclajes, { opacity: 0, scale: 0, transformOrigin: "50% 50%" })
+          .set(placa, { opacity: 0, y: -26, scale: .9 })
+          .set(cuello, { opacity: 0, scaleY: 0, transformOrigin: "50% 100%" })
+          .set(tele, { opacity: 0, y: -120, scale: .92 })
+          .set(pantalla, { opacity: .25 })
+          .set(taladro, { opacity: 0, x: 90 })
+
+          /* 1 · Se mide y se marca la pared */
+          .call(() => decir(rotulos[0]))
+          .to(marcas, { opacity: 1, duration: .22, stagger: .1, ease: "power1.out" }, "+=.2")
+
+          /* 2 · Entra el taladro y quedan los anclajes */
+          .call(() => decir(rotulos[1]))
+          .to(taladro, { opacity: 1, x: 0, duration: .45, ease: "power3.out" }, "+=.15")
+          .to(taladro, { x: -6, duration: .07, repeat: 5, yoyo: true, ease: "none" })
+          .to(anclajes, { opacity: 1, scale: 1, duration: .25, ease: "back.out(2.2)", stagger: .12 }, "-=.3")
+          .to(taladro, { opacity: 0, x: 90, duration: .4, ease: "power2.in" }, "+=.1")
+
+          /* La placa se ancla sobre las marcas */
+          .to(placa, { opacity: 1, y: 0, scale: 1, duration: .5, ease: "back.out(1.4)" }, "-=.25")
+          .to(cuello, { opacity: 1, scaleY: 1, duration: .35, ease: "power2.out" }, "-=.1")
+
+          /* 3 · Baja el televisor y encaja en el cuello */
+          .call(() => decir(rotulos[2]))
+          .to(tele, { opacity: 1, y: 0, scale: 1, duration: .75, ease: "power3.out" }, "+=.1")
+
+          /* 4 · Enciende */
+          .call(() => decir(rotulos[3]))
+          .to(pantalla, { opacity: 1, duration: .5, ease: "power2.out" }, "+=.15");
+        return tl;
+      },
+
+      persianas(fig, rotulos) {
+        const cotas = enBloque(fig, ".cota");
+        const riel = uno(fig, ".riel");
+        const anclajes = enBloque(fig, ".anclaje-riel");
+        const lamas = enBloque(fig, ".lama");
+        const cordon = uno(fig, ".cordon");
+        const vidrio = uno(fig, ".vidrio");
+
+        /* Las lamas crecen desde su borde superior: es como cuelgan de
+           verdad, una tras otra desde el riel. */
+        gsap.set(lamas, { transformOrigin: "50% 0%" });
+        gsap.set(riel, { transformOrigin: "50% 0%" });
+
+        const tl = gsap.timeline();
+        tl.set(cotas, { opacity: 0 })
+          .set(riel, { opacity: 0, y: -26 })
+          .set(anclajes, { opacity: 0, scale: 0, transformOrigin: "50% 50%" })
+          .set(lamas, { opacity: 0, scaleY: 0 })
+          .set(cordon, { opacity: 0 })
+          .set(vidrio, { opacity: 1 })
+
+          /* 1 · Se mide el vano */
+          .call(() => decir(rotulos[0]))
+          .to(cotas, { opacity: 1, duration: .28, stagger: .1, ease: "power1.out" }, "+=.2")
+
+          /* 2 · Se ancla el riel a esa medida */
+          .call(() => decir(rotulos[1]))
+          .to(riel, { opacity: 1, y: 0, duration: .5, ease: "back.out(1.4)" }, "+=.25")
+          .to(anclajes, { opacity: 1, scale: 1, duration: .25, ease: "back.out(2.2)", stagger: .12 }, "-=.15")
+          .to(cotas, { opacity: 0, duration: .3 }, "-=.2")
+
+          /* 3 · Cuelgan las lamas, una tras otra */
+          .call(() => decir(rotulos[2]))
+          .to(lamas, { opacity: 1, scaleY: 1, duration: .34, ease: "power2.out", stagger: .09 }, "+=.1")
+          .to(cordon, { opacity: 1, duration: .3 }, "-=.2")
+
+          /* 4 · Cierran y la luz de fuera queda tamizada */
+          .call(() => decir(rotulos[3]))
+          /* No se apaga del todo: a .35 el cielo desaparecía y se perdía la
+             lectura de que hay una ventana detrás. */
+          .to(vidrio, { opacity: .58, duration: .6, ease: "power2.out" }, "+=.15");
+        return tl;
+      },
+    };
+
+    /* Línea maestra: cada escena entra, hace lo suyo, remata con el logo
+       y cede el turno a la siguiente. */
+    const maestra = gsap.timeline({ repeat: -1 });
+
+    figuras.forEach((fig, i) => {
+      const datos = escenas[i];
+      const arma = coreografias[datos.id];
+      if (!arma) return;
+
+      maestra
+        .set(figuras, { display: "none" })
+        .set(fig, { display: "block" })
+        .set(logo, { opacity: 0, y: 10 })
+        .add(arma(fig, datos.rotulos))
+        .to(logo, { opacity: 1, y: 0, duration: .5, ease: "power2.out" }, "+=.2")
+        .to({}, { duration: 1.7 })
+        .to(logo, { opacity: 0, duration: .35 });
+    });
+
+    /* No animar en balde con la pestaña en segundo plano. */
+    document.addEventListener("visibilitychange", () =>
+      document.hidden ? maestra.pause() : maestra.resume()
+    );
+  });
+</script>

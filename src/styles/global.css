@@ -384,6 +384,8 @@ html.js .hero-ay { opacity: 0; }
   padding: 6px 10px 0;
 }
 .montaje-lienzo svg { width: 100%; height: auto; display: block; }
+.escena-montaje { margin: 0; }
+.escena-montaje[hidden] { display: none; }
 .suelo { fill: rgba(184, 67, 26, .13); }
 /* La caja solo existe mientras hay animación: la enciende el guion. Sin
    JavaScript quedaría una caja cerrada junto a la mesa ya armada, que no

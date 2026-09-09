@@ -27,12 +27,35 @@
       }
     ],
     "montaje": {
-      "_limite": "Los rótulos de la animación de la portada. Son cuatro y van en orden. El dibujo vive en src/components/MontajeCaja.astro y lo cambia el proveedor.",
-      "rotulos": [
-        "Llega tu producto embalado",
-        "Lo desembalamos con cuidado",
-        "Lo armamos pieza por pieza",
-        "Listo para usar, con garantía"
+      "_limite": "Las escenas animadas de la portada. Van en bucle, una tras otra. Aquí se editan los rótulos; el dibujo de cada escena vive en src/components/MontajesPortada.astro y lo cambia el proveedor.",
+      "escenas": [
+        {
+          "id": "mesa",
+          "rotulos": [
+            "Llega tu producto embalado",
+            "Lo desembalamos con cuidado",
+            "Lo armamos pieza por pieza",
+            "Listo para usar, con garantía"
+          ]
+        },
+        {
+          "id": "televisor",
+          "rotulos": [
+            "Medimos y marcamos la pared",
+            "Anclamos el soporte",
+            "Montamos el televisor",
+            "Instalado y funcionando"
+          ]
+        },
+        {
+          "id": "persianas",
+          "rotulos": [
+            "Medimos el vano de la ventana",
+            "Anclamos el riel a la medida",
+            "Colgamos las lamas",
+            "Instaladas y a la medida"
+          ]
+        }
       ]
     }
   },

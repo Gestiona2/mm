@@ -9,7 +9,7 @@ import Layout from "../layouts/Layout.astro";
 import datos from "../datos/inicio.json";
 import sitio from "../datos/sitio.json";
 import { ruta } from "../lib/ruta";
-import MontajeCaja from "../components/MontajeCaja.astro";
+import MontajesPortada from "../components/MontajesPortada.astro";
 
 const { portada, campos, clientes, servicios, cifras, proceso, video, diferentes, cta, meta } = datos;
 function rutaWa(destino) {
@@ -40,7 +40,7 @@ function rutaWa(destino) {
         </div>
       </div>
       <div class="portada-visual" data-parallax="0.06">
-        <MontajeCaja montaje={portada.montaje} nombre={sitio.nombre} />
+        <MontajesPortada montaje={portada.montaje} nombre={sitio.nombre} />
         <div class="portada-badge">
           <strong>{portada.badge.numero}</strong>
           <span>{portada.badge.texto}</span>
