@@ -9,6 +9,7 @@ import Layout from "../layouts/Layout.astro";
 import datos from "../datos/inicio.json";
 import sitio from "../datos/sitio.json";
 import { ruta } from "../lib/ruta";
+import MontajeCaja from "../components/MontajeCaja.astro";
 
 const { portada, campos, clientes, servicios, cifras, proceso, video, diferentes, cta, meta } = datos;
 function rutaWa(destino) {
@@ -39,7 +40,7 @@ function rutaWa(destino) {
         </div>
       </div>
       <div class="portada-visual" data-parallax="0.06">
-        <img src={ruta(portada.imagenVisual)} alt={portada.imagenAlt} width="900" height="600" loading="eager" fetchpriority="high" />
+        <MontajeCaja montaje={portada.montaje} nombre={sitio.nombre} />
         <div class="portada-badge">
           <strong>{portada.badge.numero}</strong>
           <span>{portada.badge.texto}</span>
@@ -252,7 +253,6 @@ function rutaWa(destino) {
   (function () {
     const menosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const piezas = Array.from(document.querySelectorAll(".portada .hero-ay"));
-    const visualImg = document.querySelector(".portada-visual img");
     if (!piezas.length) return;
 
     const mostrarTodo = () =>
@@ -266,7 +266,8 @@ function rutaWa(destino) {
       .from(".portada h1", { yPercent: 90, opacity: 0, duration: .7, ease: "power3.out" }, "-=.4")
       .from(".portada .lead", { y: 22, opacity: 0, duration: .6, ease: "power3.out" }, "-=.3")
       .from(".portada-botones", { y: 28, opacity: 0, duration: .6, ease: "power3.out" }, "-=.3");
-    if (visualImg) tl.from(visualImg, { scale: 1.07, duration: 1.1, ease: "power2.out" }, "-=.7");
+    // El montaje NO se anima aquí: tiene su propia secuencia, y animarle
+    // la opacidad lo dejaba invisible si esta línea se interrumpía a mitad.
 
     // Si algo falla a mitad de camino, el texto igual aparece.
     setTimeout(mostrarTodo, 2500);

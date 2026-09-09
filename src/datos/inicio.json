@@ -10,8 +10,6 @@
     "tituloAcento": "cuando tú lo necesitas",
     "texto": "Expertos con experiencia y calidad a tu servicio. Más de 12 años de proyectos de instalación y montaje para retail, construcción, empresas, fabricantes, eventos y sector público en Colombia y Perú, con garantía de hasta 24 meses en cada trabajo.",
     "imagenFondo": "/img/hero-instalacion.jpg",
-    "imagenAlt": "Técnico instalando una cocina integral en un hogar",
-    "imagenVisual": "/img/cocina-integral.jpg",
     "badge": {
       "numero": "12+",
       "texto": "años de experiencia"
@@ -27,7 +25,16 @@
         "href": "#campos",
         "estilo": "btn-ghost-oscuro"
       }
-    ]
+    ],
+    "montaje": {
+      "_limite": "Los rótulos de la animación de la portada. Son cuatro y van en orden. El dibujo vive en src/components/MontajeCaja.astro y lo cambia el proveedor.",
+      "rotulos": [
+        "Llega tu producto embalado",
+        "Lo desembalamos con cuidado",
+        "Lo armamos pieza por pieza",
+        "Listo para usar, con garantía"
+      ]
+    }
   },
   "campos": {
     "encabezado": "Campos de acción",
