@@ -5,6 +5,8 @@
  *   1 · Llega una caja, se abre, salen las piezas y se arma una mesa.
  *   2 · Se marca la pared, se ancla el soporte y se monta un televisor.
  *   3 · Se mide el vano, se ancla el riel y cuelgan las lamas.
+ *   4 · Sube la estructura de un stand, entra la gráfica y lo ilumina un foco.
+ *   5 · Llega el mobiliario, se arma el escritorio y se conecta el puesto.
  *
  * Cada una remata con el logo. Es el negocio contado sin una sola frase:
  * el producto llega y Manos Maestras lo deja montado y funcionando.
@@ -168,6 +170,88 @@ const escenas = montaje.escenas;
             <g class="cordon">
               <path d="M330 74 V206" stroke="#c94a1d" stroke-width="2.6" stroke-linecap="round" fill="none" />
               <rect x="325" y="206" width="10" height="16" rx="4" fill="#c94a1d" />
+            </g>
+          </svg>
+        )}
+        {e.id === "stand" && (
+          <svg viewBox="0 0 440 340" role="img" aria-label="Se levanta la estructura de un stand de feria, se monta la gráfica y un foco lo ilumina">
+            <defs>
+              <linearGradient id="mm-grafica" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff9e3c" />
+                <stop offset="1" stop-color="#e85d26" />
+              </linearGradient>
+              <linearGradient id="mm-haz" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffd9a8" stop-opacity=".85" />
+                <stop offset="1" stop-color="#ffd9a8" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+
+            <rect class="tarima" x="88" y="272" width="264" height="14" rx="4" fill="#e7d9cc" />
+
+            <g class="postes">
+              <rect class="poste" x="108" y="92" width="13" height="180" rx="3" fill="#c94a1d" />
+              <rect class="poste" x="319" y="92" width="13" height="180" rx="3" fill="#c94a1d" />
+            </g>
+
+            <rect class="travesano-stand" x="100" y="78" width="240" height="16" rx="4" fill="#e85d26" />
+
+            <rect class="grafica" x="124" y="104" width="192" height="112" rx="4" fill="url(#mm-grafica)" />
+
+            <g class="mostrador">
+              <rect x="176" y="216" width="88" height="56" rx="4" fill="#ffb877" />
+              <rect x="176" y="216" width="88" height="12" rx="4" fill="#ffc999" />
+            </g>
+
+            <g class="foco">
+              <rect x="205" y="82" width="30" height="14" rx="4" fill="#3b3330" />
+              <circle cx="220" cy="98" r="5" fill="#ffd9a8" />
+            </g>
+
+            {/* El haz va AL FINAL, delante de la gráfica: detrás quedaba
+                tapado por el panel y no se veía iluminar nada. */}
+            <path class="haz" d="M212 100 L150 272 H290 L228 100 Z" fill="url(#mm-haz)" style="mix-blend-mode:screen" />
+          </svg>
+        )}
+
+        {e.id === "puesto" && (
+          <svg viewBox="0 0 440 340" role="img" aria-label="Llega el mobiliario de oficina, se arma el escritorio, se instala el monitor y entra la silla">
+            <defs>
+              <linearGradient id="mm-monitor" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff9e3c" />
+                <stop offset="1" stop-color="#e85d26" />
+              </linearGradient>
+            </defs>
+
+            <ellipse class="suelo" cx="220" cy="288" rx="140" ry="12" />
+
+            {/* la silla va detrás del escritorio */}
+            {/* respaldo vertical detrás, asiento horizontal, pie y base:
+                al revés se leía como una "T" tumbada, no como una silla */}
+            <g class="silla">
+              <rect x="106" y="138" width="13" height="64" rx="5" fill="#b8431a" />
+              <rect x="100" y="198" width="64" height="14" rx="5" fill="#c94a1d" />
+              <rect x="126" y="212" width="10" height="44" rx="3" fill="#8a3212" />
+              <rect x="106" y="256" width="50" height="9" rx="4" fill="#8a3212" />
+            </g>
+
+            <g class="escritorio">
+              <rect class="tablero-esc" x="150" y="196" width="216" height="13" rx="4" fill="#ffb877" />
+              <rect class="tablero-esc" x="150" y="207" width="216" height="12" rx="4" fill="#ff9e3c" />
+              <rect class="pata-esc" x="160" y="219" width="13" height="56" rx="4" fill="#e85d26" />
+              <rect class="pata-esc" x="343" y="219" width="13" height="56" rx="4" fill="#e85d26" />
+            </g>
+
+            <g class="monitor">
+              <rect x="196" y="108" width="126" height="76" rx="6" fill="#2a2422" />
+              <rect class="pantalla-mon" x="203" y="115" width="112" height="62" rx="3" fill="url(#mm-monitor)" />
+              <rect x="250" y="184" width="18" height="8" rx="2" fill="#1c1917" />
+              <rect x="234" y="190" width="50" height="6" rx="3" fill="#1c1917" />
+            </g>
+
+            <g class="lampara">
+              <rect x="330" y="150" width="7" height="46" rx="3" fill="#3b3330" />
+              <path d="M333 152 L360 128" stroke="#3b3330" stroke-width="7" stroke-linecap="round" fill="none" />
+              <path class="tulipa" d="M352 118 h22 l-6 18 h-10 z" fill="#ff9e3c" />
             </g>
           </svg>
         )}
@@ -371,6 +455,82 @@ const escenas = montaje.escenas;
           .to(vidrio, { opacity: .58, duration: .6, ease: "power2.out" }, "+=.15");
         return tl;
       },
+
+      stand(fig, rotulos) {
+        const postes = enBloque(fig, ".poste");
+        const travesano = uno(fig, ".travesano-stand");
+        const grafica = uno(fig, ".grafica");
+        const mostrador = uno(fig, ".mostrador");
+        const foco = uno(fig, ".foco");
+        const haz = uno(fig, ".haz");
+
+        /* Los postes crecen desde el suelo: se levantan, no aparecen. */
+        gsap.set(postes, { transformOrigin: "50% 100%" });
+        gsap.set([grafica, mostrador], { transformOrigin: "50% 50%" });
+        gsap.set(haz, { transformOrigin: "50% 0%" });
+
+        const tl = gsap.timeline();
+        tl.set(postes, { scaleY: 0, opacity: 1 })
+          .set(travesano, { opacity: 0, y: -34 })
+          .set(grafica, { opacity: 0, scale: .9 })
+          .set(mostrador, { opacity: 0, y: 30 })
+          .set(foco, { opacity: 0, y: -18 })
+          .set(haz, { opacity: 0, scaleY: .4 })
+
+          .call(() => decir(rotulos[0]))
+          .to(postes, { scaleY: 1, duration: .6, ease: "power3.out", stagger: .14 }, "+=.2")
+
+          .call(() => decir(rotulos[1]))
+          .to(travesano, { opacity: 1, y: 0, duration: .5, ease: "back.out(1.5)" }, "+=.1")
+
+          .call(() => decir(rotulos[2]))
+          .to(grafica, { opacity: 1, scale: 1, duration: .55, ease: "back.out(1.3)" }, "+=.15")
+          .to(mostrador, { opacity: 1, y: 0, duration: .45, ease: "power3.out" }, "-=.25")
+
+          .call(() => decir(rotulos[3]))
+          .to(foco, { opacity: 1, y: 0, duration: .35, ease: "power2.out" }, "+=.1")
+          .to(haz, { opacity: 1, scaleY: 1, duration: .6, ease: "power2.out" }, "-=.1");
+        return tl;
+      },
+
+      puesto(fig, rotulos) {
+        const tableros = enBloque(fig, ".tablero-esc");
+        const patas = enBloque(fig, ".pata-esc");
+        const monitor = uno(fig, ".monitor");
+        const pantalla = uno(fig, ".pantalla-mon");
+        const silla = uno(fig, ".silla");
+        const lampara = uno(fig, ".lampara");
+
+        gsap.set(patas, { transformOrigin: "50% 0%" });
+        gsap.set([monitor, silla, lampara], { transformOrigin: "50% 100%" });
+
+        const tl = gsap.timeline();
+        tl.set(tableros, { opacity: 0, x: -150 })
+          .set(patas, { opacity: 0, scaleY: 0 })
+          .set(monitor, { opacity: 0, y: -90, scale: .92 })
+          .set(pantalla, { opacity: .25 })
+          .set(silla, { opacity: 0, x: -90 })
+          .set(lampara, { opacity: 0, scale: .8 })
+
+          /* 1 · El mobiliario llega deslizándose */
+          .call(() => decir(rotulos[0]))
+          .to(tableros, { opacity: 1, x: 0, duration: .6, ease: "power3.out", stagger: .06 }, "+=.2")
+
+          /* 2 · Se arma: bajan las patas */
+          .call(() => decir(rotulos[1]))
+          .to(patas, { opacity: 1, scaleY: 1, duration: .45, ease: "power2.out", stagger: .12 }, "+=.1")
+
+          /* 3 · Monitor y lámpara, y el monitor enciende */
+          .call(() => decir(rotulos[2]))
+          .to(monitor, { opacity: 1, y: 0, scale: 1, duration: .6, ease: "power3.out" }, "+=.1")
+          .to(lampara, { opacity: 1, scale: 1, duration: .4, ease: "back.out(1.6)" }, "-=.3")
+          .to(pantalla, { opacity: 1, duration: .45, ease: "power2.out" }, "-=.15")
+
+          /* 4 · Entra la silla y el puesto queda listo */
+          .call(() => decir(rotulos[3]))
+          .to(silla, { opacity: 1, x: 0, duration: .55, ease: "power3.out" }, "+=.1");
+        return tl;
+      },
     };
 
     /* Línea maestra: cada escena entra, hace lo suyo, remata con el logo
@@ -387,9 +547,11 @@ const escenas = montaje.escenas;
         .set(fig, { display: "block" })
         .set(logo, { opacity: 0, y: 10 })
         .add(arma(fig, datos.rotulos))
-        .to(logo, { opacity: 1, y: 0, duration: .5, ease: "power2.out" }, "+=.2")
-        .to({}, { duration: 1.7 })
-        .to(logo, { opacity: 0, duration: .35 });
+        /* Pausa corta a propósito: con cinco escenas, cada segundo de
+           más entre una y otra alarga el ciclo entero cinco veces. */
+        .to(logo, { opacity: 1, y: 0, duration: .45, ease: "power2.out" }, "+=.15")
+        .to({}, { duration: 1.05 })
+        .to(logo, { opacity: 0, duration: .3 });
     });
 
     /* No animar en balde con la pestaña en segundo plano. */

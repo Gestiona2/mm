@@ -55,6 +55,24 @@
             "Colgamos las lamas",
             "Instaladas y a la medida"
           ]
+        },
+        {
+          "id": "stand",
+          "rotulos": [
+            "Llega la estructura",
+            "Levantamos el stand",
+            "Montamos la gráfica",
+            "Listo para la activación"
+          ]
+        },
+        {
+          "id": "puesto",
+          "rotulos": [
+            "Llega el mobiliario",
+            "Armamos el escritorio",
+            "Instalamos y conectamos",
+            "Puesto de trabajo listo"
+          ]
         }
       ]
     }
