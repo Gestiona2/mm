@@ -64,6 +64,11 @@
   --shadow: rgba(28, 25, 23, 0.10);
   --nav-bg: rgba(250, 249, 247, 0.65);
   --glass-blur: 16px;
+
+  /* Verde del titular de la portada. No viene del manual de marca: lo
+     pidió el cliente para esa frase. Contraste 8,73 sobre el fondo oscuro
+     de la portada (AAA). Si se cambia, revisar que siga legible ahí. */
+  --verde-titular: #5ccd7c;
 }
 
 :root[data-theme="dark"] {
@@ -353,7 +358,7 @@ html.js .hero-ay { opacity: 0; }
               linear-gradient(180deg, rgba(28,25,23,.78) 0%, rgba(28,25,23,.5) 46%, rgba(28,25,23,.97) 100%);
 }
 .portada-grid { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
-.portada h1 { font-size: clamp(2.4rem, 5.6vw, 4.3rem); font-weight: 800; line-height: 1.05; letter-spacing: -.03em; margin: 14px 0 22px; }
+.portada h1 { font-size: clamp(2.4rem, 5.6vw, 4.3rem); font-weight: 800; line-height: 1.05; letter-spacing: -.03em; margin: 14px 0 22px; color: var(--verde-titular); }
 .portada h1 .marca-text { color: var(--acento); }
 .portada .lead { color: #d6cfc9; font-size: 1.15rem; max-width: 52ch; }
 .portada-botones { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
